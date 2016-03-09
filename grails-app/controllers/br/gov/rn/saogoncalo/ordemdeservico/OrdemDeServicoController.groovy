@@ -58,15 +58,21 @@ class OrdemDeServicoController {
 		
 		def ordemDeServico = OrdemDeServico.get(params.id)
 			ordemDeServico.solucao = params.solucao
+			ordemDeServico.problema = params.problema
 			def status = Status.get(params.status)
 			ordemDeServico.status = status
 			  if(ordemDeServico.status.id == 3){
+				  
 			     ordemDeServico.dataConclusao = new Date()
 			  }
+			  
 
+               
 			  if(ordemDeServico.save(flush:true)){
 				EnviaEmailController envia = new EnviaEmailController()
-				envia.enviaEmail(ordemDeServico.id)
+				  if(ordemDeServico.status.id == 3  ){
+				   envia.enviaEmail(ordemDeServico.id)
+				  }
 				 //redirect(controller:"ordemDeServico",action:"listarOrdemDeServico", params:[msg:"Ordem de servico atualizada com sucesso!", tipo:"ok"])
 		     	//render(view:"/ordemDeServico/listarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico])
 				listarMensagem("Ordem de servico atualizada com  sucesso", "ok")

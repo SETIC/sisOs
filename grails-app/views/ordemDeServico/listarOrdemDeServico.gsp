@@ -12,11 +12,10 @@
 		<div id="navBar">
 			<ul class="nav nav-tabs">
 				<li role="presentation" class="active"><a href="#">Listagem de Chamados</a></li>
-				<%--<li role="presentation"><a href="/sisOs/ordemDeServico/listarOrdemDeServico">Listagem de OS</a></li>
-				--%><li role="presentation"><a
-					href="/sisOs/ordemDeServico/cadastrarOrdemDeServico">Novo
-						Chamado</a></li>
-			</ul>
+				<li role="presentation"><a href="/sisOs/ordemDeServico/cadastrarOrdemDeServico">Novo Chamado</a></li>
+				<%--<li role="presentation"><a href="/sisOs/ordemDeServico/listarOrdemDeServico">Pesquisar Os</a></li>
+				
+			--%></ul>
 		</div>
 		<!--<ol class="breadcrumb">
 			<li class="active"><g:link controller="Layout" action="index">
