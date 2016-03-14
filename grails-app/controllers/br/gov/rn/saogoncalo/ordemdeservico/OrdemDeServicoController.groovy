@@ -48,8 +48,9 @@ class OrdemDeServicoController {
 		
 		OrdemDeServico ordemDeServico = OrdemDeServico.get(id)
 		 def status = Status.findAll()
-		//render (view:"/ordemDeServico/editarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico, status:status])
-		redirect("deletou")
+		render (view:"/ordemDeServico/editarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico, status:status])
+		
+		
 		
 	}
 
