@@ -73,33 +73,11 @@
 								</select>
 							</div>
 						</div>
-						
-						<%--<label id="labelOrgao" for="orgao" style="display: none;">Outro</label>
-						<input type="text" id="outro"><br>
-						<script>
-                       function habilitaCampo(){
-                        var orgao = document.getElementById("comboorgao");
-                        var valorOrgao = orgao.options[orgao.selectedIndex].value;
-                           if (valorOrgao == "OUTRO"){
-                        	   document.getElementById("labelOrgao").style.display = "block";   
-							} else {
-						    	document.getElementById("labelOrgao").style.display = "none";
-
-                               }
-
-
-                           }
-
-						</script>
-						--%>
-						
-						
 						<br>
 						<div class="form-group">
 							<label for="problema" class="col-sm-2 control-label">Problema</label>
 							<div class="col-sm-4">
-								<textarea rows="4" cols="5" class="form-control" placeholder="Descreva o Problema" name="problema">
-								</textarea>
+								<textarea rows="4" cols="5" class="form-control" placeholder="Descreva o Problema" name="problema"></textarea>
 							</div>
 						</div>
 					</fieldset>
@@ -108,18 +86,7 @@
 						<ul style="display: inline-block; margin-left: -30px">
 							<li class="btn btn-default btn-flat"><a href="/sisOs/ordemDeServico/cadastrarOrdemDeServico/">Cancelar</a></li>
 						</ul>
-						<%--<script>
-						function verificarChamado(){
-				            if (confirm("Deseja realizar outro chamado?")) {
-					                return true;
-					            }else{
-					            	 window.location = 'http://www.saogoncalo.rn.gov.br';
-					                 //return false;
-					        }
-						}
-						</script>
-						
-					--%></div>
+						</div>
 				</g:form>
 			</div>
 		</div>

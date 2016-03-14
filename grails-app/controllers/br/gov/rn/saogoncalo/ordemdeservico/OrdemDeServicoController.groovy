@@ -66,14 +66,12 @@ class OrdemDeServicoController {
 			     ordemDeServico.dataConclusao = new Date()
 			  }
 			  
-
-               
 			  if(ordemDeServico.save(flush:true)){
 				EnviaEmailController envia = new EnviaEmailController()
 				  if(ordemDeServico.status.id == 3  ){
 				   envia.enviaEmail(ordemDeServico.id)
 				  }
-				 //redirect(controller:"ordemDeServico",action:"listarOrdemDeServico", params:[msg:"Ordem de servico atualizada com sucesso!", tipo:"ok"])
+				 redirect(controller:"ordemDeServico",action:"listarOrdemDeServico", params:[msg:"Ordem de servico atualizada com sucesso!", tipo:"ok"])
 		     	//render(view:"/ordemDeServico/listarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico])
 				listarMensagem("Ordem de servico atualizada com  sucesso", "ok")
 				
@@ -81,9 +79,12 @@ class OrdemDeServicoController {
 		
 	   }
 	
-	def listarOrdemDeServico(){
-		def ordemDeServico = OrdemDeServico.findAll()
-		render(view:"/ordemDeServico/listarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico])
+	def listarOrdemDeServico(String msg, String tipo){
+		msg = params.msg
+		tipo = params.tipo
+		def ordemDeServico = OrdemDeServico.executeQuery("select os from OrdemDeServico os where os.status.id <> 3 order by os.status ASC")
+		
+		render(view:"/ordemDeServico/listarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico, ok:msg,tipo:tipo])
 
 	}
 	
@@ -106,6 +107,13 @@ class OrdemDeServicoController {
                     render(view:"/error.gsp")	             
 				  }
 		  }
+	
+	def pesquisarOrdemDeServico(){
+		
+		
+		
+		}
+	
 	
 	
 	}

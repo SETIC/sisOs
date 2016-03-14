@@ -50,49 +50,49 @@ printHtmlPart(10)
 printHtmlPart(13)
 invokeTag('set','g',65,['var':("i"),'value':(1)],-1)
 printHtmlPart(14)
-for( _it2126170083 in (ordemDeServico) ) {
-changeItVariable(_it2126170083)
+for( _it2126937774 in (ordemDeServico) ) {
+changeItVariable(_it2126937774)
 printHtmlPart(15)
-expressionOut.print(it.id)
-printHtmlPart(16)
-expressionOut.print(it.id)
-printHtmlPart(17)
 expressionOut.print(i++)
-printHtmlPart(18)
-expressionOut.print(it.interessado)
-printHtmlPart(19)
-expressionOut.print(it.matricula)
-printHtmlPart(20)
-invokeTag('formatDate','g',96,['format':("dd/MM/yyyy"),'type':("datetime"),'style':("MEDIUM"),'date':(it.dataEmissao)],-1)
-printHtmlPart(21)
-expressionOut.print(it.email)
-printHtmlPart(19)
-expressionOut.print(it.orgao.sigla)
-printHtmlPart(22)
+printHtmlPart(16)
 if(true && (it.status.id == 1)) {
-printHtmlPart(23)
+printHtmlPart(17)
 }
-printHtmlPart(24)
+printHtmlPart(18)
 if(true && (it.status.id == 2)) {
-printHtmlPart(25)
+printHtmlPart(19)
 }
-printHtmlPart(26)
+printHtmlPart(20)
 if(true && (it.status.id == 3)) {
+printHtmlPart(21)
+}
+printHtmlPart(22)
+expressionOut.print(it.interessado)
+printHtmlPart(22)
+expressionOut.print(it.matricula)
+printHtmlPart(23)
+invokeTag('formatDate','g',92,['format':("dd/MM/yyyy"),'type':("datetime"),'style':("MEDIUM"),'date':(it.dataEmissao)],-1)
+printHtmlPart(24)
+expressionOut.print(it.orgao.nome)
+printHtmlPart(22)
+expressionOut.print(it.telefone)
+printHtmlPart(25)
+expressionOut.print(it.id)
+printHtmlPart(26)
+expressionOut.print(it.id)
 printHtmlPart(27)
 }
 printHtmlPart(28)
-}
-printHtmlPart(29)
 })
 invokeTag('captureBody','sitemesh',117,[:],1)
-printHtmlPart(30)
+printHtmlPart(29)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1457542556617L
+public static final long LAST_MODIFIED = 1457970457214L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

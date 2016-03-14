@@ -7,7 +7,7 @@
 					<i class="fa fa-dashboard"></i> Inicio</g:link></li>
 		</ol>
 		<br>
-			<g:form controller="protocolo" action="pesquisarProtocolos" class="form">
+			<g:form controller="ordemDeServico" action="pesquisarOrdemDeServico" class="form">
 			<div class="form-heading" style="width:150px;">
 				<label>Tipo de Busca</label>
 				<div class="controls">
@@ -43,23 +43,17 @@
 			</g:if>
                        
 			<div class="box box-white">
-				<table id="pequisarprotocolo"
+				<table id="pequisarOs"
 					class="table table-striped table-hover example">
 					<thead>
 						<tr>
 							<th style="width:60px;padding-left:60px">Funções</th>
 							<th>Número</th>
-							<th>Data do Protocolo</th>
 							<th>Data da Emissão</th>
-							<th>Número do Documento</th>
-							<th>Assunto</th>
-							<th>Situação</th>
-							<th>Interessado</th>
-							
 						</tr>
 					</thead>
 					<tbody>
-						<g:each in='${protocolos?}'>
+						<g:each in='${ordens?}'>
 							<tr class='linha_registro'>
 								<td>
 									<div style="margin-left: 10px" class="opcoes">
@@ -70,40 +64,18 @@
 												href="/projetoMetafora/protocolo/verInfoProtocolo/${it.protocolo_id}"><span
 													class="glyphicon glyphicon-eye-open"></span></a></li> 
 																					
-											<g:if test="${ (it.funcionario_setor_destino_id == funcionarioSetorLogado[0].id)}">
 												<li title="Editar protocolo" class="btn btn-primary btn-xs btn-flat"><a
 													style="color: #fff"
 													href="/projetoMetafora/Protocolo/editar/${it.protocolo_id}"><span
 														class="glyphicon glyphicon-pencil"></span></a></li>
-											</g:if>
 										</ul>
 									</div>
 								</td>
 								<td>
 									${it.numero}
 								</td>
-
 								<td>
-								    <g:formatDate type="datatime" style="MEDIUM" date="${it.data_disponibilizacao}" />
-								</td>
-
-								<td> 
-									<g:formatDate type="datatime" style="MEDIUM" date="${it.data_recebimento}" />
-								</td>
-
-								<td>
-									${it.numero_Documento}
-								</td>
-
-								<td>
-									${it.assunto}
-								</td>
-								
-								<td>
-									${it.nome}
-								</td>
-								<td>
-									${it.interessado}
+								    <g:formatDate type="datatime" style="MEDIUM" date="${it.dataEmissao}" />
 								</td>
 							</tr>
 						</g:each>
