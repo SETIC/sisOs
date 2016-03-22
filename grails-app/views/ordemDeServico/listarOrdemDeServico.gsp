@@ -13,8 +13,8 @@
 			<ul class="nav nav-tabs">
 				<li role="presentation" class="active"><a href="#">Listagem de Chamados</a></li>
 				<li role="presentation"><a href="/sisOs/ordemDeServico/cadastrarOrdemDeServico">Novo Chamado</a></li>
-				<li role="presentation"><a href="/sisOs/ordemDeServico/pesquisarOrdemDeServico">Pesquisar Os</a></li>
-			</ul>
+				<%--<li role="presentation"><a href="/sisOs/ordemDeServico/pesquisarOrdemDeServico">Pesquisar Os</a></li>
+			--%></ul>
 		</div>
 		<!--<ol class="breadcrumb">
 			<li class="active"><g:link controller="Layout" action="index">
@@ -57,8 +57,8 @@
 							<th style="text-align: left;padding-left:10px;">Nº</th>
 							<th style="text-align: left;padding-left:10px;">Situação</th>
 							<th style="text-align: left;padding-left:10px;">Interessado</th>
-							<th style="text-align: left;padding-left:10px;">Matricula</th>
 							<th style="text-align: left;padding-left:10px;">Data de Emissão</th>
+							<th style="text-align: left;padding-left:10px;">Data de Agendamento</th>
 							<th style="text-align: left;padding-left:10px;">Orgão</th>
 							<th style="text-align: left;padding-left:10px;">Telefone</th>
 							<th style="text-align: left;padding-left:10px;">Funções</th>
@@ -69,7 +69,7 @@
 						<g:each in='${ordemDeServico?}'>
 							<tr class='linha_registro'>
 								<td>
-							         ${i++}
+							        ${i++}
 						       </td>
 						       <td>
 								<g:if test="${it.status.id == 1}">
@@ -86,12 +86,11 @@
 								<td>
 									${it.interessado}
 								</td>
-								<td>
-									${it.matricula}
-								</td>
+								
 								<td><g:formatDate format="dd/MM/yyyy" type="datetime"
 										style="MEDIUM" date="${it.dataEmissao}" /></td>
-
+                                <td><g:formatDate format="dd/MM/yyyy" type="date"
+										style="MEDIUM" date="${it.dataAgendamento}" /></td>
 								<td>
 									${it.orgao.nome}
 								</td>

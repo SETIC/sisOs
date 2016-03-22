@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+	
 <head>
 <title>Editar ordem de serviço</title>
 <meta name="layout" content="public" />
+	
 </head>
+
 <body>
 	<section class="content-header" style="margin-left: 5%; margin-bottom:-30px;">
 		<h1>
 			Ordem de Serviço <small>Editar dados</small>
 		</h1>
+	
 		<div id="navBar">
 			<ul class="nav nav-tabs">
 					<%--<li role="presentation" class="active"><a href="/sisOs/ordemDeServico/listarOrdemDeServico">Início</a></li>
@@ -67,8 +71,8 @@
 							<label for="inputdataemissao"
 								class="col-sm-2 control-label">Data de Emissão</label>
 							<div class="col-sm-4">
-								<g:textField class="form-control" name="telefone"
-									disabled value="${it.dataEmissao}" />
+								<g:textField class="form-control" name="dataEmissao" 
+									disabled value="${it.dataEmissao.format('dd/MM/yyyy')}" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -89,14 +93,34 @@
 							</div>
 						</div>
 						<br>
-						
+                      <div> 
+                  <div class="form-group">
+				  <label for="dataAgendamento" class="col-sm-2 control-label">Data de Agendamento</label>
+				  <div class="col-sm-4">
+					 <div class="input-group date" data-provide="datepicker">
+				    <input type="text" class="form-control" name="dataAgendamento" value="${it.dataAgendamento?.format('dd/MM/yyyy')}"/>
+				    <div class="input-group-addon">
+                   <i class="fa fa-calendar"></i>			   
+                    </div>
+				</div>
+				 </div>      
+				    </div>
+				    </div>
+					<script>  
+					 $(document).ready(function () {
+				            $('.datepicker').datepicker({
+				            	format: 'dd/mm/yyyy',
+				            	language: 'pt-BR'  				            	
+				            });
+				        });
+
+				    </script>
+				   	<br>
 						<div class="form-group">
 							<label for="problema"
 								class="col-sm-2 control-label">Problema</label>
 							<div class="col-sm-4">
-								<textarea rows="4" cols="5" class="form-control" name="problema" placeholder="">
-									${it.problema}
-								</textarea>
+								<textarea rows="5" cols="10" class="form-control" name="problema" placeholder="">${it.problema}</textarea>
 								
 							</div>
 						</div>
