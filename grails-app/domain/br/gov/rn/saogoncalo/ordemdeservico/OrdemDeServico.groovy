@@ -8,11 +8,13 @@ class OrdemDeServico {
 	String interessado
 	Date dataEmissao
 	Date dataConclusao
+	Date dataAgendamento
 	String matricula
 	String telefone
 	String email
 	String problema
 	String solucao
+	
 
 			
 	static belongsTo = [status:Status , orgao:Orgao]
@@ -26,6 +28,7 @@ class OrdemDeServico {
 		email blank:false, nullable:false
 		matricula blank:false, nullable:false
 		telefone blank:false, nullable:false
+		dataAgendamento blck:true , nullable:true
 		
 	}
 	

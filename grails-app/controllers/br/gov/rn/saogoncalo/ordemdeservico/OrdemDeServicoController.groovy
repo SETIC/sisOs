@@ -1,4 +1,8 @@
 package br.gov.rn.saogoncalo.ordemdeservico
+import java.text.Format;
+import java.text.SimpleDateFormat
+import java.util.Formatter.DateTime;
+
 import org.grails.plugin.mail.*
 
 class OrdemDeServicoController {
@@ -59,11 +63,12 @@ class OrdemDeServicoController {
 		def ordemDeServico = OrdemDeServico.get(params.id)
 			ordemDeServico.solucao = params.solucao
 			ordemDeServico.problema = params.problema
+			ordemDeServico.dataAgendamento = Date.parse('dd/MM/yyyy', params.dataAgendamento)
+	
 			def status = Status.get(params.status)
 			ordemDeServico.status = status
 			  if(ordemDeServico.status.id == 3){
-				  
-			     ordemDeServico.dataConclusao = new Date()
+			    ordemDeServico.dataConclusao = new Date()
 			  }
 			  
 			  if(ordemDeServico.save(flush:true)){
@@ -82,7 +87,7 @@ class OrdemDeServicoController {
 	def listarOrdemDeServico(String msg, String tipo){
 		msg = params.msg
 		tipo = params.tipo
-		def ordemDeServico = OrdemDeServico.executeQuery("select os from OrdemDeServico os where os.status.id <> 3 order by os.status ASC")
+		def ordemDeServico = OrdemDeServico.executeQuery("select os from OrdemDeServico os where os.status.id <> 3 order by os.dataEmissao ASC")
 		
 		render(view:"/ordemDeServico/listarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico, ok:msg,tipo:tipo])
 
