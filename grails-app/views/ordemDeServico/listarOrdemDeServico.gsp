@@ -9,22 +9,14 @@
 		<h1>
 			Chamados<small> Visualização e Gerenciamento</small>
 		</h1>
+		<br>
 		<div id="navBar">
 			<ul class="nav nav-tabs">
 				<li role="presentation" class="active"><a href="#">Listagem de Chamados</a></li>
 				<li role="presentation"><a href="/sisOs/ordemDeServico/cadastrarOrdemDeServico">Novo Chamado</a></li>
-				<%--<li role="presentation"><a href="/sisOs/ordemDeServico/pesquisarOrdemDeServico">Pesquisar Os</a></li>
-			--%></ul>
+				<li role="presentation"><a href="/sisOs/ordemDeServico/pesquisarOrdemDeServico">Pesquisar Os</a></li>
+			</ul>
 		</div>
-		<!--<ol class="breadcrumb">
-			<li class="active"><g:link controller="Layout" action="index">
-					<i class="fa fa-dashboard"></i> Inicio</g:link></li>
-			<li><g:link controller="OrdemDeServico"
-					action="listarOrdemDeServico">ordem de servico</g:link></li>
-			<li><g:link controller="OrdemDeServico"
-					action="cadastrarOrdemDeServico">cadastro</g:link></li>
-
-		</ol>-->
 	</section>
 	<!-- CORPO DA PÁGINA -->
 	<section class="content">
@@ -103,7 +95,7 @@
 										<div style="display: inline">
 											<div title="Editar" class="btn btn-primary btn-xs btn-flat">
 												<a style="color: #fff"
-													href="/sisOs/ordemDeServico/editarOrdemDeServico/${it.id}"> <span>
+													href="/sisOs/ordemDeServico/editarOrdemDeServico/${it.id}"><span>
 													<i class="fa fa-pencil"></i></span></a>
 											</div>
 											<div title="Remover" onclick="deletar(${it.id})"

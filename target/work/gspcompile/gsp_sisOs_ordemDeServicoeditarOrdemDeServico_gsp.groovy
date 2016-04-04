@@ -39,8 +39,8 @@ expressionOut.print(erro)
 printHtmlPart(7)
 }
 printHtmlPart(8)
-for( _it94206495 in (ordemDeServico) ) {
-changeItVariable(_it94206495)
+for( _it402697895 in (ordemDeServico) ) {
+changeItVariable(_it402697895)
 printHtmlPart(8)
 }
 printHtmlPart(10)
@@ -64,8 +64,8 @@ expressionOut.print(it.dataAgendamento?.format('dd/MM/yyyy'))
 printHtmlPart(19)
 expressionOut.print(it.problema)
 printHtmlPart(20)
-for( _it633113626 in (status) ) {
-changeItVariable(_it633113626)
+for( _it1422549568 in (status) ) {
+changeItVariable(_it1422549568)
 printHtmlPart(21)
 if(true && (it.id == ordemDeServico.status.id)) {
 printHtmlPart(22)
@@ -84,19 +84,21 @@ printHtmlPart(24)
 printHtmlPart(26)
 }
 printHtmlPart(27)
-})
-invokeTag('form','g',157,['controller':("ordemDeServico"),'action':("atualizar"),'class':("form-horizontal")],2)
+expressionOut.print(ordemDeServico.solucao)
 printHtmlPart(28)
 })
-invokeTag('captureBody','sitemesh',158,[:],1)
+invokeTag('form','g',157,['controller':("ordemDeServico"),'action':("atualizar"),'class':("form-horizontal")],2)
 printHtmlPart(29)
+})
+invokeTag('captureBody','sitemesh',158,[:],1)
+printHtmlPart(30)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1458650077820L
+public static final long LAST_MODIFIED = 1458752803615L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

@@ -148,7 +148,7 @@
 						<div class="form-group">
 							<label for="inputmatricula3" class="col-sm-2 control-label">Solução</label>
 							<div class="col-sm-4">
-								<textarea rows="4" cols="5" class="form-control" name="solucao" placeholder="Descreva a solução"></textarea>
+								<textarea rows="4" cols="5" class="form-control" name="solucao" placeholder="Descreva a solução">${ordemDeServico.solucao}</textarea>
 							</div>
 						</div>
 						<br>

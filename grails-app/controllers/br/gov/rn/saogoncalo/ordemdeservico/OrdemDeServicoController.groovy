@@ -1,7 +1,7 @@
 package br.gov.rn.saogoncalo.ordemdeservico
-import java.text.Format;
+import java.util.Date
+import java.text.DateFormat
 import java.text.SimpleDateFormat
-import java.util.Formatter.DateTime;
 
 import org.grails.plugin.mail.*
 
@@ -63,23 +63,43 @@ class OrdemDeServicoController {
 		def ordemDeServico = OrdemDeServico.get(params.id)
 			ordemDeServico.solucao = params.solucao
 			ordemDeServico.problema = params.problema
-			ordemDeServico.dataAgendamento = Date.parse('dd/MM/yyyy', params.dataAgendamento)
-	
+			//ordemDeServico.dataAgendamento = new Date()
+			
+			 if(params.dataAgendamento != ""){
+			     ordemDeServico.dataAgendamento = Date.parse('dd/MM/yyyy', params.dataAgendamento)
+				
+			  
+			   }
+			
+			 
+			 
 			def status = Status.get(params.status)
+			
 			ordemDeServico.status = status
 			  if(ordemDeServico.status.id == 3){
 			    ordemDeServico.dataConclusao = new Date()
 			  }
 			  
+			 
+			  
 			  if(ordemDeServico.save(flush:true)){
+				  println(" passou ")
 				EnviaEmailController envia = new EnviaEmailController()
 				  if(ordemDeServico.status.id == 3  ){
+					 
 				   envia.enviaEmail(ordemDeServico.id)
 				  }
+				  
+				  
 				 redirect(controller:"ordemDeServico",action:"listarOrdemDeServico", params:[msg:"Ordem de servico atualizada com sucesso!", tipo:"ok"])
 		     	//render(view:"/ordemDeServico/listarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico])
-				listarMensagem("Ordem de servico atualizada com  sucesso", "ok")
+				//listarMensagem("Ordem de servico atualizada com  sucesso", "ok")
 				
+			}else{
+			
+			def erros
+			ordemDeServico.errors.each { erros = it }
+			print("erros aqui: "+erros)
 			}
 		
 	   }
@@ -113,14 +133,131 @@ class OrdemDeServicoController {
 				  }
 		  }
 	
+	
 	def pesquisarOrdemDeServico(){
+
+		def ordens = []
 		
-		
-		
+		switch(params.tipoBusca){
+			case 'orgao':
+				ordens = OrdemDeServico.findAllByOrgao(Orgao.get(params.orgao))
+				break;
+			case 'interessado':
+				ordens = OrdemDeServico.findAllByInteressadoIlike ("%"+params.interessado+"%")
+				break;
+				
+			case 'data':
+				
+				def dataI = params.dataInicial.replaceAll("-", "")
+				def dataF = params.dataFinal.replaceAll("-", "")
+
+				def anoI = dataI.substring(0, 4)
+				def mesI = dataI.substring(4, 6)
+				def diaI = dataI.substring(6, 8)
+				
+				def anoF = dataF.substring(0, 4)
+				def mesF = dataF.substring(4, 6)
+				def diaF = dataF.substring(6, 8)
+				
+
+				SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+				String datainicial = diaI+"/"+mesI+"/"+anoI;
+				String datafinal = diaF+"/"+mesF+"/"+anoF;
+				
+				Date dateformatteri = formatter.parse(datainicial);
+				Date dateformatterf = formatter.parse(datafinal);	
+						
+				
+				ordens = OrdemDeServico.findAllByDataEmissaoBetween(dateformatteri, dateformatterf)
+				break;
+				
+				
+			case 'dataAgendamento':
+				println("Data do params - " + params.dataAgendamento)
+			    def dataAgendamentoI = params.dataAgendamento.replaceAll("-", "")
+				
+				def anoI = dataAgendamentoI.substring(0, 4)
+				def mesI = dataAgendamentoI.substring(4, 6)
+				def diaI = dataAgendamentoI.substring(6, 8)
+				
+				SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+				String dataAgendamento = diaI+"/"+mesI+"/"+anoI;
+				Date dateformatteri = formatter.parse(dataAgendamento);
+				
+				println("data de agendamento --- "+dataAgendamento)
+				println("data de agendamento depois --- "+dateformatteri.toString())
+	            			
+				def st = Status.get(1)
+				def st2 = Status.get(2)
+				ordens = OrdemDeServico.findAllByDataAgendamentoAndStatusInList(dateformatteri,[st,st2])
+				break;	
 		}
-	
-	
-	
-	}
+		
+		
+		def orgao = Orgao.findAll()
+		
+		render(view:"/ordemDeServico/pesquisarOrdemDeServico.gsp", model:[ordens:ordens ,orgao:orgao])
+		
+		
+		/*
+		def driver = Class.forName('org.postgresql.Driver').newInstance() as Driver
+		def props = new Properties()
+		props.setProperty("user", "admin_db_sr")
+		props.setProperty("password", "bgt54rfvcde3")
 
+		def conn = driver.connect("jdbc:postgresql://192.168.1.247:5667/db_sgg_testes", props)
 
+		def sql = new Sql(conn)
+		
+		def ordens
+	
+		def sqlString = "select * , o.nome as nomeOrgao, s.nome as nomeStatus from administracao_ordem_de_servico.ordem_de_servico os ,"+
+		" administracao_ordem_de_servico.Orgao o ,"+
+		" administracao_ordem_de_servico.Status s "+
+		" where os.orgao_id = o.id and os.status_id = s.id "
+		
+		if(params.tipoBusca == "orgao"){
+			
+			sqlString = sqlString + " and o.id = " + params.orgao
+		    ordens = sql.rows(sqlString)
+			
+		}
+		
+		if(params.tipoBusca == "interessado"){
+			
+			sqlString = sqlString + " and os.interessado like '%" + params.interessado + "%' "
+			ordens = sql.rows(sqlString) 
+			}
+		
+		
+		if(params.tipoBusca == "data"){
+			
+			sqlString = sqlString + " and os.data_Emissao between'" + params.dataInicial + "' and '" + params.dataFinal +"'"
+		   
+			 ordens = sql.rows(sqlString)
+			
+			}
+		
+		
+		if(params.tipoBusca == "dataAgendamento"){
+			
+			def dataA = params.dataAgendamento
+		//	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd")
+		//	java.sql.Date data = new java.sql.Date(format.parse(dataA).getTime())
+			
+			
+			println("data de agendamento aki++++" + dataA)
+			
+			sqlString = sqlString + " and os.data_agendamento = " + dataA 
+			ordens = sql.rows(sqlString)
+			
+			}
+		
+		   def orgao = Orgao.findAll()
+		  
+		
+		render(view:"/ordemDeServico/pesquisarOrdemDeServico.gsp", model:[ordens:ordens ,orgao:orgao])
+	      }
+	*/
+		
+		}}

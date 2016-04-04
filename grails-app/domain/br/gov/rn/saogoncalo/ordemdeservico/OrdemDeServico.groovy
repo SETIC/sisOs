@@ -1,9 +1,10 @@
 package br.gov.rn.saogoncalo.ordemdeservico
 
-import java.util.Date;
+import org.grails.databinding.BindingFormat
 
 
 class OrdemDeServico {
+	
 	
 	String interessado
 	Date dataEmissao
@@ -28,7 +29,7 @@ class OrdemDeServico {
 		email blank:false, nullable:false
 		matricula blank:false, nullable:false
 		telefone blank:false, nullable:false
-		dataAgendamento blck:true , nullable:true
+		dataAgendamento blank:true , nullable:true
 		
 	}
 	
