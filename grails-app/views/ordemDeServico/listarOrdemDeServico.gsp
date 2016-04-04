@@ -12,10 +12,8 @@
 		<div id="navBar">
 			<ul class="nav nav-tabs">
 				<li role="presentation" class="active"><a href="#">Listagem de Chamados</a></li>
-				<%--<li role="presentation"><a href="/sisOs/ordemDeServico/listarOrdemDeServico">Listagem de OS</a></li>
-				--%><li role="presentation"><a
-					href="/sisOs/ordemDeServico/cadastrarOrdemDeServico">Novo
-						Chamado</a></li>
+				<li role="presentation"><a href="/sisOs/ordemDeServico/cadastrarOrdemDeServico">Novo Chamado</a></li>
+				<li role="presentation"><a href="/sisOs/ordemDeServico/pesquisarOrdemDeServico">Pesquisar Os</a></li>
 			</ul>
 		</div>
 		<!--<ol class="breadcrumb">
@@ -56,14 +54,14 @@
 					class="table table-striped table-hover example">
 					<thead>
 						<tr>
-							<th style="width: 40px;"></th>
 							<th style="text-align: left;padding-left:10px;">Nº</th>
+							<th style="text-align: left;padding-left:10px;">Situação</th>
 							<th style="text-align: left;padding-left:10px;">Interessado</th>
 							<th style="text-align: left;padding-left:10px;">Matricula</th>
 							<th style="text-align: left;padding-left:10px;">Data de Emissão</th>
-							<th style="text-align: left;padding-left:10px;">E-mail</th>
 							<th style="text-align: left;padding-left:10px;">Orgão</th>
-							<th style="text-align: left;padding-left:10px;">Situação</th>
+							<th style="text-align: left;padding-left:10px;">Telefone</th>
+							<th style="text-align: left;padding-left:10px;">Funções</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -71,40 +69,9 @@
 						<g:each in='${ordemDeServico?}'>
 							<tr class='linha_registro'>
 								<td>
-									<div class="opcoes" >
-										<div style="display: inline">
-											<div title="Editar" class="btn btn-primary btn-xs btn-flat">
-												<a style="color: #fff"
-													href="/sisOs/ordemDeServico/editarOrdemDeServico/${it.id}"> <span>
-													<i class="fa fa-pencil"></i></span></a>
-											</div>
-											<div title="Remover" onclick="deletar(${it.id})"
-											class="btn btn-danger btn-xs btn-flat" >
-											<span class="fa fa-times"></span></a>
-
-											</div>
-										</div>
-									</div>
-								</td>
-								<td>
 							         ${i++}
 						       </td>
-								<td>
-									${it.interessado}
-								</td>
-								<td>
-									${it.matricula}
-								</td>
-								<td><g:formatDate format="dd/MM/yyyy" type="datetime"
-										style="MEDIUM" date="${it.dataEmissao}" /></td>
-
-								<td>
-									${it.email}
-								</td>
-								<td>
-									${it.orgao.sigla}
-								</td>
-								<td>
+						       <td>
 								<g:if test="${it.status.id == 1}">
 										<span class="label label-danger">ABERTO</span>
 									</g:if>
@@ -115,6 +82,37 @@
 								 <g:if test="${it.status.id == 3}">
 										<span class="label label-success">CONCLUIDO</span>
 									</g:if>
+								</td>
+								<td>
+									${it.interessado}
+								</td>
+								<td>
+									${it.matricula}
+								</td>
+								<td><g:formatDate format="dd/MM/yyyy" type="datetime"
+										style="MEDIUM" date="${it.dataEmissao}" /></td>
+
+								<td>
+									${it.orgao.nome}
+								</td>
+								<td>
+									${it.telefone}
+								</td>
+								
+								<td>
+									<div class="opcoes" >
+										<div style="display: inline">
+											<div title="Editar" class="btn btn-primary btn-xs btn-flat">
+												<a style="color: #fff"
+													href="/sisOs/ordemDeServico/editarOrdemDeServico/${it.id}"> <span>
+													<i class="fa fa-pencil"></i></span></a>
+											</div>
+											<div title="Remover" onclick="deletar(${it.id})"
+											class="btn btn-danger btn-xs btn-flat" >
+											<span class="fa fa-times"></span>
+											</div>
+										</div>
+									</div>
 								</td>
 							</tr>
 						</g:each>

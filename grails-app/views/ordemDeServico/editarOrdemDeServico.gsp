@@ -91,12 +91,10 @@
 						<br>
 						
 						<div class="form-group">
-							<label for="inputproblema"
+							<label for="problema"
 								class="col-sm-2 control-label">Problema</label>
 							<div class="col-sm-4">
-								<textarea rows="4" cols="5" class="form-control"
-									disabled name="problema"
-									placeholder="">
+								<textarea rows="4" cols="5" class="form-control" name="problema" placeholder="">
 									${it.problema}
 								</textarea>
 								
@@ -126,10 +124,7 @@
 						<div class="form-group">
 							<label for="inputmatricula3" class="col-sm-2 control-label">Solução</label>
 							<div class="col-sm-4">
-								<textarea rows="4" cols="5" class="form-control"
-									name="solucao"
-									placeholder="">
-								</textarea>
+								<textarea rows="4" cols="5" class="form-control" name="solucao" placeholder="Descreva a solução"></textarea>
 							</div>
 						</div>
 						<br>
