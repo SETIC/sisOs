@@ -12,9 +12,10 @@
 		<br>
 		<div id="navBar">
 			<ul class="nav nav-tabs">
-				<li role="presentation" class="active"><a href="#">Listagem de Chamados</a></li>
+				<li role="presentation" class="active"><a href="/sisOs/ordemDeServico/listarOrdemDeServico">Listagem de Chamados</a></li>
 				<li role="presentation"><a href="/sisOs/ordemDeServico/cadastrarOrdemDeServico">Novo Chamado</a></li>
 				<li role="presentation"><a href="/sisOs/ordemDeServico/pesquisarOrdemDeServico">Pesquisar Os</a></li>
+				<li role="presentation"><a href="/sisOs/ordemDeServico/graficoOsSituacoes">Grafico Os</a></li>
 			</ul>
 		</div>
 	</section>

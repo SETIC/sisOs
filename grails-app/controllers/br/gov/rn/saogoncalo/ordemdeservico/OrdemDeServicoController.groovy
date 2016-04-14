@@ -1,4 +1,5 @@
 package br.gov.rn.saogoncalo.ordemdeservico
+import grails.converters.JSON
 import java.util.Date
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -55,7 +56,6 @@ class OrdemDeServicoController {
 		render (view:"/ordemDeServico/editarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico, status:status])
 		
 		
-		
 	}
 
 	def atualizar(){
@@ -71,7 +71,6 @@ class OrdemDeServicoController {
 			  
 			   }
 			
-			 
 			 
 			def status = Status.get(params.status)
 			
@@ -129,6 +128,7 @@ class OrdemDeServicoController {
 					
 					render(view:"/ordemDeServico/cadastrarOrdemDeServico.gsp", model:[ok:msg,orgao:orgao])
 				}else{
+				
                     render(view:"/error.gsp")	             
 				  }
 		  }
@@ -198,66 +198,37 @@ class OrdemDeServicoController {
 		
 		render(view:"/ordemDeServico/pesquisarOrdemDeServico.gsp", model:[ordens:ordens ,orgao:orgao])
 		
-		
-		/*
-		def driver = Class.forName('org.postgresql.Driver').newInstance() as Driver
-		def props = new Properties()
-		props.setProperty("user", "admin_db_sr")
-		props.setProperty("password", "bgt54rfvcde3")
-
-		def conn = driver.connect("jdbc:postgresql://192.168.1.247:5667/db_sgg_testes", props)
-
-		def sql = new Sql(conn)
-		
-		def ordens
+		 }
 	
-		def sqlString = "select * , o.nome as nomeOrgao, s.nome as nomeStatus from administracao_ordem_de_servico.ordem_de_servico os ,"+
-		" administracao_ordem_de_servico.Orgao o ,"+
-		" administracao_ordem_de_servico.Status s "+
-		" where os.orgao_id = o.id and os.status_id = s.id "
-		
-		if(params.tipoBusca == "orgao"){
-			
-			sqlString = sqlString + " and o.id = " + params.orgao
-		    ordens = sql.rows(sqlString)
-			
-		}
-		
-		if(params.tipoBusca == "interessado"){
-			
-			sqlString = sqlString + " and os.interessado like '%" + params.interessado + "%' "
-			ordens = sql.rows(sqlString) 
-			}
-		
-		
-		if(params.tipoBusca == "data"){
-			
-			sqlString = sqlString + " and os.data_Emissao between'" + params.dataInicial + "' and '" + params.dataFinal +"'"
+	    def graficoOsSituacoes(){
 		   
-			 ordens = sql.rows(sqlString)
-			
-			}
-		
-		
-		if(params.tipoBusca == "dataAgendamento"){
-			
-			def dataA = params.dataAgendamento
-		//	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd")
-		//	java.sql.Date data = new java.sql.Date(format.parse(dataA).getTime())
-			
-			
-			println("data de agendamento aki++++" + dataA)
-			
-			sqlString = sqlString + " and os.data_agendamento = " + dataA 
-			ordens = sql.rows(sqlString)
-			
-			}
-		
-		   def orgao = Orgao.findAll()
+		   def abertos = Status.get(1)
+		   def pendentes = Status.get(2)
+		   def concluidos = Status.get(3)
+		   def tipoStatusAberto = OrdemDeServico.countByStatus(abertos)
+		   def tipoStatusPendente = OrdemDeServico.countByStatus(pendentes)
+		   def tipoStatusConcluido = OrdemDeServico.countByStatus(concluidos)
+		   def totalStatus = tipoStatusAberto + tipoStatusPendente +tipoStatusConcluido
+		   println("total"+totalStatus)
 		  
+		  render(view:"/ordemDeServico/graficos.gsp", model:[tipoStatusAberto:tipoStatusAberto ,tipoStatusPendente:tipoStatusPendente , tipoStatusConcluido: tipoStatusConcluido,totalStatus:totalStatus ])
+			
+		    }
+      }
 		
-		render(view:"/ordemDeServico/pesquisarOrdemDeServico.gsp", model:[ordens:ordens ,orgao:orgao])
-	      }
-	*/
 		
-		}}
+
+
+
+	
+			
+             
+	
+	
+	
+        
+      
+
+
+	
+	
