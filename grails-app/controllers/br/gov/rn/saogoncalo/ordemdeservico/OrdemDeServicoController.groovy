@@ -1,8 +1,11 @@
 package br.gov.rn.saogoncalo.ordemdeservico
 import grails.converters.JSON
+
 import java.util.Date
 import java.text.DateFormat
 import java.text.SimpleDateFormat
+
+import javax.swing.RowFilter.AndFilter;
 
 import org.grails.plugin.mail.*
 
@@ -79,7 +82,6 @@ class OrdemDeServicoController {
 			    ordemDeServico.dataConclusao = new Date()
 			  }
 			  
-			 
 			  
 			  if(ordemDeServico.save(flush:true)){
 				  println(" passou ")
@@ -106,7 +108,7 @@ class OrdemDeServicoController {
 	def listarOrdemDeServico(String msg, String tipo){
 		msg = params.msg
 		tipo = params.tipo
-		def ordemDeServico = OrdemDeServico.executeQuery("select os from OrdemDeServico os where os.status.id <> 3 order by os.dataEmissao ASC")
+		def ordemDeServico = OrdemDeServico.executeQuery("select os from OrdemDeServico os where os.status.id <> 3 order by os.dataAgendamento ASC ")
 		
 		render(view:"/ordemDeServico/listarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico, ok:msg,tipo:tipo])
 
@@ -201,18 +203,37 @@ class OrdemDeServicoController {
 		 }
 	
 	    def graficoOsSituacoes(){
-		   
-		   def abertos = Status.get(1)
-		   def pendentes = Status.get(2)
-		   def concluidos = Status.get(3)
-		   def tipoStatusAberto = OrdemDeServico.countByStatus(abertos)
-		   def tipoStatusPendente = OrdemDeServico.countByStatus(pendentes)
-		   def tipoStatusConcluido = OrdemDeServico.countByStatus(concluidos)
-		   def totalStatus = tipoStatusAberto + tipoStatusPendente +tipoStatusConcluido
-		   println("total"+totalStatus)
-		  
-		  render(view:"/ordemDeServico/graficos.gsp", model:[tipoStatusAberto:tipoStatusAberto ,tipoStatusPendente:tipoStatusPendente , tipoStatusConcluido: tipoStatusConcluido,totalStatus:totalStatus ])
 			
+			def graficoDataInicial = new Date()
+			if (params.graficoDataInicial != null) {
+				graficoDataInicial = new Date().parse("dd/MM/yyyy", params.graficoDataInicial)
+			}else{
+				println("Vazio Inicial")
+			}
+			
+			def graficoDataFinal = new Date()
+			if (params.graficoDataFinal != null) {
+				graficoDataFinal = new Date().parse("dd/MM/yyyy", params.graficoDataFinal)
+			}else{
+				println("Vazio Final")
+			}
+			 
+			def abertos = Status.get(1)
+			def pendentes = Status.get(2)
+			def concluidos = Status.get(3)
+		   
+			def tipoStatusAberto = OrdemDeServico.countByDataEmissaoBetweenAndStatus(graficoDataInicial,graficoDataFinal,abertos)
+			def tipoStatusPendente = OrdemDeServico.countByDataEmissaoBetweenAndStatus(graficoDataInicial,graficoDataFinal,pendentes)
+			def tipoStatusConcluido = OrdemDeServico.countByDataEmissaoBetweenAndStatus(graficoDataInicial,graficoDataFinal,concluidos)
+			
+			println(" tipoStatusAberto --- " + tipoStatusAberto )
+			println(" tipoStatusPendente --- " + tipoStatusPendente )
+			println(" tipoStatusConcluido --- " + tipoStatusConcluido )
+		  
+		   def totalStatus = tipoStatusAberto + tipoStatusPendente +tipoStatusConcluido
+			
+			 render(view:"/ordemDeServico/graficos.gsp", model:[tipoStatusAberto:tipoStatusAberto ,tipoStatusPendente:tipoStatusPendente , tipoStatusConcluido: tipoStatusConcluido,totalStatus:totalStatus])
+			  
 		    }
       }
 		

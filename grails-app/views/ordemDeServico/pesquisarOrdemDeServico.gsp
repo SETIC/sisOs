@@ -45,9 +45,9 @@
 
   	       case 'dataAgendamento':
 			  newInput.innerHTML = "<label>Data : </label/><input type='date' name ='dataAgendamento' id='dataAgendamento' " +
-	 		  "<br><button style='margin-left: 10px;' type='submit' class='btn btn-primary btn-flat'>" +
+	 		  "<br><button style = 'margin-left:10px;' type='submit' class='btn btn-primary btn-flat'>" +
 			  "<i class='fa fa-search'></i>Buscar</button>"
-              // newInput.innerHTML = "<input data-provide='datepicker' value='09-10-2015' language='pt-br'/>"
+			  
              break;
           
            }
@@ -62,9 +62,10 @@
 		<br>
 		<div id="navBar">
 			<ul class="nav nav-tabs">
-				<li role="presentation" class="active"><a href="/sisOs/ordemDeServico/listarOrdemDeServico">Listagem de Chamados</a></li>
-				<li role="presentation"><a href="/sisOs/ordemDeServico/cadastrarOrdemDeServico">Novo Chamado</a></li>
-				<li role="presentation"><a href="/sisOs/ordemDeServico/pesquisarOrdemDeServico">Pesquisar Os</a></li>
+				<li role="presentation"><a href="/sisOs/ordemDeServico/listarOrdemDeServico"><strong>Listagem de Chamados</strong></a></li>
+				<li role="presentation"><a href="/sisOs/ordemDeServico/cadastrarOrdemDeServico"><strong>Novo Chamado</strong></a></li>
+				<li role="presentation"><a href="/sisOs/ordemDeServico/pesquisarOrdemDeServico"><strong>Pesquisar Os</strong></a></li>
+				<li role="presentation"><a href="/sisOs/ordemDeServico/graficoOsSituacoes"><strong>Gráfico Os</strong></a></li>
 			</ul>
 		</div>
 		<br>

@@ -52,11 +52,13 @@
 							</div>
 						</div>
 						<br>
+						
+						<script src="/sisOs/js/validaEmail.js"></script>
 						<div class="form-group">
 							<label for="email"
 								class="col-sm-2 control-label">E-mail</label>
 							<div class="col-sm-4">
-								<g:textField class="form-control" placeholder="E-mail" name="email" value="" />
+								<g:textField  type="email" class="form-control"  placeholder="E-mail" id="email" name="email" value="" required name="email" onblur="validaEMAIL(email)"/>
 							</div>
 						</div>
 						<br>
