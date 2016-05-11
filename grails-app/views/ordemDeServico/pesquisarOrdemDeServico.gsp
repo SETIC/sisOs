@@ -3,7 +3,7 @@
 <html lang="pt-br">
 <head>
 <title>Ordem de Serviço . Módulo OS</title>
-<meta name="layout" content="public" />
+<meta name="layout" content="public"/>
 </head>
 <body>
  <script>
@@ -26,7 +26,7 @@
    			   "${it.nome}</option></g:each></select></div>" +
    			   "<button type='submit' class='btn btn-primary btn-flat'>" +
 			   "<i class='fa fa-search'></i>Buscar</button>" 
-              break;
+               break;
 
            case 'interessado':
   			  newInput.innerHTML = "<label>Nome do Interessado: </label/></br>"+
@@ -42,18 +42,16 @@
 			  "<i class='fa fa-search'></i>Buscar</button>"
                // newInput.innerHTML = "<input data-provide='datepicker' value='09-10-2015' language='pt-br'/>"
               break;
-
+            
   	       case 'dataAgendamento':
 			  newInput.innerHTML = "<label>Data : </label/><input type='date' name ='dataAgendamento' id='dataAgendamento' " +
 	 		  "<br><button style = 'margin-left:10px;' type='submit' class='btn btn-primary btn-flat'>" +
 			  "<i class='fa fa-search'></i>Buscar</button>"
-			  
+
              break;
-          
            }
 			
 		}
-        
 		</script>
       <section class="content-header" style="margin-left: 5%; margin-bottom: 2%;">
 		<h1>

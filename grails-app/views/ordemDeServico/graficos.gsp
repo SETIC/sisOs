@@ -1,12 +1,40 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+ <link rel="stylesheet" href="font-awesome-4.6.2/css/font-awesome.css">
+ <meta content="width=device-width, initial-scale=1" name="viewport">
  <script src="/sisOs/js/jQuery/jQuery-2.1.3.min.js" type="text/javascript"></script>
  <script src="/sisOs/js/data.js"></script>
+ <script type="text/javascript" src="/sisOs/js/jQuery/Chart.min.js"></script>
 <title>Grafico</title>
-<meta name="layout" content="public" />
+<meta name="layout" content="public"/>
 </head>
 <body>
+<script>
+function printDiv(id)
+{
+  var divToPrint = document.getElementById(id);
+  var grafico = document.getElementById('GraficoPizza').toDataURL();
+  newWin = window.open("");
+  newWin.document.write("<style=''>");
+  newWin.document.write("<td> <img src='${ request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}sisOs/static/images/brasao.jpg'; style='width:100px; float:left; margin-top:-7px;'> </td>");
+  newWin.document.write("<h4 style=' margin-left:220px; '>PREFEITURA MUNICIPAL DE SÃO GONÇALO DO AMARANTE - RN</h4>");
+  newWin.document.write("<h4 style='margin-top:20px; margin-left:330px;'>TOTAL DE ORDENS DE SERVIÇOS</h4>");
+  newWin.document.write("<style type='text/css' >");
+  newWin.document.write("</style>");
+  newWin.document.write("");
+  newWin.document.write("<br>");
+  newWin.document.write("<p style = 'margin-left:200px;'><img src='"  + grafico + "'></p>");
+  newWin.document.write("<p style = 'margin-left:20px;'>Abertos: " +abertos+ " </p>");
+  newWin.document.write("<p style = 'margin-left:20px;'>Pendentes: " +pendentes+ " </p>");
+  newWin.document.write("<p style = 'margin-left:20px;'>Concluidos: " +concluidos+ " </p>");
+  
+  newWin.document.write(divToPrint.outerHTML);
+  newWin.print();
+  newWin.close();
+}
+</script>
 	<!-- Content Header (Page header) -->
 	<section class="content-header" style="margin-left: 5%; margin-bottom:2px;">
 		<h1>
@@ -22,11 +50,10 @@
 			</ul>
 		</div>
 		<br>
-		<script src="/sisOs/js/jQuery/Chart.min.js"></script>
      		 <style type="text/css">
 		    .box {
 		        margin: 0px auto;
-		        width: 65%;
+		        width: 60%;
 		        top:-175px;
 		        margin-left:20%;
 		    }
@@ -73,19 +100,19 @@
 			 </div>
 			 <br>
 			 <br>
-			 <div style="margin-top:10px; margin-left:16px;">
-				<button style="margin-top:10px;width:200px"type="submit" class="btn btn-primary btn-flat">
-				  <i class="fa fa-pie-chart" aria-hidden="true"></i>Gerar Gráfico</button>
-			  </div>	
-			 </g:form>			
-		<div class="box">
+			 <div style="margin-top:10px; margin-left:48px;">
+				<button style="margin-top:10px;width:130px"type="submit" class="btn btn-primary btn-flat">
+				  <i class="fa fa-pie-chart" aria-hidden="true"></i> Gerar Gráfico</button>
+               </div>	
+			 </g:form>
+		<div class="box" id="divGrafico">
 		<div style="margin-top:20px;margin-left: 20px;">
 		<label>Total :${totalStatus}</label>
 		</div>
 			<div class="box-chart">
-			<canvas id="GraficoPizza" style="width: 100%;"></canvas>
+			<canvas id="GraficoPizza" style="width:400px;height:400px;"></canvas>
 			<script type="text/javascript">
-            
+			
              var abertos =  ${tipoStatusAberto}
              var pendentes = ${tipoStatusPendente}
              var concluidos  = ${tipoStatusConcluido}
@@ -96,36 +123,44 @@
                         
                     responsive:true
                 };
-
+                
                 var data = [
                             
                     {
                         value:abertos,
                         color:"#FF5A5E ",
                         highlight:"#FF3333",
-                        label: "Abertos"
+                        label: "Abertos",
+                        scaleBeginAtZero: false,
+                        showScale: true
+                        
                     },
                     {
                         value:concluidos,
                         color: "#00994C",
                         highlight:"#336600",
-                        label: "Concluidos"
+                        label: "Concluidos",
+                        scaleBeginAtZero: false,
+                        showScale: true
+                        
                     },
                     {
                         value: pendentes,
                         color: "#FFC870",
                         highlight:"#FFA500",
-                        label: "Pendentes"
+                        label: "Pendentes",
+                        scaleBeginAtZero: false,
+                        showScale: true
+                        
                     },
                     
                 ]
-                
-                window.onload = function(){
+			 
+                    window.onload = function (){
                     var ctx = document.getElementById("GraficoPizza").getContext("2d");
                     var PizzaChart = new Chart(ctx).Pie(data, options);
                         } 
-
-            </script>
+             </script>
 				<table
 					style="position: absolute; top: 5px; right: 5px; font-size: smaller; color: #545454">
 					<tbody>
@@ -159,7 +194,13 @@
 						</tr>
 					</tbody>
 				</table>
+			   </div>
 			</div>
+		<div style="margin: 0 20% auto;margin-top:-150px;">
+	    <button  class="btn btn-primary btn-flat"
+			onclick="printDiv('divGrafico')">
+			<i class="fa fa-print" aria-hidden="true"></i> Imprimir
+		</button>
 		</div>
 	</section>
 	</body>

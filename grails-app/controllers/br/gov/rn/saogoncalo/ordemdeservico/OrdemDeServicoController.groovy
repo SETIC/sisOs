@@ -226,9 +226,9 @@ class OrdemDeServicoController {
 			def tipoStatusPendente = OrdemDeServico.countByDataEmissaoBetweenAndStatus(graficoDataInicial,graficoDataFinal,pendentes)
 			def tipoStatusConcluido = OrdemDeServico.countByDataEmissaoBetweenAndStatus(graficoDataInicial,graficoDataFinal,concluidos)
 			
-			println(" tipoStatusAberto --- " + tipoStatusAberto )
+			/*println(" tipoStatusAberto --- " + tipoStatusAberto )
 			println(" tipoStatusPendente --- " + tipoStatusPendente )
-			println(" tipoStatusConcluido --- " + tipoStatusConcluido )
+			println(" tipoStatusConcluido --- " + tipoStatusConcluido )*/
 		  
 		   def totalStatus = tipoStatusAberto + tipoStatusPendente +tipoStatusConcluido
 			
