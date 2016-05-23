@@ -3,6 +3,7 @@
 <head>
 <title>Cadastro de OS</title>
 <meta name="layout" content="public" />
+<meta content="width=device-width, initial-scale=1" name="viewport">
 </head>
 <body>
 	<section class="content-header" style="margin-left: 5%; margin-bottom:auto;">
@@ -52,11 +53,13 @@
 							</div>
 						</div>
 						<br>
+						
+						<script src="/sisOs/js/validaEmail.js"></script>
 						<div class="form-group">
 							<label for="email"
 								class="col-sm-2 control-label">E-mail</label>
 							<div class="col-sm-4">
-								<g:textField class="form-control" placeholder="E-mail" name="email" value="" />
+								<g:textField  type="email" class="form-control"  placeholder="E-mail" id="email" name="email" value="" required name="email" onblur="validaEMAIL(email)"/>
 							</div>
 						</div>
 						<br>
@@ -77,7 +80,7 @@
 						<div class="form-group">
 							<label for="problema" class="col-sm-2 control-label">Problema</label>
 							<div class="col-sm-4">
-								<textarea rows="4" cols="5" class="form-control" placeholder="Descreva o Problema" name="problema"></textarea>
+								<textarea rows="4" cols="5" class="form-control" placeholder="Descreva o Problema" name="problema" required></textarea>
 							</div>
 						</div>
 					</fieldset>
