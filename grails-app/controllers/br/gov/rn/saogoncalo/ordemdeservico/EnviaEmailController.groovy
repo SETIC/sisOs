@@ -11,6 +11,7 @@ class EnviaEmailController {
 	 def enviaEmail(long id){
 		 def os = OrdemDeServico.get(id)
 		
+		
         sendMail {
 			def dataConclusao 
 			if(os.dataConclusao == null){
