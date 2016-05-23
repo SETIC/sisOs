@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
- <link rel="stylesheet" href="font-awesome-4.6.2/css/font-awesome.css">
  <meta content="width=device-width, initial-scale=1" name="viewport">
  <script src="/sisOs/js/jQuery/jQuery-2.1.3.min.js" type="text/javascript"></script>
  <script src="/sisOs/js/data.js"></script>
@@ -18,7 +17,7 @@ function printDiv(id)
   var grafico = document.getElementById('GraficoPizza').toDataURL();
   newWin = window.open("");
   newWin.document.write("<style=''>");
-  newWin.document.write("<td> <img src='${ request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}sisOs/static/images/brasao.jpg'; style='width:100px; float:left; margin-top:-7px;'> </td>");
+  newWin.document.write("<td> <img src='${request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}sisOs/static/images/brasao.jpg'; style='width:100px; float:left; margin-top:-9px;'> </td>");
   newWin.document.write("<h4 style=' margin-left:220px; '>PREFEITURA MUNICIPAL DE SÃO GONÇALO DO AMARANTE - RN</h4>");
   newWin.document.write("<h4 style='margin-top:20px; margin-left:330px;'>TOTAL DE ORDENS DE SERVIÇOS</h4>");
   newWin.document.write("<style type='text/css' >");

@@ -3,6 +3,7 @@
 <head>
 <title>Cadastro de OS</title>
 <meta name="layout" content="public" />
+<meta content="width=device-width, initial-scale=1" name="viewport">
 </head>
 <body>
 	<section class="content-header" style="margin-left: 5%; margin-bottom:auto;">

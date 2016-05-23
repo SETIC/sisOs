@@ -4,6 +4,7 @@
 <head>
 <title>Ordem de Serviço . Módulo OS</title>
 <meta name="layout" content="public"/>
+<meta content="width=device-width, initial-scale=1" name="viewport">
 </head>
 <body>
  <script>
