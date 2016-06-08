@@ -18,7 +18,7 @@ class OrdemDeServico {
 	
 
 			
-	static belongsTo = [status:Status , orgao:Orgao]
+	static belongsTo = [status:Status ,orgao:Orgao,usuariosOs:UsuariosOs]
 	
 	static constraints = {
 		interessado blank:false, nullable:false

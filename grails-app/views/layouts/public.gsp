@@ -145,13 +145,12 @@
 				<b>Version</b>1.0
 			</div>
 			<strong> Copyright © 2016 <a style="font-weight: 100;"
-				href="/sisOs/ordemDeServico/cadastrarOrdemDeServico"><b>Sistema
+				href="#"><b>Sistema
 						de Solicitação de Chamados</a>.
 			</strong> Todos os direitos reservados. Contato SETIC: 98152-9740
 		</footer>
 	</div>
 	<!-- ./wrapper -->
-
 	<!-- Bootstrap 3.3.2 JS -->
 	<g:javascript src="bootstrap.js" />
 	<!-- Jasny Mask Bootstrap -->
