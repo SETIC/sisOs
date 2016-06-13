@@ -6,7 +6,6 @@ class UsuariosOsController {
 	
 	def login(){
 		
-		
 		render(view:"/usuariosOs/login.gsp")
 		
 	}
@@ -19,11 +18,10 @@ class UsuariosOsController {
 		def user = params.usuario
 		def pass = params.senha
 
-
 		if ((params.usuario == "123") && (params.senha == "123")) {
-			redirect(controller:params.ctl, action:params.act)
+		    redirect(controller:params.ctl, action:params.act)
 		}else{
-			render(view:"/usuarioOs/login.gsp", model:[erro:"O usuário ou a senha inseridos estão incorretos."])
+			render(view:"/usuariosOs/login.gsp", model:[erro:"O usuario ou a senha inseridos estao incorretos."])
 		}
 		
 	}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8">
     <title>SISOS</title>
@@ -17,13 +17,14 @@
        
       }
       .login-box-body{
-      height:220px;
+      height:240px;
       width:370px;
       
       }
       
     </style>
     <script type="text/javascript">
+
     	function verificarLogin() {
 			if(document.login.usuario.value == ""){
 				document.getElementById("alertVerificador").innerHTML = "Digite o seu nome de usuário.";
@@ -46,7 +47,7 @@
     <div id="wrap">  
       <div class="login-box">
         <div class="login-logo">
-          <a href="http://192.168.1.252:8080/sisOs/usuariosOs/login"><g:img style="width: 50%" dir="images" file="prot.png"/></a>
+          <a href="http://189.43.7.23:8080/sisOs/usuariosOs/login"><g:img style="width: 50%" dir="images" file="prot.png"/></a>
         </div><!-- /.login-logo -->
         <div class="login-box-body">
           <p class="login-box-msg">Entre para iniciar a sua sessão</p>

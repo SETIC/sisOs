@@ -147,7 +147,7 @@
 			<strong> Copyright © 2016 <a style="font-weight: 100;"
 				href="#"><b>Sistema
 						de Solicitação de Chamados</a>.
-			</strong> Todos os direitos reservados. Contato SETIC: 98152-9740
+			</strong> Todos os direitos reservados. Contato SETIC: 98152-9740 <a href="/sisOs/ordemDeServico/listarOrdemDeServico">acesso</a></li>
 		</footer>
 	</div>
 	<!-- ./wrapper -->

@@ -8,12 +8,13 @@
 <body>
 	<section class="content-header" style="margin-left: 5%; margin-bottom:auto;">
 		<h1>
-			Ordem De Serviço <small>Cadastro</small>
+			Ordem De Serviço <small>Cadastro</small> 
 		</h1>
-		<ul class="nav nav-tabs">
+		<ul class="nav nav-tabs"> 
+		<a href="/sisOs/usuariosOs/login.gsp">Acesso</a></li>
 			<%--<li><g:link controller="ordemDeServico" action="listarOrdemDeServico">Listagem de chamados</g:link></li>
 			<li role="presentation" class="active"><a href="/sisOs/ordemDeServico/listarOrdemDeServico">Novo chamado</a></li>
-		--%></ul>
+		--%></ul> 
 	</section>
 	<!-- CORPO DA PÁGINA -->
 	<section class="content">
