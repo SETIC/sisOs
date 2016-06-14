@@ -18,7 +18,7 @@ class UsuariosOsController {
 		def user = params.usuario
 		def pass = params.senha
 
-		if ((params.usuario == "123") && (params.senha == "123")) {
+		if ((params.usuario == "adm") && (params.senha == "123")) {
 		    redirect(controller:params.ctl, action:params.act)
 		}else{
 			render(view:"/usuariosOs/login.gsp", model:[erro:"O usuario ou a senha inseridos estao incorretos."])

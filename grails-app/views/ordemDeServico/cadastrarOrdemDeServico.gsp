@@ -11,7 +11,7 @@
 			Ordem De Serviço <small>Cadastro</small> 
 		</h1>
 		<ul class="nav nav-tabs"> 
-		<a href="/sisOs/usuariosOs/login.gsp">Acesso</a></li>
+		<div style= "text-align:right;"><a href="/sisOs/usuariosOs/login.gsp">Acesso</a></div>
 			<%--<li><g:link controller="ordemDeServico" action="listarOrdemDeServico">Listagem de chamados</g:link></li>
 			<li role="presentation" class="active"><a href="/sisOs/ordemDeServico/listarOrdemDeServico">Novo chamado</a></li>
 		--%></ul> 
