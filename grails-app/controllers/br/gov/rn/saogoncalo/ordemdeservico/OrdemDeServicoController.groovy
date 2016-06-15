@@ -70,11 +70,8 @@ class OrdemDeServicoController {
 			
 			 if(params.dataAgendamento != ""){
 			     ordemDeServico.dataAgendamento = Date.parse('dd/MM/yyyy', params.dataAgendamento)
-				
 			  
 			   }
-			
-			 
 			def status = Status.get(params.status)
 			
 			ordemDeServico.status = status
@@ -106,12 +103,16 @@ class OrdemDeServicoController {
 	   }
 	
 	def listarOrdemDeServico(String msg, String tipo){
+		
+	if(session["user"] != null){
 		msg = params.msg
 		tipo = params.tipo
 		def ordemDeServico = OrdemDeServico.executeQuery("select os from OrdemDeServico os where os.status.id <> 3 order by os.dataAgendamento ASC ")
 		
 		render(view:"/ordemDeServico/listarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico, ok:msg,tipo:tipo])
-
+		}else{
+		render(view:"/usuariosOs/login.gsp")
+		}
 	}
 	
 	def deletar(long id){
@@ -137,6 +138,8 @@ class OrdemDeServicoController {
 	
 	
 	def pesquisarOrdemDeServico(){
+		
+		if(session["user"] != null){
 
 		def ordens = []
 		
@@ -193,16 +196,21 @@ class OrdemDeServicoController {
 				def st2 = Status.get(2)
 				ordens = OrdemDeServico.findAllByDataAgendamentoAndStatusInList(dateformatteri,[st,st2])
 				break;	
+		 
 		}
 		
-		
 		def orgao = Orgao.findAll()
-		
 		render(view:"/ordemDeServico/pesquisarOrdemDeServico.gsp", model:[ordens:ordens ,orgao:orgao])
-		
 		 }
 	
+		 else{
+	    render(view:"/usuariosOs/login.gsp")
+	      } 
+	   }
+	
 	    def graficoOsSituacoes(){
+			
+			if(session["user"] != null){
 			
 			def graficoDataInicial = new Date()
 			if (params.graficoDataInicial != null) {
@@ -225,16 +233,13 @@ class OrdemDeServicoController {
 			def tipoStatusAberto = OrdemDeServico.countByDataEmissaoBetweenAndStatus(graficoDataInicial,graficoDataFinal,abertos)
 			def tipoStatusPendente = OrdemDeServico.countByDataEmissaoBetweenAndStatus(graficoDataInicial,graficoDataFinal,pendentes)
 			def tipoStatusConcluido = OrdemDeServico.countByDataEmissaoBetweenAndStatus(graficoDataInicial,graficoDataFinal,concluidos)
-			
-			/*println(" tipoStatusAberto --- " + tipoStatusAberto )
-			println(" tipoStatusPendente --- " + tipoStatusPendente )
-			println(" tipoStatusConcluido --- " + tipoStatusConcluido )*/
-		  
-		   def totalStatus = tipoStatusAberto + tipoStatusPendente +tipoStatusConcluido
-			
+		    def totalStatus = tipoStatusAberto + tipoStatusPendente +tipoStatusConcluido
 			 render(view:"/ordemDeServico/graficos.gsp", model:[tipoStatusAberto:tipoStatusAberto ,tipoStatusPendente:tipoStatusPendente , tipoStatusConcluido: tipoStatusConcluido,totalStatus:totalStatus])
-			  
-		    }
+			 } 
+		    else{
+			render(view:"/usuariosOs/login.gsp")
+			}
+	     }
       }
 		
 		

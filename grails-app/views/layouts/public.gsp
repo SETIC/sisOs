@@ -116,7 +116,6 @@
 	<div class="wrapper"
 		style="float: inherit; margin-left: auto; margin-right: auto;">
 		<header class="main-header">
-
 			<!-- Header Navbar: style can be found in header.less -->
 			<nav class="navbar navbar-static-top "
 				style="float: inherit; margin-left: auto; margin-right: auto; width: 100%; height: 100px;"
@@ -135,7 +134,7 @@
 		<!-- Left side column. contains the logo and sidebar -->
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper col-md-10 col-md-offset-1"
-			style="float: inherit; margin-left: auto; margin-right: auto; width: 100%;margin-top:1px">
+			style="float: inherit; margin-left: auto; margin-right: auto; width: 100%;margin-top:1px">							            
 			<g:layoutBody />
 		</div>
 		<footer
@@ -147,7 +146,7 @@
 			<strong> Copyright © 2016 <a style="font-weight: 100;"
 				href="#"><b>Sistema
 						de Solicitação de Chamados</a>.
-			</strong> Todos os direitos reservados. Contato SETIC: 98152-9740 <a href="/sisOs/ordemDeServico/listarOrdemDeServico">acesso</a></li>
+			</strong> Todos os direitos reservados. Contato SETIC: 98152-9740 
 		</footer>
 	</div>
 	<!-- ./wrapper -->
