@@ -17,12 +17,14 @@ class UsuariosOsController {
 	 	
 		def user = params.usuario
 		def pass = params.senha
-		def user2 =  UsuariosOs.findByUsuarioAndSenha(params.usuario,params.senha)
+		def user2 =  UsuariosOs.findByUsuarioAndSenha(user,pass)
 		
 		  if(user2.usuario!= ""){
+			  
 			  session["user"] = user
 			  session["pass"] = pass
 			  redirect(controller:params.ctl, action:params.act)
+			  
 		  }else{
 		  render(view:"/usuariosOs/login.gsp", model:[erro:"O usuario ou a senha inseridos estao incorretos."])
 		  }

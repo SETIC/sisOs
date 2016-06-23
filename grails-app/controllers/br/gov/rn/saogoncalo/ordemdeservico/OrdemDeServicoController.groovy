@@ -38,6 +38,10 @@ class OrdemDeServicoController {
 			  //redirect(controller:"OrdemDeServico", action:"cadastrarOrdemDeServico", params:[msg: "Chamado cadastrado com sucesso.", tipo:"ok"])
 			  
 		  }else{
+		  
+		  def erros
+		  ordemDeServico.errors.each { erros = it }
+		  print("erros aqui: "+erros)
 			  
 		render(view:"/error.gsp")
 		  }

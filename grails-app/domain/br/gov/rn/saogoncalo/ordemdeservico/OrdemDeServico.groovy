@@ -15,10 +15,10 @@ class OrdemDeServico {
 	String email
 	String problema
 	String solucao
-	
 
 			
-	static belongsTo = [status:Status ,orgao:Orgao,usuariosOs:UsuariosOs]
+	//static belongsTo = [status:Status ,orgao:Orgao,usuariosOs:UsuariosOs]
+	static belongsTo = [status:Status ,orgao:Orgao]
 	
 	static constraints = {
 		interessado blank:false, nullable:false

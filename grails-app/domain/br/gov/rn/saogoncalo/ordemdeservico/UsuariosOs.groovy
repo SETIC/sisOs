@@ -5,7 +5,7 @@ class UsuariosOs {
 	String usuario
 	String senha
 	
-	static hasmany=[ordemDeServico:OrdemDeServico]
+	//static hasmany=[ordemDeServico:OrdemDeServico]
     static constraints = {
 		
 		usuario blank:false, nullable:false
