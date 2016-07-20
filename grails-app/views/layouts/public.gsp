@@ -118,7 +118,7 @@
 		<header class="main-header">
 			<!-- Header Navbar: style can be found in header.less -->
 			<nav class="navbar navbar-static-top "
-				style="float: inherit; margin-left: auto; margin-right: auto; width: 100%; height: 100px;"
+				style="float: inherit; margin-left: auto; margin-right: auto; width: 100%; height: 110px;"
 				role="navigation">
 				<h2 style="text-align:center;margin-top:15px; color: #FFFFFF; font-weight: bold; margin-top: 30px;">Solicitação de Chamados</h2>
 				

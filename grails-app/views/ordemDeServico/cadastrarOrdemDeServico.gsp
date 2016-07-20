@@ -14,44 +14,6 @@
 		<ul class="nav nav-tabs"> 
 		<div style= "text-align:right;"><a href="/sisOs/usuariosOs/login.gsp">Acesso</a></div></ul> 
 	</section>
-	
-	<script>
-	var endereco = "${request.getRequestURL().substring(6, request.getRequestURL().indexOf(':8080/'))}";
-
-	  function validarMatricula() {
-			var matriculasOS = document.getElementById("matricula").value;
-			console.log(matriculasOS);
-			$.ajax({
-				type : "GET",
-				url : "http:/"+endereco+":8080/sisOs/ordemDeServico/validarMatriculaFuncOs?matriculasOS="+matriculasOS,
-				dataType : "json",
-				success : function(verifMatricula) {
-					console.log("verificando matricula ++++++" +verifMatricula.matricula);
-					if (verifMatricula == "") {
-						alert("matricula invalida ou inexistente");
-
-					}
-				}
-			});
-
-		}
-	</script>
-	
-	<%--
-	 function validarMatricula() {
-      var matricula = document.getElementById("matricula");
-      console.log("matricula akii+++" +matricula.value);
-      if(matricula.value == null || matricula.value == ''){
-        alert("matricula invalida");
-         matricula.focus();
-        return false;
-          }else{
-         return true;
-      }
-	}
-
-	--%>
-	
 	<!-- CORPO DA PÁGINA -->
 	<section class="content">
 		<div>
@@ -74,16 +36,18 @@
 						<div class="form-group">
 							<label for="interessado" class="col-sm-2 control-label">Interessado</label>
 							<div class="col-sm-4">
-								<input class="form-control" placeholder="Interessado" required name="interessado" type="text" value="">
+								<input class="form-control" placeholder="Interessado" id="interessado" required name="interessado" type="text" value="">
 							</div>
 						</div>
 						<br>
+						<script src="/sisOs/js/validarMatricula.js"></script>
 						<div class="form-group">
 							<label for="matricula" class="col-sm-2 control-label">Matricula</label>
 							<div class="col-sm-4">
-								<input class="form-control" id="matricula" placeholder="Matricula do interessado" required name="matricula" type="text" value="" onblur="validarMatricula()">
+								<input class="form-control" id="matricula" placeholder="Matricula do interessado" required name="matricula" type="text" value="" onblur="validarMatricula();" >
 							</div>
 						</div>
+						
 						<br>
 						<div class="form-group">
 							<label for="telefone"

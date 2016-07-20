@@ -251,7 +251,6 @@ class OrdemDeServicoController {
 			boolean verifMatricula
 			FuncionarioOs  matriculav  = FuncionarioOs.findByMatricula(matriculasOS)
 			println("valor da matricula " +matriculav + "--matriculaOS " +matriculasOS.toString())
-			
 			  if(matriculav == null){
 				  verifMatricula = false
 			  }else{
