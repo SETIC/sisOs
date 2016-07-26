@@ -41,8 +41,8 @@ environments {
 			
 			dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
 			
-			//url = "jdbc:postgresql://192.168.1.247:5667/db_sgg_testes"
-			//url = "jdbc:postgresql://192.168.1.247:5667/db_sgg_testes"
+			//url = "jdbc:postgresql://192.168.1.252:5667/db_sgg_testes"
+			//url = "jdbc:postgresql://192.168.1.252:5667/db_sgg_testes"
 			  url = "jdbc:postgresql://192.168.1.252:5667/db_sgg_testes"
         }
     }
@@ -59,7 +59,7 @@ environments {
 			//username = "admin_db_sr"
 			//password = "bgt54rfvcde3"			
             dbCreate = "update"
-            //url = "jdbc:postgresql://192.168.1.247:5667/db_sgg_testes"
+            //url = "jdbc:postgresql://192.168.1.252:5667/db_sgg_testes"
 			  url = "jdbc:postgresql://192.168.1.252:5667/db_sgg_testes"
 			
 			}
