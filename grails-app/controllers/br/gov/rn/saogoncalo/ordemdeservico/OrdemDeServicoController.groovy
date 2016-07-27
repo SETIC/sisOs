@@ -261,6 +261,22 @@ class OrdemDeServicoController {
 			render (verifMatricula)
 			
 		}
+		
+		
+		def homeGrafico(){
+			
+			def abertos = Status.get(1)
+			def pendentes = Status.get(2)
+			def concluidos = Status.get(3)
+		   
+			def tipoStatusAberto = OrdemDeServico.countByStatus(abertos)
+			def tipoStatusPendente = OrdemDeServico.countByStatus(pendentes)
+			def tipoStatusConcluido = OrdemDeServico.countByStatus(concluidos)
+			def totalStatus = tipoStatusAberto + tipoStatusPendente +tipoStatusConcluido
+			
+			println("total de os abertas" +tipoStatusAberto)
+			 render(view:"/ordemDeServico/homeGrafico.gsp", model:[tipoStatusAberto:tipoStatusAberto ,tipoStatusPendente:tipoStatusPendente , tipoStatusConcluido: tipoStatusConcluido,totalStatus:totalStatus])
+			 }
       }
 		
 		

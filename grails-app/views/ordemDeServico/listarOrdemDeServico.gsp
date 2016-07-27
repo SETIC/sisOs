@@ -13,11 +13,12 @@
 		<br>
 		<div id="navBar">
 			<ul class="nav nav-tabs">
+			    <li role="presentation"><a href="/sisOs/ordemDeServico/homeGrafico"><strong>Home</strong></a></li>				 
 				<li role="presentation"><a href="/sisOs/ordemDeServico/listarOrdemDeServico"><strong>Listagem de Chamados</strong></a></li>
 				<li role="presentation"><a href="/sisOs/ordemDeServico/cadastrarOrdemDeServico"><strong>Novo Chamado</strong></a></li>
 				<li role="presentation"><a href="/sisOs/ordemDeServico/pesquisarOrdemDeServico"><strong>Pesquisar Os</strong></a></li>
 				<li role="presentation"><a href="/sisOs/ordemDeServico/graficoOsSituacoes"><strong>Gráfico Os</strong></a></li>
-				 <div class="pull-right">
+                <div class="pull-right">
                <g:link controller="UsuariosOs" action="logout" class="badge">Sair</g:link>
              </div>
 			</ul>

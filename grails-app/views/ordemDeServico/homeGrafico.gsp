@@ -42,12 +42,13 @@ function printDiv(id)
 	    <br>
 		<div id="navBar">
 			<ul class="nav nav-tabs">
-				<li role="presentation"><a href="/sisOs/ordemDeServico/homeGrafico"><strong>Home</strong></a></li>				 
+				<li role="presentation"><a href="/sisOs/ordemDeServico/homeGrafico"><strong>Home</strong></a></li>
 				<li role="presentation"><a href="/sisOs/ordemDeServico/listarOrdemDeServico"><strong>Listagem de Chamados</strong></a></li>
 				<li role="presentation"><a href="/sisOs/ordemDeServico/cadastrarOrdemDeServico"><strong>Novo Chamado</strong></a></li>
 				<li role="presentation"><a href="/sisOs/ordemDeServico/pesquisarOrdemDeServico"><strong>Pesquisar Os</strong></a></li>
 				<li role="presentation"><a href="/sisOs/ordemDeServico/graficoOsSituacoes"><strong>Gráfico Os</strong></a></li>
-				<div class="pull-right">
+				
+				 <div class="pull-right">
                <g:link controller="UsuariosOs" action="logout" class="badge">Sair</g:link>
              </div>
 			</ul>
@@ -57,7 +58,7 @@ function printDiv(id)
 		    .box {
 		        margin: 0px auto;
 		        width: 60%;
-		        top:-175px;
+		        top:-10px;
 		        margin-left:20%;
 		    }
 		
@@ -68,46 +69,6 @@ function printDiv(id)
 		    }
 
     		</style>
-    		<g:form controller="ordemDeServico" action=" graficoOsSituacoes" class="form">
-				<div class="form-group">
-					<label for="graficoDataInicial" class="col-sm-2 control-label">Data
-						de Inicial</label><br>
-						<div style="margin-top:5px;">
-					<div class="col-sm-2">
-						<div class="input-group date" data-provide="datepicker">
-							<input type="text" class="form-control" name="graficoDataInicial"
-								value="${new Date().format('dd/MM/yyyy')}"/>
-							<div class="input-group-addon">
-								<i class="fa fa-calendar"></i>
-							</div>
-						</div>
-					</div>
-				</div>
-			 </div>
-			 <br>
-			 <br>
-			 <div class="form-group">
-					<label for="graficoDataFinal" class="col-sm-2 control-label">Data
-						de Final</label><br>
-						<div style="margin-top:10px;">
-					<div class="col-sm-2">
-						<div class="input-group date" data-provide="datepicker">
-							<input type="text" class="form-control" name="graficoDataFinal"
-								value="${new Date().format('dd/MM/yyyy')}"/>
-							<div class="input-group-addon">
-								<i class="fa fa-calendar"></i>
-							</div>
-						</div>
-					</div>
-				</div>
-			 </div>
-			 <br>
-			 <br>
-			 <div style="margin-top:10px; margin-left:48px;">
-				<button style="margin-top:10px;width:130px"type="submit" class="btn btn-primary btn-flat">
-				  <i class="fa fa-pie-chart" aria-hidden="true"></i> Gerar Gráfico</button>
-               </div>	
-			 </g:form>
 		<div class="box" id="divGrafico">
 		<div style="margin-top:20px;margin-left: 20px;">
 		<label>Total :${totalStatus}</label>
