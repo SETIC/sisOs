@@ -16,7 +16,8 @@
 	rel="stylesheet">
 
 <!-- Font Awesome Icons -->
-<link href="${resource(dir: 'font-awesome-4.1.0/css', file: 'font-awesome.min.css')}"
+<link
+	href="${resource(dir: 'font-awesome-4.1.0/css', file: 'font-awesome.min.css')}"
 	rel="stylesheet">
 
 <!-- Ionicons -->
@@ -112,42 +113,119 @@
 <!-- jQuery 2.1.3 -->
 <g:javascript src="jQuery/jQuery-2.1.3.min.js" />
 </head>
+
 <body class="skin-blue row">
 	<div class="wrapper"
 		style="float: inherit; margin-left: auto; margin-right: auto;">
 		<header class="main-header">
+
 			<!-- Header Navbar: style can be found in header.less -->
-			<nav class="navbar navbar-static-top "
-				style="float: inherit; margin-left: auto; margin-right: auto; width: 100%; height: 100px;"
-				role="navigation">
-				<h2 style="text-align:center;margin-top:15px; color: #FFFFFF; font-weight: bold; margin-top: 30px;">Solicitação de Chamados</h2>
-				
-				<!-- Logo -->
-				
-					<g:img dir="images" file="setic.png" class="img-responsive"
-						alt="Secretaria de tecnologia" style="height: 100px; margin-left: 15%; margin-top: -70px;" />
-						
-					<g:img dir="images" file="sga.png" class="img-responsive" 
-						alt="Prefeitura de São Gonçalo do Amarante" style="height: 100px; float: right; margin-top: -99px;margin-right: 15%;" />
-			</nav>
+
+			<div class="wrapper">
+
+				<header class="main-header">
+
+					<!-- Logo -->
+					<a href="index2.html" class="logo"> <!-- mini logo 50x50 pixels -->
+						<span class="logo-mini"><b></b></span> <!-- logo regular --> <span
+						class="logo-lg"><b>SIS</b>OS</span>
+					</a>
+
+					<!-- Header Navbar: style can be found in header.less -->
+					<nav class="navbar navbar-static-top">
+						<!-- Sidebar toggle button-->
+						<a href="#" class="sidebar-toggle" data-toggle="offcanvas"
+							role="button"> <span class="sr-only">Navegação</span>
+						</a>
+						<!-- Navbar Right Menu -->
+						<div class="navbar-custom-menu">
+							<ul class="nav navbar-nav">
+								<!-- Messages: style can be found in dropdown.less-->
+								<li class="dropdown messages-menu">
+									<!-- User Account: style can be found in dropdown.less -->
+								<li class="dropdown user user-menu"><a href="#"
+									class="dropdown-toggle" data-toggle="dropdown"> <span
+										class="hidden-xs">Suporte OS</span>&nbsp;&nbsp;&nbsp;&nbsp;
+								</a>
+									<ul class="dropdown-menu">
+										<!-- User image -->
+										<li class="user-header">
+
+											<p>
+												Suporte OS<br> <small>Coordena o SISOS -
+													Sistema de Abertura de Chamado Técnico Junto ao Setor de
+													Tecnologia.<br> <br> <br> SETIC -
+													Subsecretaria de Tecnologia da Informação e Ciência
+												</small>
+											</p>
+										</li>
+						</div>
+
+					</nav>
+				</header>
+				<!-- Left side column. contains the logo and sidebar -->
+				<aside class="main-sidebar">
+					<!-- sidebar: style can be found in sidebar.less -->
+					<section class="sidebar">
+						<!-- Sidebar user panel -->
+						<div class="user-panel">
+							<div class="pull-left image">&nbsp;&nbsp;&nbsp;
+								<g:img dir="img" file="setic.png" style="height:35px;" />
+
+							</div>
+							<div class="pull-left info">
+								<p>Suporte OS</p>
+								<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+							</div>
+						</div>
+						<ul class="sidebar-menu">
+							<li class="header">MENU PRINCIPAL</li>
+							<li class="active treeview"><a href="/sisOs/ordemDeServico/homeGrafico"> <i
+									class="fa fa-dashboard"></i> <span>Painel</span>
+							</a></li>
+
+							<li><a href="/sisOs/ordemDeServico/listarOrdemDeServico">
+									<i class="fa fa-th"></i> <span>Listagem de Chamados</span>
+							</a></li>
+							<li class="treeview"><a
+								href="/sisOs/ordemDeServico/graficoOsSituacoes"> <i
+									class="fa fa-pie-chart"></i> <span>Gráficos OS</span>
+							</a></li>
+
+							<li class="treeview"><a
+								href="/sisOs/ordemDeServico/pesquisarOrdemDeServico"> <i
+									class="fa fa-folder"></i> <span>Pesquisa OS</span>
+
+							</a></li>
+
+							<li><g:link controller="UsuariosOs" action="logout"><i class="fa fa-circle-o text-red"></i>
+									<span>Sair</span></g:link></li>
+
+						</ul>
+					</section>
+					<!-- /.sidebar -->
+				</aside>
 		</header>
 		<!-- Left side column. contains the logo and sidebar -->
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper col-md-10 col-md-offset-1"
-			style="float: inherit; margin-left: auto; margin-right: auto; width: 100%;margin-top:1px">							            
+			style="float: inherit; margin-left: auto; margin-right: auto; width: 100%; margin-top: 1px">
 			<g:layoutBody />
 		</div>
-		<footer
-			style="margin-top: 1px; float: inherit; margin-left:auto; margin-right: auto; width: 100%; height: 50px;"
-			class="main-footer col-md-10 col-md-offset-1">
+		<footer class="main-footer">
+			<g:img dir="img" file="envato.png" style="height:30px;" />
+			<%--<img alt="" src="img\envato.jpg" height="40x"> &nbsp;&nbsp;&nbsp;&nbsp;--%>
 			<div class="pull-right hidden-xs">
-				<b>Version</b>1.0
+				<b>Version</b> 2.0
 			</div>
-			<strong> Copyright © 2016 <a style="font-weight: 100;"
-				href="#"><b>Sistema
-						de Solicitação de Chamados</a>.
-			</strong> Todos os direitos reservados. Contato SETIC: 98152-9740 
+			<strong>Copyright &copy; 2016 <a
+				href="http://www.saogoncalo.rn.gov.br/portal-setic/">SETIC -
+					Subsecretaria de Tecnologia da Informação e Ciência</a>.
+			</strong>&nbsp;&nbsp; <b>Contato:</b> 98152-9740
 		</footer>
+		
+	</div>
+	</div>
 	</div>
 	<!-- ./wrapper -->
 	<!-- Bootstrap 3.3.2 JS -->

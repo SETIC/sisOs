@@ -3,11 +3,27 @@
 <html lang="pt-br">
 <head>
 <title>Ordem de Serviço . Módulo OS</title>
-<meta name="layout" content="public"/>
+<meta name="layout" content="public" />
 <meta content="width=device-width, initial-scale=1" name="viewport">
 </head>
-<body>
- <script>
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>Pesquisa OS</h1>
+
+				<!-- Tabela  -->
+
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+					<li class="active">Pesquisa OS</li>
+					<br>
+				</ol>
+<script>
  function mudarSelecao(){
 			
 			var x = document.getElementById('tipoBusca');
@@ -54,96 +70,80 @@
 			
 		}
 		</script>
-      <section class="content-header" style="margin-left: 5%; margin-bottom: 2%;">
-		<h1>
-			Ordem de Serviço<small>Consulta</small>
-		</h1>
-		<br>
-		<div id="navBar">
-			<ul class="nav nav-tabs">
-				<li role="presentation"><a href="/sisOs/ordemDeServico/listarOrdemDeServico"><strong>Listagem de Chamados</strong></a></li>
-				<li role="presentation"><a href="/sisOs/ordemDeServico/cadastrarOrdemDeServico"><strong>Novo Chamado</strong></a></li>
-				<li role="presentation"><a href="/sisOs/ordemDeServico/pesquisarOrdemDeServico"><strong>Pesquisar Os</strong></a></li>
-				<li role="presentation"><a href="/sisOs/ordemDeServico/graficoOsSituacoes"><strong>Gráfico Os</strong></a></li>
-				 <div class="pull-right">
-               <g:link controller="UsuariosOs" action="logout" class="badge">Sair</g:link>
-             </div>
-			</ul>
-		</div>
-		<br>
-			<g:form controller="ordemDeServico" action="pesquisarOrdemDeServico" class="form">
-			<div class="form-heading" style="width:150px;">
-				<label>Tipo de Busca</label>
-				<div class="controls">
-					<select class="selectpicker"  id ="tipoBusca" name="tipoBusca" onchange = "mudarSelecao();">
-						<option value="null">SELECIONE...</option>
-						<option value="orgao">ORGÃO</option>
-						<option value="interessado">INTERESSADO</option>
-						<option value="data">DATA DE EMISSÃO</option>
-						<option value="dataAgendamento">DATA DE AGENDAMENTO</option>
-					</select>
-				</div>
-			</div>
-			<br>
-			<div id='newInput'>
-			<!-- lugar onde aparecerao os campos -->
-		   	</div>
-			</g:form>
-		</section>
-	<!-- CORPO DA PÁGINA -->
-	<section class="content">
-		<div>
-			<g:if test="${ok}">
-				<div class="alert alert-success">
-					${ok}
-				</div>
-			</g:if>
-			<g:if test="${erro}">
-				<div class="alert alert-danger">
-					${erro}
-				</div>
-			</g:if>
-                       
-			<div class="box box-white">
-				<table id="pequisarOs"
-					class="table table-striped table-hover example">
-					<thead>
-						<tr>
-						    <th style="text-align: left;padding-left:10px;">Orgão</th>
-						    <th style="text-align: left;padding-left:10px;">Situação</th>
-						    <th style="text-align: left;padding-left:10px;">Interessado</th> 
-						</tr>
-					</thead>
-					<tbody>
-					<g:set var="i" value="${1}" />
-						<g:each in='${ordens?}'>
-							<tr class='linha_registro'>
-								<td>
-									${it.orgao.nome}	
-								</td>
-								<td>
-				       			<g:if test="${it.status.nome == 'ABERTO'}">
-										<span class="label label-danger">ABERTO</span>
-									</g:if>
-								<g:if test="${it.status.nome == 'PENDENTE'}">
-										<span class="label label-warning">PENDENTE</span>
-									</g:if>
-								
-								 <g:if test="${it.status.nome =='CONCLUÍDO'}">
-										<span class="label label-success">CONCLUIDO</span>
-									</g:if>
-								</td>
-								<td>
-								   ${it.interessado}
-								</td>
-							</tr>
-						</g:each>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</section>
-</body>
+					<section class="content-header"
+						style="margin-left: 5%; margin-bottom: 2%;">
+
+						<br>
+						<g:form controller="ordemDeServico"
+							action="pesquisarOrdemDeServico" class="form">
+							<div class="form-heading" style="width: 150px;">
+								<label>Tipo de Busca</label>
+								<div class="controls">
+									<select class="selectpicker" id="tipoBusca" name="tipoBusca"
+										onchange="mudarSelecao();">
+										<option value="null">SELECIONE...</option>
+										<option value="orgao">ORGÃO</option>
+										<option value="interessado">INTERESSADO</option>
+										<option value="data">DATA DE EMISSÃO</option>
+										<option value="dataAgendamento">DATA DE AGENDAMENTO</option>
+									</select>
+								</div>
+							</div>
+							<br>
+							<div id='newInput'>
+								<!-- lugar onde aparecerao os campos -->
+							</div>
+						</g:form>
+					</section>
+					<!-- CORPO DA PÁGINA -->
+					<section class="content">
+						<div>
+							<g:if test="${ok}">
+								<div class="alert alert-success">
+									${ok}
+								</div>
+							</g:if>
+							<g:if test="${erro}">
+								<div class="alert alert-danger">
+									${erro}
+								</div>
+							</g:if>
+
+							<div class="box box-white">
+								<table id="pequisarOs"
+									class="table table-striped table-hover example">
+									<thead>
+										<tr>
+											<th style="text-align: left; padding-left: 10px;">Orgão</th>
+											<th style="text-align: left; padding-left: 10px;">Situação</th>
+											<th style="text-align: left; padding-left: 10px;">Interessado</th>
+										</tr>
+									</thead>
+									<tbody>
+										<g:set var="i" value="${1}" />
+										<g:each in='${ordens?}'>
+											<tr class='linha_registro'>
+												<td>
+													${it.orgao.nome}
+												</td>
+												<td><g:if test="${it.status.nome == 'ABERTO'}">
+														<span class="label label-danger">ABERTO</span>
+													</g:if> <g:if test="${it.status.nome == 'PENDENTE'}">
+														<span class="label label-warning">PENDENTE</span>
+													</g:if> <g:if test="${it.status.nome =='CONCLUÍDO'}">
+														<span class="label label-success">CONCLUIDO</span>
+													</g:if></td>
+												<td>
+													${it.interessado}
+												</td>
+											</tr>
+										</g:each>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</section>
+				</body>
 </html>
 
 
