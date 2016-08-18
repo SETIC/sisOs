@@ -75,12 +75,12 @@
           </style>
             
             <g:if test="${ctl != null && act != null }">
-            	<input type="hidden" name="ctl" value="${ctl }">
-            	<input type="hidden" name="act" value="${act }">
+            	<input type="hidden" name="ctl" value="${ctl}">
+            	<input type="hidden" name="act" value="${act}">
             </g:if>
             <g:else>
             	<input type="hidden" name="ctl" value="ordemDeServico">
-            	<input type="hidden" name="act" value="listarOrdemDeServico">
+            	<input type="hidden" name="act" value="homeGrafico">
             </g:else>
             <p id="alertVerificador" class="text-red"></p>
             <g:if test="${ok}">
