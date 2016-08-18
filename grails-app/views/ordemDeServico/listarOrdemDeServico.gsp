@@ -171,102 +171,25 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
- <div class="wrapper">
-  <header class="main-header">
-
-    <!-- Logo -->
-    <a href="index2.html" class="logo">
-      <!-- mini logo 50x50 pixels -->
-      <span class="logo-mini"><b>SI</b>OS</span>
-      <!-- logo regular -->
-      <span class="logo-lg"><b>SIS</b>OS</span>
-    </a>
-
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-        <span class="sr-only">Navegação</span>
-      </a>
-      <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
-            
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
-              <span class="hidden-xs">Suporte OS</span>&nbsp;&nbsp;&nbsp;&nbsp;
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-
-                <p>
-                  Suporte OS<br>
-                  <small>Coordena o SISOS - Sistema de Abertura de Chamado Técnico Junto ao Setor de Tecnologia.<br><br><br>
-                  SETIC - Subsecretaria de Tecnologia da Informação e Ciência
-                  </small>
-                </p>
-              </li>
-         
-      </div>
-
-    </nav>
-  </header>
-  
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-    <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-         <img alt="" src="img\setic.png" height="155x">
-        </div>
-        <div class="pull-left info">
-          <p>Suporte OS</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
-      <ul class="sidebar-menu">
-        <li class="header">MENU PRINCIPAL</li>
-        <li class="active treeview">
-          <a href="index.html">
-            <i class="fa fa-dashboard"></i> <span>Painel</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="Listagem.html">
-            <i class="fa fa-th"></i> <span>Listagem de Chamados</span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="GraficosOS.html">
-            <i class="fa fa-pie-chart"></i>
-            <span>Gráficos OS</span>
-          </a>
-         
-        </li>
-        
-        <li class="treeview">
-          <a href="PesquisaOS.html">
-            <i class="fa fa-folder"></i> <span>Pesquisa OS</span>
-
-          </a>
-          
-        </li>
-
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Sair</span></a></li>
-
-      </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
+<body>
+	<section class="content-header" style="margin-left: 5%; margin-bottom: 2%;">
+		<h1>
+			Chamados<small> Visualização e Gerenciamento</small>
+		</h1>
+		<br>
+		<div id="navBar">
+			<ul class="nav nav-tabs">
+			    <li role="presentation"><a href="/sisOs/ordemDeServico/homeGrafico"><strong>Home</strong></a></li>				 
+				<li role="presentation"><a href="/sisOs/ordemDeServico/listarOrdemDeServico"><strong>Listagem de Chamados</strong></a></li>
+				<li role="presentation"><a href="/sisOs/ordemDeServico/cadastrarOrdemDeServico"><strong>Novo Chamado</strong></a></li>
+				<li role="presentation"><a href="/sisOs/ordemDeServico/pesquisarOrdemDeServico"><strong>Pesquisar Os</strong></a></li>
+				<li role="presentation"><a href="/sisOs/ordemDeServico/graficoOsSituacoes"><strong>Gráfico Os</strong></a></li>
+                <div class="pull-right">
+               <g:link controller="UsuariosOs" action="logout" class="badge">Sair</g:link>
+             </div>
+			</ul>
+		</div>
+	</section>
 	<!-- CORPO DA PÁGINA -->
 	<section class="content">
 		<div class="">

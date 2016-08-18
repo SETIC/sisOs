@@ -36,22 +36,56 @@
   var grafico = document.getElementById('GraficoPizza').toDataURL();
   newWin = window.open("");
   newWin.document.write("<style=''>");
-  newWin.document.write("<td><img src='${request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}sisOs/static/images/brasao.jpg'; style='width:100px; float:left; margin-top:-9px;'> </td>");
-						newWin.document.write("<h4 style=' margin-left:220px; '>PREFEITURA MUNICIPAL DE SÃO GONÇALO DO AMARANTE - RN</h4>");
-						newWin.document.write("<h4 style='margin-top:20px; margin-left:330px;'>TOTAL DE ORDENS DE SERVIÇOS</h4>");
-						newWin.document.write("<style type='text/css' >");
-						newWin.document.write("</style>");
-						newWin.document.write("");
-						newWin.document.write("<br>");
-						newWin.document.write("<p style = 'margin-left:200px;'><img src='"  + grafico + "'></p>");
-						newWin.document.write("<p style = 'margin-left:20px;'>Abertos: " + abertos + " </p>");
-						newWin.document.write("<p style = 'margin-left:20px;'>Pendentes: "+ pendentes + " </p>");
-						newWin.document.write("<p style = 'margin-left:20px;'>Concluidos: "+ concluidos + " </p>");
-						newWin.document.write(divToPrint.outerHTML);
-						newWin.print();
-						newWin.close();
-					}
-				</script>
+
+  newWin.document.write("<td> <img src='${request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}sisOs/static/images/brasao.jpg'; style='width:100px; float:left; margin-top:-9px;'> </td>");
+  newWin.document.write("<h4 style=' margin-left:220px; '>PREFEITURA MUNICIPAL DE SÃO GONÇALO DO AMARANTE - RN</h4>");
+  newWin.document.write("<h4 style='margin-top:20px; margin-left:330px;'>TOTAL DE ORDENS DE SERVIÇOS</h4>");
+  newWin.document.write("<style type='text/css' >");
+  newWin.document.write("</style>");
+  newWin.document.write("");
+  newWin.document.write("<br>");
+  newWin.document.write("<p style = 'margin-left:200px;'><img src='"  + grafico + "'></p>");
+  newWin.document.write("<p style = 'margin-left:20px;'>Abertos: " +abertos+ " </p>");
+  newWin.document.write("<p style = 'margin-left:20px;'>Pendentes: " +pendentes+ " </p>");
+  newWin.document.write("<p style = 'margin-left:20px;'>Concluidos: " +concluidos+ " </p>");
+  
+  newWin.document.write(divToPrint.outerHTML);
+  newWin.print();
+  newWin.close();
+}
+</script>
+	<!-- Content Header (Page header) -->
+	<section class="content-header" style="margin-left: 5%; margin-bottom:2px;">
+		<h1>
+			Painel <small>Estatisticas</small>
+		</h1>
+	    <br>
+		<%--<div id="navBar">
+			<ul class="nav nav-tabs">
+				<li role="presentation"><a href="/sisOs/ordemDeServico/homeGrafico"><strong>Home</strong></a></li>				 
+				<li role="presentation"><a href="/sisOs/ordemDeServico/listarOrdemDeServico"><strong>Listagem de Chamados</strong></a></li>
+				<li role="presentation"><a href="/sisOs/ordemDeServico/cadastrarOrdemDeServico"><strong>Novo Chamado</strong></a></li>
+				<li role="presentation"><a href="/sisOs/ordemDeServico/pesquisarOrdemDeServico"><strong>Pesquisar Os</strong></a></li>
+				<li role="presentation"><a href="/sisOs/ordemDeServico/graficoOsSituacoes"><strong>Gráfico Os</strong></a></li>
+				<div class="pull-right">
+               <g:link controller="UsuariosOs" action="logout" class="badge">Sair</g:link>
+             </div>
+			</ul>
+		</div>
+		<br>
+     		 --%><style type="text/css">
+		    .box {
+		        margin: 0px auto;
+		        width: 60%;
+		        top:-175px;
+		        margin-left:20%;
+		    }
+		
+		    .box-chart {
+		        width: 70%;
+		        margin: 0 auto;
+		        padding: 10px;
+		    }
 
 				<style type="text/css">
 				.box {
@@ -104,7 +138,7 @@
 					</div>
 					<br>
 					<br>
-					<div style="margin-top: 10px; margin-left: 48px;">
+					<div style="margin-top: 10px; margin-left: 18px;">
 						<button style="margin-top: 10px; width: 130px" type="submit"
 							class="btn btn-primary btn-flat">
 							<i class="fa fa-pie-chart" aria-hidden="true"></i> Gerar Gráfico

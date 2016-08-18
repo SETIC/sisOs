@@ -119,9 +119,10 @@
 		style="float: inherit; margin-left: auto; margin-right: auto;">
 		<header class="main-header">
 
-			<!-- Header Navbar: style can be found in header.less -->
+			<!-- Header Navbar: style can be found in header.less --><%--
+<<<<<<< HEAD
 
-			<div class="wrapper">
+			--%><div class="wrapper">
 
 				<header class="main-header">
 
@@ -204,8 +205,23 @@
 						</ul>
 					</section>
 					<!-- /.sidebar -->
-				</aside>
-		</header>
+				</aside><%--
+=======
+			<nav class="navbar navbar-static-top "
+				style="float: inherit; margin-left: auto; margin-right: auto; width: 100%; height: 110px;"
+				role="navigation">
+				<h2 style="text-align:center;margin-top:15px; color: #FFFFFF; font-weight: bold; margin-top: 30px;">Solicitação de Chamados</h2>
+				
+				<!-- Logo -->
+				
+					<g:img dir="images" file="setic.png" class="img-responsive"
+						alt="Secretaria de tecnologia" style="height: 100px; margin-left: 15%; margin-top: -70px;" />
+						
+					<g:img dir="images" file="sga.png" class="img-responsive" 
+						alt="Prefeitura de São Gonçalo do Amarante" style="height: 100px; float: right; margin-top: -99px;margin-right: 15%;" />
+			</nav>
+>>>>>>> f794216c551995f7fbaee1624e280baa8cb35ee9
+		--%></header>
 		<!-- Left side column. contains the logo and sidebar -->
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper col-md-10 col-md-offset-1"

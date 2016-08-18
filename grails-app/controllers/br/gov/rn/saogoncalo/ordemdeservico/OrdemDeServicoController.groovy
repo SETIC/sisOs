@@ -17,19 +17,19 @@ class OrdemDeServicoController {
 	def salvarOrdemDeServico(){
 
 		OrdemDeServico ordemDeServico = new OrdemDeServico(params)
-		ordemDeServico.interessado = params.interessado
+	    ordemDeServico.interessado = params.interessado
 		ordemDeServico.matricula = params.matricula
+		def matriculasOS = FuncionarioOs.findByMatricula(params.matricula)
 		ordemDeServico.telefone = params.telefone
 		ordemDeServico.email = params.email
 		ordemDeServico.problema = params.problema
-		//ordemDeServico.solucao = params.solucao
 		ordemDeServico.dataEmissao =  new Date()
-		//ordemDeServico.dataConclusao = ""
 		def status = Status.get(1)
 		ordemDeServico.status = status
 		def orgao = Orgao.get(params.orgao)
 		ordemDeServico.orgao = orgao
-
+		ordemDeServico.funcionarioOs = matriculasOS
+		
 		  if (ordemDeServico.save(flush:true)){
 			  EnviaEmailController envia = new EnviaEmailController()
 			  envia.enviaEmail(ordemDeServico.id)
@@ -245,6 +245,24 @@ class OrdemDeServicoController {
 			}
 	     }
 		
+
+		
+		def validarMatriculaFuncOs(long matriculasOS){
+			
+			boolean verifMatricula
+			FuncionarioOs  matriculav  = FuncionarioOs.findByMatricula(matriculasOS)
+			println("valor da matricula " +matriculav + "--matriculaOS " +matriculasOS.toString())
+			  if(matriculav == null){
+				  verifMatricula = false
+			  }else{
+			  
+			   verifMatricula = true
+			  }
+			 
+			render (verifMatricula)
+			
+		        }
+		
 		def homeGrafico(){
 			
 			def abertos = Status.get(1)
@@ -258,10 +276,12 @@ class OrdemDeServicoController {
 			
 			println("total de os abertas" +tipoStatusAberto)
 			 render(view:"/ordemDeServico/homeGrafico.gsp", model:[tipoStatusAberto:tipoStatusAberto ,tipoStatusPendente:tipoStatusPendente , tipoStatusConcluido: tipoStatusConcluido,totalStatus:totalStatus])
+			   }
 			 
 			 }
 		
-      }
+
+      
 		
 		
 

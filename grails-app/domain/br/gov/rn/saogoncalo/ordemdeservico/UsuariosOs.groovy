@@ -15,7 +15,7 @@ class UsuariosOs {
 	static mapping ={
 		table name: "usuarios_os", schema:"administracao_ordem_de_servico"
 		version false
-		id generator: 'sequence', params:[sequence:'usuarios_os_id_seq']
+		id generator: 'sequence', params:[sequence:'administracao_ordem_de_servico.usuarios_os_id_seq']
 		
 		
 	}

@@ -126,7 +126,10 @@
 				<header class="main-header">
 
 					<!-- Logo -->
-					<a href="index2.html" class="logo"> <!-- mini logo 50x50 pixels -->
+					<a href="index2.html" class="logo"> <div class="pull-left image">&nbsp;&nbsp;&nbsp;
+								<g:img dir="img" file="setic.png" style="height:35px;" />
+
+							</div><!-- mini logo 50x50 pixels -->
 						<span class="logo-mini"><b></b></span> <!-- logo regular --> <span
 						class="logo-lg"><b>SIS</b>OS</span>
 					</a>
@@ -135,6 +138,17 @@
 					<nav class="navbar navbar-static-top">
 						
 						<!-- Navbar Right Menu -->
+						<div class="navbar-custom-menu">
+							<ul class="nav navbar-nav">
+								<!-- Messages: style can be found in dropdown.less-->
+								<li class="dropdown messages-menu">
+									<!-- User Account: style can be found in dropdown.less -->
+								<li class="dropdown user user-menu"><a href="#"
+									class="dropdown-toggle" data-toggle="dropdown"> <span
+										class="hidden-xs">Sistema de Chamado de Assistência Técnica ao Setor de Tecnologia</span>&nbsp;&nbsp;&nbsp;&nbsp;
+								</a>
+									<ul class="dropdown-menu">
+
 						<div class="navbar-custom-menu">
 							<ul class="nav navbar-nav">
 								<!-- Messages: style can be found in dropdown.less-->

@@ -17,8 +17,7 @@ class OrdemDeServico {
 	String solucao
 
 			
-	//static belongsTo = [status:Status ,orgao:Orgao,usuariosOs:UsuariosOs]
-	static belongsTo = [status:Status ,orgao:Orgao]
+	static belongsTo = [status:Status ,orgao:Orgao,funcionarioOs:FuncionarioOs]
 	
 	static constraints = {
 		interessado blank:false, nullable:false
@@ -30,6 +29,8 @@ class OrdemDeServico {
 		matricula blank:false, nullable:false
 		telefone blank:false, nullable:false
 		dataAgendamento blank:true , nullable:true
+		funcionarioOs blank:true , nullable:true
+		
 		
 	}
 	
