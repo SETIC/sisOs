@@ -245,6 +245,7 @@ class OrdemDeServicoController {
 			}
 	     }
 		
+
 		
 		def validarMatriculaFuncOs(long matriculasOS){
 			
@@ -260,8 +261,7 @@ class OrdemDeServicoController {
 			 
 			render (verifMatricula)
 			
-		}
-		
+		        }
 		
 		def homeGrafico(){
 			
@@ -276,8 +276,12 @@ class OrdemDeServicoController {
 			
 			println("total de os abertas" +tipoStatusAberto)
 			 render(view:"/ordemDeServico/homeGrafico.gsp", model:[tipoStatusAberto:tipoStatusAberto ,tipoStatusPendente:tipoStatusPendente , tipoStatusConcluido: tipoStatusConcluido,totalStatus:totalStatus])
+			   }
+			 
 			 }
-      }
+		
+
+      
 		
 		
 

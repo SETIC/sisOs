@@ -75,8 +75,8 @@
           </style>
             
             <g:if test="${ctl != null && act != null }">
-            	<input type="hidden" name="ctl" value="${ctl }">
-            	<input type="hidden" name="act" value="${act }">
+            	<input type="hidden" name="ctl" value="${ctl}">
+            	<input type="hidden" name="act" value="${act}">
             </g:if>
             <g:else>
             	<input type="hidden" name="ctl" value="ordemDeServico">

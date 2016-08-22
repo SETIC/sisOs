@@ -3,11 +3,25 @@
 <html lang="pt-br">
 <head>
 <title>Ordem de Serviço . Módulo OS</title>
-<meta name="layout" content="public"/>
+<meta name="layout" content="public" />
 <meta content="width=device-width, initial-scale=1" name="viewport">
 </head>
-<body>
- <script>
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>Pesquisa OS</h1>
+
+				<!-- Tabela  -->
+
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+					<li class="active">Pesquisa OS</li>
+					<br>
+				</ol>
+<script>
  function mudarSelecao(){
 			
 			var x = document.getElementById('tipoBusca');
@@ -59,7 +73,7 @@
 			Ordem de Serviço<small>Consulta</small>
 		</h1>
 		<br>
-		<div id="navBar">
+		<%--<div id="navBar">
 			<ul class="nav nav-tabs">
 			    <li role="presentation"><a href="/sisOs/ordemDeServico/homeGrafico"><strong>Home</strong></a></li>
 				<li role="presentation"><a href="/sisOs/ordemDeServico/listarOrdemDeServico"><strong>Listagem de Chamados</strong></a></li>
@@ -71,7 +85,7 @@
              </div>
 			</ul>
 		</div>
-		<br>
+		--%><br>
 			<g:form controller="ordemDeServico" action="pesquisarOrdemDeServico" class="form">
 			<div class="form-heading" style="width:150px;">
 				<label>Tipo de Busca</label>
