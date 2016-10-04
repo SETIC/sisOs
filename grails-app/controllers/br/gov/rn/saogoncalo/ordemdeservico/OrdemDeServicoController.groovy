@@ -245,21 +245,28 @@ class OrdemDeServicoController {
 			}
 	     }
 		
-
 		
 		def validarMatriculaFuncOs(long matriculasOS){
 			
 			boolean verifMatricula
+			def result
+		   
 			FuncionarioOs  matriculav  = FuncionarioOs.findByMatricula(matriculasOS)
-			println("valor da matricula " +matriculav + "--matriculaOS " +matriculasOS.toString())
+			println("--matriculaOS--" +matriculav.nomeFuncionario)
 			  if(matriculav == null){
 				  verifMatricula = false
+			 
 			  }else{
 			  
 			   verifMatricula = true
+			  
 			  }
-			 
-			render (verifMatricula)
+			  
+			  result = ["id":matriculav.id, "nome":matriculav.nomeFuncionario]
+			  print("resultados" +result)
+			  
+			
+			render (result as JSON)
 			
 		        }
 		
@@ -274,7 +281,6 @@ class OrdemDeServicoController {
 			def tipoStatusConcluido = OrdemDeServico.countByStatus(concluidos)
 			def totalStatus = tipoStatusAberto + tipoStatusPendente +tipoStatusConcluido
 			
-			println("total de os abertas" +tipoStatusAberto)
 			 render(view:"/ordemDeServico/homeGrafico.gsp", model:[tipoStatusAberto:tipoStatusAberto ,tipoStatusPendente:tipoStatusPendente , tipoStatusConcluido: tipoStatusConcluido,totalStatus:totalStatus])
 			   }
 			 

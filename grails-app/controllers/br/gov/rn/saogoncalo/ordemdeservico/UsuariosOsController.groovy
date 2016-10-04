@@ -24,7 +24,7 @@ class UsuariosOsController {
 			  session["user"] = user
 			  session["pass"] = pass
 			  redirect(controller:params.ctl, action:params.act)
-			  
+			  // render("view:/index.gsp")
 		  }else{
 		  render(view:"/usuariosOs/login.gsp", model:[erro:"O usuario ou a senha inseridos estao incorretos."])
 		  }

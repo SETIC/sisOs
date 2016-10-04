@@ -12,7 +12,6 @@
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 
-
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
@@ -62,8 +61,7 @@
 									<div class="form-group">
 										<label for="inputtelefone" class="col-sm-2 control-label">Telefone</label>
 										<div class="col-sm-4">
-											<g:textField class="form-control" name="telefone" disabled
-												value="${it.telefone}" />
+											<g:textField class="form-control" name="telefone" disabled value="${it.telefone}" />
 										</div>
 									</div>
 									<br>
@@ -71,23 +69,20 @@
 										<label for="inputdataemissao" class="col-sm-2 control-label">Data
 											de Emissão</label>
 										<div class="col-sm-4">
-											<g:textField class="form-control" name="dataEmissao" disabled
-												value="${it.dataEmissao.format('dd/MM/yyyy')}" />
+											<g:textField class="form-control" name="dataEmissao" disabled value="${it.dataEmissao.format('dd/MM/yyyy')}" />
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputemail" class="col-sm-2 control-label">E-mail</label>
 										<div class="col-sm-4">
-											<g:textField class="form-control" name="email" disabled
-												value="${it.email}" />
+											<g:textField class="form-control" name="email" disabled value="${it.email}" />
 										</div>
 									</div>
 									<br>
 									<div class="form-group">
 										<label for="inputorgao" class="col-sm-2 control-label">Orgão</label>
 										<div class="col-sm-4">
-											<g:textField class="form-control" name="orgao" disabled
-												value="${it.orgao.nome}" />
+											<g:textField class="form-control" name="orgao" disabled value="${it.orgao.nome}" />
 										</div>
 									</div>
 									<br>

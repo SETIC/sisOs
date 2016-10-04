@@ -25,7 +25,7 @@ class EnviaEmailController {
             subject "Abertura de Chamado"
 			cc "setic.suporte@saogoncalo.rn.gov.br"
 			html "<html><head><title></title></head>"+
-			"<body>< e	q2e 	e     align=\"left\" border=\"0\" cellpadding=\"1\" cellspacing=\"1\" style=\"border-style:hidden;background-color:#e6e6fa;\">"+
+			"<body><align=\"left\" border=\"0\" cellpadding=\"1\" cellspacing=\"1\" style=\"border-style:hidden;background-color:#e6e6fa;\">"+
 			"<tbody><tr><td colspan=\"2\" style=\"text-align: center;\"><h3 style=\"color:red;\">"+
 			"<span style=\"color:#000000;\">PREFEITURA MUNICIPAL DE S&Atilde;O GON&Ccedil;ALO DO AMARANTE&nbsp;</span></h3>"+
 			"<p><strong><span style=\"color:#000000;\">SUBSECRETARIA DE TECNOLOGIA DA INFORMA&Ccedil;&Atilde;O E CI&Ecirc;NCIA</span></strong></p>"+

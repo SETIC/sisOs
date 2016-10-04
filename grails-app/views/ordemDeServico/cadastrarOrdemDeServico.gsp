@@ -35,6 +35,16 @@
 					   <div class="alert alert-info"><strong>Aviso. </strong> A SETIC informa que o SisOS é de uso exclusivo para a abertura 
 						  de suporte técnico do setor  de Tecnologia da Informação da Administração Municipal.
 						</div>
+						<script src="/sisOs/js/validarMatricula.js"></script>
+						<div class="form-group">
+							<label for="matricula" class="col-sm-2 control-label">Matricula</label>
+							<div class="col-sm-4">
+								<input class="form-control" id="matricula" placeholder="Matricula do interessado" required name="matricula" type="text" value="" onblur="validarMatricula();"/>
+							</div>
+								<p id="mensagemErro" class="text-red">${erro}</p>
+							</div>
+						<br>
+						
 						<div class="form-group">
 							<label for="interessado" class="col-sm-2 control-label">Interessado</label>
 							<div class="col-sm-4">
@@ -43,22 +53,14 @@
 							</div>
 						</div>
 						<br>
-						<script src="/sisOs/js/validarMatricula.js"></script>
-						<div class="form-group">
-							<label for="matricula" class="col-sm-2 control-label">Matricula</label>
-							<div class="col-sm-4">
-
-								<input class="form-control" id="matricula" placeholder="Matricula do interessado" required name="matricula" type="text" value="" onblur="validarMatricula();" >
-							</div>
-						</div>
 						
-						<br>
+						<script src="/sisOs/js/validaTelefone.js"></script>
 						<div class="form-group">
 							<label for="telefone" class="col-sm-2 control-label">Telefone</label>
 							<div class="col-sm-4">
-								<g:textField class="form-control" placeholder="Telefone"
-									name="telefone" value="" />
+								<g:textField class="form-control" placeholder="9999-9999" id="telefone" name="telefone" value="" onblur="validaTelefone(telefone);" />
 							</div>
+							<p id="mensagemErroTelefone" class="text-red">${erro}</p>
 						</div>
 						<br>
 
@@ -70,6 +72,7 @@
 									placeholder="E-mail" id="email" name="email" value="" required="true"
 									name="email" onblur="validaEMAIL(email)" />
 							</div>
+							<p id="mensagemErroEmail" class="text-red">${erro}</p>
 						</div>
 						<br>
 
