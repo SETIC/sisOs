@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <%@page import="java.lang.System"%>
-
-
 <html>
 <head>
 <meta charset="UTF-8">
@@ -120,7 +118,6 @@
 		<header class="main-header">
 
 			<!-- Header Navbar: style can be found in header.less --><%--
-<<<<<<< HEAD
 
 			--%><div class="wrapper">
 
@@ -181,47 +178,33 @@
 						</div>
 						<ul class="sidebar-menu">
 							<li class="header">MENU PRINCIPAL</li>
-							<li class="active treeview"><a href="/sisOs/ordemDeServico/homeGrafico"> <i
-									class="fa fa-dashboard"></i> <span>Painel</span>
+							<li class="active treeview"><a href="/sisOs/ordemDeServico/homeGrafico"> 
+							    <i class="fa fa-dashboard"></i> <span>Painel</span>
 							</a></li>
 
 							<li><a href="/sisOs/ordemDeServico/listarOrdemDeServico">
 									<i class="fa fa-th"></i> <span>Listagem de Chamados</span>
 							</a></li>
-							<li class="treeview"><a
-								href="/sisOs/ordemDeServico/graficoOsSituacoes"> <i
-									class="fa fa-pie-chart"></i> <span>Gráficos OS</span>
+							<li class="treeview"><a href="/sisOs/ordemDeServico/cadastrarOrdemDeServico"> 
+							<i class="fa fa-plus"></i> <span>Cadastrar OS</span>
+							</a></li>
+							<li class="treeview">
+							   <a href="/sisOs/ordemDeServico/graficoOsSituacoes"> 
+							   <i class="fa fa-pie-chart"></i> <span>Gráficos OS</span>
 							</a></li>
 
-							<li class="treeview"><a
-								href="/sisOs/ordemDeServico/pesquisarOrdemDeServico"> <i
-									class="fa fa-folder"></i> <span>Pesquisa OS</span>
+							<li class="treeview"><a href="/sisOs/ordemDeServico/pesquisarOrdemDeServico"> 
+								   <i class="fa fa-folder"></i> <span>Pesquisa OS</span>
 
 							</a></li>
 
 							<li><g:link controller="UsuariosOs" action="logout"><i class="fa fa-circle-o text-red"></i>
 									<span>Sair</span></g:link></li>
-
 						</ul>
 					</section>
 					<!-- /.sidebar -->
-				</aside><%--
-=======
-			<nav class="navbar navbar-static-top "
-				style="float: inherit; margin-left: auto; margin-right: auto; width: 100%; height: 110px;"
-				role="navigation">
-				<h2 style="text-align:center;margin-top:15px; color: #FFFFFF; font-weight: bold; margin-top: 30px;">Solicitação de Chamados</h2>
-				
-				<!-- Logo -->
-				
-					<g:img dir="images" file="setic.png" class="img-responsive"
-						alt="Secretaria de tecnologia" style="height: 100px; margin-left: 15%; margin-top: -70px;" />
-						
-					<g:img dir="images" file="sga.png" class="img-responsive" 
-						alt="Prefeitura de São Gonçalo do Amarante" style="height: 100px; float: right; margin-top: -99px;margin-right: 15%;" />
-			</nav>
->>>>>>> f794216c551995f7fbaee1624e280baa8cb35ee9
-		--%></header>
+				</aside>
+		</header>
 		<!-- Left side column. contains the logo and sidebar -->
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper col-md-10 col-md-offset-1"
@@ -239,9 +222,8 @@
 					Subsecretaria de Tecnologia da Informação e Ciência</a>.
 			</strong>&nbsp;&nbsp; <b>Contato:</b> 98152-9740
 		</footer>
-		
-	</div>
-	</div>
+	     </div>
+	   </div>
 	</div>
 	<!-- ./wrapper -->
 	<!-- Bootstrap 3.3.2 JS -->

@@ -7,12 +7,14 @@
 				//url : "http://192.168.1.252:8080/sisOs/ordemDeServico/validarMatriculaFuncOs?matriculasOS="+matriculasOS,
 				dataType : "json",
 				success : function(verifMatricula) {
-					document.getElementById("interessado").value = "joao";
-				if (verifMatricula == "") {
-					alert("matricula invalida ou inexistente");
+				if(verifMatricula == "" || verifMatricula == 0) {
+					document.getElementById("mensagemErro").innerHTML = "Matricula invalida ou inexistente";
 					document.getElementById("matricula").focus();
-
-					}
+					
+				}else{    
+					document.getElementById("interessado").value = verifMatricula.nome;	
+					document.getElementById("mensagemErro").innerHTML = ""; 
+				  }  
 				}
 			});
       }
