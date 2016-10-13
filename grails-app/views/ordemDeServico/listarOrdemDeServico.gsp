@@ -76,9 +76,20 @@
 								</td>
 
 								<td><g:formatDate format="dd/MM/yyyy" type="datetime"
-										style="MEDIUM" date="${it.dataEmissao}" /></td>
-								<td><g:formatDate format="dd/MM/yyyy" type="date"
+										style="MEDIUM" date="${it.dataEmissao}" /></td><%--
+							    <td><g:formatDate format="dd/MM/yyyy" type="date"
 										style="MEDIUM" date="${it.dataAgendamento}" /></td>
+								
+								
+								
+								--%><td><g:formatDate format="dd/MM/yyyy" type="date"
+										style="MEDIUM" date="${it.dataAgendamento}" />
+										
+								 <g:if test ="${it.dataAgendamento == null}">
+                                    ${'----'}								
+								 </g:if>		
+								</td>
+								
 								<td>
 									${it.orgao.nome}
 								</td>

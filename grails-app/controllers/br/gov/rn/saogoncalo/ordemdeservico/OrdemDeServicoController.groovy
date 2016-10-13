@@ -34,6 +34,8 @@ class OrdemDeServicoController {
 			  EnviaEmailController envia = new EnviaEmailController()
 			  envia.enviaEmail(ordemDeServico.id)
 			  
+			  
+			  
 			  listarMensagem("Ordem de servico salva com  sucesso", "ok")
 			  //redirect(controller:"OrdemDeServico", action:"cadastrarOrdemDeServico", params:[msg: "Chamado cadastrado com sucesso.", tipo:"ok"])
 			  
@@ -133,7 +135,11 @@ class OrdemDeServicoController {
 		def orgao = Orgao.findAll()
 				if (tipo == "ok"){
 					
-					render(view:"/ordemDeServico/cadastrarOrdemDeServico.gsp", model:[ok:msg,orgao:orgao])
+				    render(view:"/ordemDeServico/cadastrarOrdemDeServico.gsp", model:[ok:msg,orgao:orgao])
+					//render(view:"/cadastrarOrdemDeServico.gsp", model:[ok:msg,orgao:orgao])
+					
+					
+					
 				}else{
 				
                     render(view:"/error.gsp")	             

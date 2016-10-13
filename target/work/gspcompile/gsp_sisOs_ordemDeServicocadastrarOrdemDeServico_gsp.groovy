@@ -43,32 +43,38 @@ printHtmlPart(5)
 printHtmlPart(8)
 createTagBody(2, {->
 printHtmlPart(9)
-invokeTag('textField','g',60,['class':("form-control"),'placeholder':("Telefone"),'name':("telefone"),'value':("")],-1)
+expressionOut.print(erro)
 printHtmlPart(10)
-invokeTag('textField','g',71,['type':("email"),'class':("form-control"),'placeholder':("E-mail"),'id':("email"),'name':("email"),'value':(""),'required':("true"),'onblur':("validaEMAIL(email)")],-1)
+invokeTag('textField','g',61,['class':("form-control"),'placeholder':("9999-9999"),'id':("telefone"),'name':("telefone"),'value':(""),'onblur':("validaTelefone(telefone);")],-1)
 printHtmlPart(11)
-for( _it1331934701 in (orgao) ) {
-changeItVariable(_it1331934701)
+expressionOut.print(erro)
 printHtmlPart(12)
-expressionOut.print(it.id)
+invokeTag('textField','g',73,['type':("email"),'class':("form-control"),'placeholder':("E-mail"),'id':("email"),'name':("email"),'value':(""),'required':("true"),'onblur':("validaEMAIL(email)")],-1)
 printHtmlPart(13)
-expressionOut.print(it.nome)
+expressionOut.print(erro)
 printHtmlPart(14)
-}
+for( _it43573194 in (orgao) ) {
+changeItVariable(_it43573194)
 printHtmlPart(15)
-})
-invokeTag('form','g',108,['name':("ordemDeServico"),'controller':("ordemDeServico"),'action':("salvarOrdemDeServico"),'class':("form-horizontal")],2)
+expressionOut.print(it.id)
 printHtmlPart(16)
-})
-invokeTag('captureBody','sitemesh',112,[:],1)
+expressionOut.print(it.nome)
 printHtmlPart(17)
+}
+printHtmlPart(18)
+})
+invokeTag('form','g',111,['name':("ordemDeServico"),'controller':("ordemDeServico"),'action':("salvarOrdemDeServico"),'class':("form-horizontal")],2)
+printHtmlPart(19)
+})
+invokeTag('captureBody','sitemesh',115,[:],1)
+printHtmlPart(20)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1471546195458L
+public static final long LAST_MODIFIED = 1475164613695L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
