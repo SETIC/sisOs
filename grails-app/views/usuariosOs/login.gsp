@@ -112,4 +112,3 @@
     <g:javascript src="bootstrap.min.js" />
   </body>
 </html>
-

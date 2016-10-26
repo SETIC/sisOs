@@ -256,24 +256,21 @@ class OrdemDeServicoController {
 			
 			boolean verifMatricula
 			def result
+			def resultado
 		   
 			FuncionarioOs  matriculav  = FuncionarioOs.findByMatricula(matriculasOS)
-			println("--matriculaOS--" +matriculav.nomeFuncionario)
-			  if(matriculav == null){
-				  verifMatricula = false
 			 
-			  }else{
+			 if(matriculav == null){
+				  resultado =  ["id":0, "nome":""]
+			 }else{
 			  
-			   verifMatricula = true
+			   resultado = ["id":matriculav.id, "nome":matriculav.nomeFuncionario]
 			  
 			  }
-			  
-			  result = ["id":matriculav.id, "nome":matriculav.nomeFuncionario]
-			  print("resultados" +result)
-			  
+
+			  result = resultado
 			
 			render (result as JSON)
-			
 		        }
 		
 		def homeGrafico(){

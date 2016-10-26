@@ -47,8 +47,8 @@ printHtmlPart(6)
 printHtmlPart(9)
 invokeTag('set','g',61,['var':("i"),'value':(1)],-1)
 printHtmlPart(10)
-for( _it963284585 in (ordemDeServico) ) {
-changeItVariable(_it963284585)
+for( _it207789126 in (ordemDeServico) ) {
+changeItVariable(_it207789126)
 printHtmlPart(11)
 expressionOut.print(i++)
 printHtmlPart(12)
@@ -69,27 +69,33 @@ printHtmlPart(18)
 invokeTag('formatDate','g',79,['format':("dd/MM/yyyy"),'type':("datetime"),'style':("MEDIUM"),'date':(it.dataEmissao)],-1)
 printHtmlPart(19)
 invokeTag('formatDate','g',81,['format':("dd/MM/yyyy"),'type':("date"),'style':("MEDIUM"),'date':(it.dataAgendamento)],-1)
-printHtmlPart(17)
-expressionOut.print(it.orgao.nome)
 printHtmlPart(20)
-expressionOut.print(it.telefone)
+if(true && (it.dataAgendamento == null)) {
 printHtmlPart(21)
-expressionOut.print(it.id)
+expressionOut.print('----')
 printHtmlPart(22)
-expressionOut.print(it.id)
-printHtmlPart(23)
 }
+printHtmlPart(23)
+expressionOut.print(it.orgao.nome)
 printHtmlPart(24)
-})
-invokeTag('captureBody','sitemesh',134,['class':("hold-transition skin-blue sidebar-mini")],1)
+expressionOut.print(it.telefone)
 printHtmlPart(25)
+expressionOut.print(it.id)
+printHtmlPart(26)
+expressionOut.print(it.id)
+printHtmlPart(27)
+}
+printHtmlPart(28)
+})
+invokeTag('captureBody','sitemesh',141,['class':("hold-transition skin-blue sidebar-mini")],1)
+printHtmlPart(29)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1473772291737L
+public static final long LAST_MODIFIED = 1476106695404L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
