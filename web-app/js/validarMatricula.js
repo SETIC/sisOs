@@ -3,8 +3,8 @@
     	var matriculasOS = document.getElementById("matricula").value;
 		$.ajax({
 			type : "GET",
-			// url: "http://sistemas.saogoncalo.rn.gov.br:8080/sisOs/ordemDeServico/validarMatriculaFuncOs?matriculasOS="+matriculasOS,
-			url: "http://localhost:8080/sisOs/ordemDeServico/validarMatriculaFuncOs?matriculasOS="+matriculasOS,
+			url: "http://sistemas.saogoncalo.rn.gov.br:8080/sisOs/ordemDeServico/validarMatriculaFuncOs?matriculasOS="+matriculasOS,
+			//url: "http://localhost:8080/sisOs/ordemDeServico/validarMatriculaFuncOs?matriculasOS="+matriculasOS,
 			dataType : "json",
 			success : function(verifMatricula) {
 			if(verifMatricula.id == 0) {
@@ -19,7 +19,7 @@
 			  }  
 			}
 		});
-    	
+		
       }
 
 	

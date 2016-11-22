@@ -46,7 +46,7 @@
 				<table id="listarChamados"
 					class="table table-striped table-hover example">
 					<thead>
-						<tr>
+						<tr class= "success">
 							<th style="text-align: left; padding-left: 10px;">Nº</th>
 							<th style="text-align: left; padding-left: 10px;">Situação</th>
 							<th style="text-align: left; padding-left: 10px;">Interessado</th>
@@ -61,28 +61,28 @@
 						<g:set var="i" value="${1}" />
 						<g:each in='${ordemDeServico?}'>
 							<tr class='linha_registro'>
-								<td>
+								<td class="info">
 									${i++}
 								</td>
-								<td><g:if test="${it.status.id == 1}">
+								<td class="info"><g:if test="${it.status.id == 1}">
 										<span class="label label-danger">ABERTO</span>
 									</g:if> <g:if test="${it.status.id == 2}">
 										<span class="label label-warning">PENDENTE</span>
 									</g:if> <g:if test="${it.status.id == 3}">
 										<span class="label label-success">CONCLUIDO</span>
 									</g:if></td>
-								<td>
+								<td class="info">
 									${it.interessado}
 								</td>
 
-								<td><g:formatDate format="dd/MM/yyyy" type="datetime"
+								<td class="info"><g:formatDate format="dd/MM/yyyy" type="datetime"
 										style="MEDIUM" date="${it.dataEmissao}" /></td><%--
 							    <td><g:formatDate format="dd/MM/yyyy" type="date"
 										style="MEDIUM" date="${it.dataAgendamento}" /></td>
 								
 								
 								
-								--%><td><g:formatDate format="dd/MM/yyyy" type="date"
+								--%><td class="info"><g:formatDate format="dd/MM/yyyy" type="date"
 										style="MEDIUM" date="${it.dataAgendamento}" />
 										
 								 <g:if test ="${it.dataAgendamento == null}">
@@ -90,14 +90,14 @@
 								 </g:if>		
 								</td>
 								
-								<td>
+								<td class="info">
 									${it.orgao.nome}
 								</td>
-								<td>
+								<td class="info">
 									${it.telefone}
 								</td>
 
-								<td>
+								<td class="info">
 									<div class="opcoes">
 										<div style="display: inline">
 											<div title="Editar" class="btn btn-primary btn-xs btn-flat">

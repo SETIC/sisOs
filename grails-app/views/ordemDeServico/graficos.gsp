@@ -100,9 +100,10 @@
 					margin: 0 auto;
 					padding: 10px;
 				}
+				
 				</style>
-				<g:form controller="ordemDeServico" action=" graficoOsSituacoes"
-					class="form">
+				<g:form controller="ordemDeServico" action=" graficoOsSituacoes" class="form">
+				<style>.datepicker{z-index:1200 !important;}</style>
 					<div class="form-group">
 						<label for="graficoDataInicial" class="col-sm-2 control-label">Data
 							de Inicial</label><br>
@@ -112,7 +113,7 @@
 									<input type="text" class="form-control"
 										name="graficoDataInicial"
 										value="${new Date().format('dd/MM/yyyy')}" />
-									<div class="input-group-addon">
+									<div class="input-group-addon btn">
 										<i class="fa fa-calendar"></i>
 									</div>
 								</div>
@@ -129,7 +130,7 @@
 								<div class="input-group date" data-provide="datepicker">
 									<input type="text" class="form-control" name="graficoDataFinal"
 										value="${new Date().format('dd/MM/yyyy')}" />
-									<div class="input-group-addon">
+									<div class="input-group-addon btn">
 										<i class="fa fa-calendar"></i>
 									</div>
 								</div>
@@ -241,5 +242,5 @@
 					</button>
 				</div>
 			</section>
-</body>
+    </body>
 </html>

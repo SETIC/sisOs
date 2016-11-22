@@ -1,18 +1,35 @@
 package br.gov.rn.saogoncalo.ordemdeservico
 import grails.converters.JSON
+import grails.plugin.rendering.*
 
-import java.util.Date
-import java.text.DateFormat
 import java.text.SimpleDateFormat
 
-import javax.swing.RowFilter.AndFilter;
+import javax.mail.Header;
 
-import org.grails.plugin.mail.*
 
 class OrdemDeServicoController {
 
 	def index() {}
-
+	
+	
+	RenderingService pdfRenderingService
+	  
+	  def gerarPdf() {
+		  
+		  
+		 
+		 ByteArrayOutputStream bytes = pdfRenderingService.render(template: "/pdf/teste", controller:"OrdemDeServico")
+		  def fos= new FileOutputStream('listagemDeOs.pdf')
+			fos.write(bytes.toByteArray())
+			fos.close()
+			
+		     renderPdf(template: "/pdf/teste")
+		  
+		   print("passou pelo metodo") 
+					  
+		  }
+	
+	
 
 	def salvarOrdemDeServico(){
 
@@ -35,7 +52,7 @@ class OrdemDeServicoController {
 			  envia.enviaEmail(ordemDeServico.id)
 			  
 			  
-			  
+			 
 			  listarMensagem("Ordem de servico salva com  sucesso", "ok")
 			  //redirect(controller:"OrdemDeServico", action:"cadastrarOrdemDeServico", params:[msg: "Chamado cadastrado com sucesso.", tipo:"ok"])
 			  
@@ -210,7 +227,9 @@ class OrdemDeServicoController {
 		}
 		
 		def orgao = Orgao.findAll()
-		render(view:"/ordemDeServico/pesquisarOrdemDeServico.gsp", model:[ordens:ordens ,orgao:orgao])
+		   
+		 render(view:"/ordemDeServico/pesquisarOrdemDeServico.gsp", model:[ordens:ordens ,orgao:orgao])
+		  
 		 }
 	
 		 else{
