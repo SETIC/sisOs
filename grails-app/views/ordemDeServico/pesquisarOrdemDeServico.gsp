@@ -24,16 +24,15 @@
 	<script>
   function printDiv(id)
   {
-   
+		  
   var listaOs = document.getElementById('pequisarOs');
   newWin = window.open("");
   newWin.document.write("<style=''>");
   newWin.document.write("<table border='0'>");
+  newWin.document.write("<td> <img src='${request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}sisOs/static/images/brasao.jpg'; style='width:100px; float:left; margin-top:-115px;'> </td>");
   newWin.document.write("<tr>");
-
-  newWin.document.write("<td><img src='${request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}sisOs/static/images/brasao.jpg'; style='width:100px; float:left; margin-top:-9px;'></td>");
-  newWin.document.write("<h4 style=' margin-left:220px; '>PREFEITURA MUNICIPAL DE SÃO GONÇALO DO AMARANTE - RN</h4>");
-  newWin.document.write("<h4 style='margin-top:20px; margin-left:330px;'> ORDENS DE SERVIÇO</h4>");
+  newWin.document.write("<h4 style=' margin-left:180px; '>PREFEITURA MUNICIPAL DE SÃO GONÇALO DO AMARANTE - RN</h4>");
+  newWin.document.write("<h4 style='margin-top:20px; margin-left:380px;'> ORDENS DE SERVIÇO</h4>");
   newWin.document.write("<style type='text/css' >");
   newWin.document.write("</style>");
   newWin.document.write("");
@@ -41,10 +40,32 @@
   newWin.document.write("</td>");
   newWin.document.write("</tr>");
   newWin.document.write("</table><br>");
+
+  var now = new Date();
+
+  meses = new Array(12);
+  meses[0] = "Janeiro";
+  meses[1] = "Fevereiro";
+  meses[2] = "Março";
+  meses[3] = "Abril";
+  meses[4] = "Maio";
+  meses[5] = "Junho";
+  meses[6] = "Julho";
+  meses[7] = "Agosto";
+  meses[8] = "Setembro";
+  meses[9] = "Outubro";
+  meses[10] = "Novembro";
+  meses[11] = "Dezembro";
   
+  
+  newWin.document.write ("<center style='font-size:18px;'><br/>Gerado dia " + now.getDate() + " de " + meses[now.getMonth()] + " de " + now.getFullYear() + " às " + now.getHours()+":"+now.getMinutes()+"</center>");
+
   newWin.document.write(listaOs.outerHTML);
+  console.log('${request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}');
+  
   newWin.print();
   newWin.close();
+  
 }
 </script>			
 				
@@ -171,7 +192,9 @@
 								   ${it.problema}
 								</td>
 							    <td class="info">
-							       ${it.solucao}
+							      <g:if test = "${it.solucao == ''}">
+							          ${'----'}
+							      </g:if>	
 							   </td>
 							</tr>
 						</g:each>
@@ -181,9 +204,9 @@
 		</div>
 		<%--<g:link action="gerarPdf">Download invoice</g:link>--%>
 
-		<div style="margin: 0 5% auto;">
+		<div style="margin: 0 1% auto;">
 					<button class="btn btn-primary btn-flat"
-						onclick="printDiv('divGrafico')">
+						onclick="printDiv('pequisarOs')">
 						<i class="fa fa-print" aria-hidden="true"></i> Imprimir
 					</button>
 				</div>

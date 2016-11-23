@@ -128,6 +128,7 @@ class OrdemDeServicoController {
 	def listarOrdemDeServico(String msg, String tipo){
 		
 	if(session["user"] != null){
+		
 		msg = params.msg
 		tipo = params.tipo
 		def ordemDeServico = OrdemDeServico.executeQuery("select os from OrdemDeServico os where os.status.id <> 3 order by os.dataAgendamento ASC ")

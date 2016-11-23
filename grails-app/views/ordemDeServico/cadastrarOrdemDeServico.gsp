@@ -93,8 +93,7 @@
 						<div class="form-group">
 							<label for="problema" class="col-sm-2 control-label">Problema</label>
 							<div class="col-sm-4">
-								<textarea rows="4" cols="5" class="form-control"
-									placeholder="Descreva o Problema" name="problema" required></textarea>
+								<textarea rows="4" cols="5" class="form-control" placeholder="Descreva o Problema" name="problema" required></textarea>
 							</div>
 						</div>
 					</fieldset>

@@ -108,13 +108,11 @@
 									<div class="form-group">
 										<label for="problema" class="col-sm-2 control-label">Problema</label>
 										<div class="col-sm-4">
-											<textarea rows="5" cols="4" class="form-control" name="problema" placeholder="">
-												${it.problema}
-											</textarea>
-
+											<textarea rows="5" cols="4" class="form-control" name="problema">${it.problema}</textarea>
 										</div>
 									</div>
-									</br>
+									
+									
 									<div class="form-group">
 										<label for="inputstatus" class="col-sm-2 control-label">Status</label>
 										<div class="col-sm-4">
@@ -138,8 +136,7 @@
 									<div class="form-group">
 										<label for="inputmatricula3" class="col-sm-2 control-label">Solução</label>
 										<div class="col-sm-4">
-											<textarea rows="4" cols="5" class="form-control"  
-												name="solucao" placeholder="Descreva a solução">${ordemDeServico.solucao}</textarea>
+											<textarea rows="4" cols="5" class="form-control" name="solucao" placeholder="Descreva a solução">${ordemDeServico.solucao}</textarea>
 										</div>
 									</div>
 									<br>
