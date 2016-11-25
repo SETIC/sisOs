@@ -29,10 +29,10 @@
   newWin = window.open("");
   newWin.document.write("<style=''>");
   newWin.document.write("<table border='0'>");
-  newWin.document.write("<td> <img src='${request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}sisOs/static/images/brasao.jpg'; style='width:100px; float:left; margin-top:-115px;'> </td>");
+  newWin.document.write("<td> <img src='${request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}sisOs/static/images/brasao2.png'; style='margin-top:-110px;'> </td>");
   newWin.document.write("<tr>");
   newWin.document.write("<h4 style=' margin-left:180px; '>PREFEITURA MUNICIPAL DE SÃO GONÇALO DO AMARANTE - RN</h4>");
-  newWin.document.write("<h4 style='margin-top:20px; margin-left:380px;'> ORDENS DE SERVIÇO</h4>");
+  newWin.document.write("<h4 style='margin-top:20px; margin-left:320px;'> ORDENS DE SERVIÇO</h4>");
   newWin.document.write("<style type='text/css' >");
   newWin.document.write("</style>");
   newWin.document.write("");
