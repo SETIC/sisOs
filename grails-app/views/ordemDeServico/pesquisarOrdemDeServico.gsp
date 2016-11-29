@@ -29,7 +29,7 @@
   newWin = window.open("");
   newWin.document.write("<style=''>");
   newWin.document.write("<table border='0'>");
-  newWin.document.write("<td> <img src='${request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}sisOs/static/images/brasao2.png'; style='margin-top:-110px;'> </td>");
+  newWin.document.write("<td><img src='${request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}sisOs/static/images/brasao2.png'; style='margin-top:-110px;'></td>");
   newWin.document.write("<tr>");
   newWin.document.write("<h4 style=' margin-left:180px; '>PREFEITURA MUNICIPAL DE SÃO GONÇALO DO AMARANTE - RN</h4>");
   newWin.document.write("<h4 style='margin-top:20px; margin-left:320px;'> ORDENS DE SERVIÇO</h4>");
@@ -42,7 +42,6 @@
   newWin.document.write("</table><br>");
 
   var now = new Date();
-
   meses = new Array(12);
   meses[0] = "Janeiro";
   meses[1] = "Fevereiro";
@@ -57,12 +56,8 @@
   meses[10] = "Novembro";
   meses[11] = "Dezembro";
   
-  
   newWin.document.write ("<center style='font-size:18px;'><br/>Gerado dia " + now.getDate() + " de " + meses[now.getMonth()] + " de " + now.getFullYear() + " às " + now.getHours()+":"+now.getMinutes()+"</center>");
-
   newWin.document.write(listaOs.outerHTML);
-  console.log('${request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}');
-  
   newWin.print();
   newWin.close();
   
@@ -96,8 +91,26 @@
   			  "<input type='text' required = 'true' name ='interessado' id ='interessadoId'/>" +
   			  "<button style='margin-left: 10px;' type='submit' class='btn btn-primary btn-flat'>" +
   			  "<i class='fa fa-search'></i>Buscar</button>"
-                break;   
-
+                break; 
+                 
+           //novo campo
+           case 'status' :  
+               newInput.innerHTML = "<label>Status</label></br>" +
+               "<div id='iDivSelectPicker' class='row'>"+
+			   "<div class='col-sm-4'>"+
+        	   "<select class='form-control selectpicker' " +
+   			   "data-live-search='true' name='status' id='status'"+
+   			   "<option value='0'>Status</option>" +
+   			   "<g:each in="${status}">"+
+   			   "<option value='${it.id}'>" +
+   			   "${it.nome}</option></g:each></select></div>" +
+   			   "<button type='submit' class='btn btn-primary btn-flat'>" +
+			   "<i class='fa fa-search'></i>Buscar</button>"  
+			   break; 
+			   
+           //fim
+           
+           
   	       case 'data':
  			  newInput.innerHTML = "<label>Data Inicial: </label/><input type='date' name ='dataInicial' id='dataInicial' " +
  	 		  "<br>   <label>Data Final: </label/><input type='date' name ='dataFinal' id='dataFinal'/>" +
@@ -129,6 +142,7 @@
 						<option value="null">SELECIONE...</option>
 						<option value="orgao">ORGÃO</option>
 						<option value="interessado">INTERESSADO</option>
+						<option value="status">STATUS</option>
 						<option value="data">DATA DE EMISSÃO</option>
 						<option value="dataAgendamento">DATA DE AGENDAMENTO</option>
 					</select>

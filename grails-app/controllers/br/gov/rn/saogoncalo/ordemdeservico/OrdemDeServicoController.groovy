@@ -12,7 +12,7 @@ class OrdemDeServicoController {
 	def index() {}
 	
 	
-	RenderingService pdfRenderingService
+	/*RenderingService pdfRenderingService
 	  
 	  def gerarPdf() {
 		  
@@ -27,7 +27,7 @@ class OrdemDeServicoController {
 		  
 		   print("passou pelo metodo") 
 					  
-		  }
+		  }*/
 	
 	
 
@@ -104,7 +104,6 @@ class OrdemDeServicoController {
 			  
 			  
 			  if(ordemDeServico.save(flush:true)){
-				  println(" passou ")
 				EnviaEmailController envia = new EnviaEmailController()
 				  if(ordemDeServico.status.id == 3  ){
 					 
@@ -112,7 +111,7 @@ class OrdemDeServicoController {
 				  }
 				  
 				  
-				 redirect(controller:"ordemDeServico",action:"listarOrdemDeServico", params:[msg:"Ordem de servico atualizada com sucesso!", tipo:"ok"])
+				 redirect(controller:"ordemDeServico", action:"listarOrdemDeServico", params:[msg:"Ordem de servico atualizada com sucesso!", tipo:"ok"])
 		     	//render(view:"/ordemDeServico/listarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico])
 				//listarMensagem("Ordem de servico atualizada com  sucesso", "ok")
 				
@@ -179,6 +178,13 @@ class OrdemDeServicoController {
 				ordens = OrdemDeServico.findAllByInteressadoIlike ("%"+params.interessado+"%")
 				break;
 				
+				
+			case 'status':
+			   ordens  = OrdemDeServico.findAllByStatus(Status.get(params.status))
+			   break;
+			   print ("status aki " +params)	
+				
+				
 			case 'data':
 				
 				def dataI = params.dataInicial.replaceAll("-", "")
@@ -228,8 +234,9 @@ class OrdemDeServicoController {
 		}
 		
 		def orgao = Orgao.findAll()
+		def status = Status.findAll()
 		   
-		 render(view:"/ordemDeServico/pesquisarOrdemDeServico.gsp", model:[ordens:ordens ,orgao:orgao])
+		 render(view:"/ordemDeServico/pesquisarOrdemDeServico.gsp", model:[ordens:ordens ,orgao:orgao , status:status])
 		  
 		 }
 	

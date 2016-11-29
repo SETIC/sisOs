@@ -81,7 +81,7 @@
 									<div class="form-group">
 										<label for="inputorgao" class="col-sm-2 control-label">Orgão</label>
 										<div class="col-sm-4">
-											<g:textField class="form-control" name="orgao" disabled value="${it.orgao.nome}" />
+											<g:textField class="form-control"  name="orgao" disabled value="${it.orgao.nome}" />
 										</div>
 									</div>
 									<br>
