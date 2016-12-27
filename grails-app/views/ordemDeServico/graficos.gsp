@@ -56,9 +56,9 @@
 </script>
 	<!-- Content Header (Page header) -->
 	<section class="content-header" style="margin-left: 5%; margin-bottom:2px;">
-		<h1>
+		<h3>
 			Painel <small>Estatisticas</small>
-		</h1>
+		</h3>
 	    <br>
 		<%--<div id="navBar">
 			<ul class="nav nav-tabs">

@@ -300,6 +300,19 @@ class OrdemDeServicoController {
 			render (result as JSON)
 		        }
 		
+		
+		
+		def verInfo(long id){
+	              
+					OrdemDeServico ordem = OrdemDeServico.get(id)
+					def orgao = Orgao.findAll()
+				    def status = Status.findAll()
+ 					
+	
+					render (view:"/ordemDeServico/verInfo.gsp", model:[ordem:ordem, orgao:orgao, status:status])
+			
+		}
+		
 		def homeGrafico(){
 			
 			def abertos = Status.get(1)

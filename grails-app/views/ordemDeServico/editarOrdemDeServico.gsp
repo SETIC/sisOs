@@ -15,7 +15,7 @@
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
-				<h1>Editar Ordem de Serviço</h1>
+				<h3>Editar Ordem de Serviço</h3>
 
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
