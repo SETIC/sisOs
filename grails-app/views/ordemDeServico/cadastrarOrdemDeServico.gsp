@@ -48,7 +48,6 @@
 						<div class="form-group">
 							<label for="interessado" class="col-sm-2 control-label">Interessado</label>
 							<div class="col-sm-4">
-
 								<input class="form-control" placeholder="Interessado" id="interessado" required name="interessado" type="text" value="">
 							</div>
 						</div>
@@ -58,7 +57,7 @@
 						<div class="form-group">
 							<label for="telefone" class="col-sm-2 control-label">Telefone</label>
 							<div class="col-sm-4">
-								<g:textField class="form-control" placeholder="9999-9999" id="telefone" name="telefone" value="" onblur="validaTelefone(telefone);" />
+								<g:textField class="form-control" placeholder="99999-9999" id="telefone" name="telefone" value="" onblur="validaTelefone(telefone);" />
 							</div>
 							<p id="mensagemErroTelefone" class="text-red">${erro}</p>
 						</div>
@@ -94,8 +93,7 @@
 						<div class="form-group">
 							<label for="problema" class="col-sm-2 control-label">Problema</label>
 							<div class="col-sm-4">
-								<textarea rows="4" cols="5" class="form-control"
-									placeholder="Descreva o Problema" name="problema" required></textarea>
+								<textarea rows="4" cols="5" class="form-control" placeholder="Descreva o Problema" name="problema" required></textarea>
 							</div>
 						</div>
 					</fieldset>

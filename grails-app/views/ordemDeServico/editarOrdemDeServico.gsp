@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
+
 <meta name="layout" content="public" />
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>SISOS</title>
-<link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
@@ -16,7 +15,7 @@
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
-				<h1>Editar Ordem de Serviço</h1>
+				<h3>Editar Ordem de Serviço</h3>
 
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
@@ -82,48 +81,38 @@
 									<div class="form-group">
 										<label for="inputorgao" class="col-sm-2 control-label">Orgão</label>
 										<div class="col-sm-4">
-											<g:textField class="form-control" name="orgao" disabled value="${it.orgao.nome}" />
+											<g:textField class="form-control"  name="orgao" disabled value="${it.orgao.nome}" />
 										</div>
 									</div>
 									<br>
+									
+									<style>.datepicker{z-index:1200 !important;}</style>
 									<div>
+									   <script src="/sisOs/js/data.js"></script>
 										<div class="form-group">
 											<label for="dataAgendamento" class="col-sm-2 control-label">Data
 												de Agendamento</label>
 											<div class="col-sm-4">
 												<div class="input-group date" data-provide="datepicker">
 													<input type="text" class="form-control"
-														name="dataAgendamento"
+														name="dataAgendamento" id ="dataAgendamento"
 														value="${it.dataAgendamento?.format('dd/MM/yyyy')}" />
-													<div class="input-group-addon">
-														<i class="fa fa-calendar"></i>
-													</div>
+													   <label class="input-group-addon btn">
+														<span class="fa fa-calendar"></span>
+													</label>
 												</div>
 											</div>
 										</div>
 									</div>
-									<%--<script>  
-					 $(document).ready(function () {
-				            $('.datepicker').datepicker({
-				            	format: 'dd/mm/yyyy',
-				            	language: 'pt-BR'  				            	
-				            });
-				        });
-
-				    </script>
-				   	--%>
-									<br>
+								<br>
 									<div class="form-group">
 										<label for="problema" class="col-sm-2 control-label">Problema</label>
 										<div class="col-sm-4">
-											<textarea rows="5" cols="10" class="form-control"
-												name="problema" placeholder="">
-												${it.problema}
-											</textarea>
-
+											<textarea rows="5" cols="4" class="form-control" name="problema">${it.problema}</textarea>
 										</div>
 									</div>
-									</br>
+									
+									
 									<div class="form-group">
 										<label for="inputstatus" class="col-sm-2 control-label">Status</label>
 										<div class="col-sm-4">
@@ -147,10 +136,7 @@
 									<div class="form-group">
 										<label for="inputmatricula3" class="col-sm-2 control-label">Solução</label>
 										<div class="col-sm-4">
-											<textarea rows="4" cols="5" class="form-control"
-												name="solucao" placeholder="Descreva a solução">
-												${ordemDeServico.solucao}
-											</textarea>
+											<textarea rows="4" cols="5" class="form-control" name="solucao" placeholder="Descreva a solução">${ordemDeServico.solucao}</textarea>
 										</div>
 									</div>
 									<br>
@@ -166,5 +152,5 @@
 						</div>
 					</div>
 				</section>
-</body>
+        </body>
 </html>

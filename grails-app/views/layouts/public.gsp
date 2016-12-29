@@ -3,11 +3,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title><g:layoutTitle
 		default="Sistema de solicitação de chamados . Painel" /></title>
 <meta
 	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 	name='viewport'>
+	
+	
 
 <!-- Bootstrap 3.3.2 -->
 <link href="${resource(dir: 'css', file: 'bootstrap.css')}"
@@ -116,10 +119,10 @@
 	<div class="wrapper"
 		style="float: inherit; margin-left: auto; margin-right: auto;">
 		<header class="main-header">
+		
+			<!-- Header Navbar: style can be found in header.less -->
 
-			<!-- Header Navbar: style can be found in header.less --><%--
-
-			--%><div class="wrapper">
+			<div class="wrapper">
 
 				<header class="main-header">
 
@@ -252,7 +255,7 @@
 		src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js" />
 	<!-- daterangepicker -->
 	<g:javascript src="plugins/daterangepicker/daterangepicker.js" />
-	<!-- datepicker -->
+	 <!-- datepicker -->
 	<g:javascript src="plugins/datepicker/bootstrap-datepicker.js" />
 	<!-- iCheck -->
 	<g:javascript src="plugins/iCheck/icheck.min.js" />
@@ -264,6 +267,7 @@
 	<g:javascript src="bootstrap-modal-master/js/bootstrap-modal.js" />
 	<!-- Bootstrap Master -->
 	<g:javascript src="bootstrap-modal-master/js/bootstrap-modalmanager.js" />
+	
 
 	<!-- AdminLTE dashboard demo (This is only for demo purposes) 
 	<g:javascript src="dashboard2.js" /> -->

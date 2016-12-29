@@ -37,14 +37,15 @@
 
              }
             </script>
-				<h1>Listagem de Chamados</h1>
+				<h3>Listagem de Chamados</h3>
 				<!-- Tabela  -->
 				<ol class="breadcrumb">
 				</ol>
 				<br>
 				<table id="listarChamados" class="table table-striped table-hover example">
 					<thead>
-						<tr>
+						<tr class= "success">
+							<th style="text-align: left; padding-left: 15px;">Funções</th>
 							<th style="text-align: left; padding-left: 10px;">Nº</th>
 							<th style="text-align: left; padding-left: 10px;">Situação</th>
 							<th style="text-align: left; padding-left: 10px;">Interessado</th>
@@ -52,27 +53,48 @@
 							<th style="text-align: left; padding-left: 10px;">Data de Agendamento</th>
 							<th style="text-align: left; padding-left: 10px;">Orgão</th>
 							<th style="text-align: left; padding-left: 10px;">Telefone</th>
-							<th style="text-align: left; padding-left: 10px;">Funções</th>
 						</tr>
 					</thead>
 					<tbody>
 						<g:set var="i" value="${1}" />
 						<g:each in='${ordemDeServico?}'>
 							<tr class='linha_registro'>
-								<td>
+							<td class="info">
+									<div class="opcoes">
+										<div style="display: inline">
+											<div title="Editar" class="btn btn-primary btn-xs btn-flat">
+												<a style="color: #fff"
+													href="/sisOs/ordemDeServico/editarOrdemDeServico/${it.id}"><span>
+														<i class="fa fa-pencil"></i>
+												</span></a>
+											</div>
+											<div title="Remover" onclick="deletar(${it.id})"
+												class="btn btn-danger btn-xs btn-flat">
+												<span class="fa fa-times"></span>
+											</div>
+											<div title="Ver informações"
+												class="btn btn-success btn-xs btn-flat"><a
+												style="color: #fff"
+												href="/sisOs/ordemDeServico/verInfo/${it.id}"><span
+													class="fa fa-info-circle"></span></a></div>
+										</div>
+									</div>
+								</td>
+								<td class="info">
 									${i++}
 								</td>
-								<td><g:if test="${it.status.id == 1}">
+								<td class="info"><g:if test="${it.status.id == 1}">
 										<span class="label label-danger">ABERTO</span>
 									</g:if> <g:if test="${it.status.id == 2}">
 										<span class="label label-warning">PENDENTE</span>
 									</g:if> <g:if test="${it.status.id == 3}">
 										<span class="label label-success">CONCLUIDO</span>
 									</g:if></td>
-								<td>
+								<td class="info">
 									${it.interessado}
 								</td>
 
+<<<<<<< HEAD
 								<td><g:formatDate format="dd/MM/yyyy" type="datetime"
 										style="MEDIUM" date="${it.dataEmissao}" /></td><%--
 							    <td><g:formatDate format="dd/MM/yyyy" type="date"
@@ -81,6 +103,13 @@
 								
 								
 								--%><td><g:formatDate format="dd/MM/yyyy" type="date"
+=======
+								<td class="info"><g:formatDate format="dd/MM/yyyy" type="datetime"
+										style="MEDIUM" date="${it.dataEmissao}" /></td><%--
+							    <td><g:formatDate format="dd/MM/yyyy" type="date"
+										style="MEDIUM" date="${it.dataAgendamento}" /></td>
+								--%><td class="info"><g:formatDate format="dd/MM/yyyy" type="date"
+>>>>>>> 6878574c6d522a568a59eeea7b47c42ef62d69d4
 										style="MEDIUM" date="${it.dataAgendamento}" />
 										
 								 <g:if test ="${it.dataAgendamento == null}">
@@ -88,12 +117,17 @@
 								 </g:if>		
 								</td>
 								
+<<<<<<< HEAD
 								<td>
+=======
+								<td class="info">
+>>>>>>> 6878574c6d522a568a59eeea7b47c42ef62d69d4
 									${it.orgao.nome}
 								</td>
-								<td>
+								<td class="info">
 									${it.telefone}
 								</td>
+<<<<<<< HEAD
 
 								<td>
 									<div class="opcoes">
@@ -112,6 +146,8 @@
 										</div>
 									</div>
 								</td>
+=======
+>>>>>>> 6878574c6d522a568a59eeea7b47c42ef62d69d4
 							</tr>
 						</g:each>
 					</tbody>
@@ -119,6 +155,7 @@
 					
 					
 				</table>
+<<<<<<< HEAD
 			</section>
 
 
@@ -159,6 +196,10 @@
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
 </body>
+=======
+		</section>
+    </body>
+>>>>>>> 6878574c6d522a568a59eeea7b47c42ef62d69d4
 </html>
 
 

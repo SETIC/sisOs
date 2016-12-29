@@ -3,16 +3,34 @@ import grails.converters.JSON
 import grails.plugin.rendering.*
 
 import java.text.SimpleDateFormat
+import javax.mail.Header;
 
-import javax.swing.text.html.HTML;
 
-import org.grails.plugin.mail.*
 
 class OrdemDeServicoController {
 
 	def index() {}
 	
 
+	
+	/*RenderingService pdfRenderingService
+	  
+	  def gerarPdf() {
+		  
+		  
+		 
+		 ByteArrayOutputStream bytes = pdfRenderingService.render(template: "/pdf/teste", controller:"OrdemDeServico")
+		  def fos= new FileOutputStream('listagemDeOs.pdf')
+			fos.write(bytes.toByteArray())
+			fos.close()
+			
+		     renderPdf(template: "/pdf/teste")
+		  
+		   print("passou pelo metodo") 
+					  
+		  }*/
+	
+	
 
 	def salvarOrdemDeServico(){
 
@@ -35,7 +53,7 @@ class OrdemDeServicoController {
 			  envia.enviaEmail(ordemDeServico.id)
 			  
 			  
-			  
+
 			  listarMensagem("Ordem de servico salva com  sucesso", "ok")
 			  //redirect(controller:"OrdemDeServico", action:"cadastrarOrdemDeServico", params:[msg: "Chamado cadastrado com sucesso.", tipo:"ok"])
 			  
@@ -87,7 +105,6 @@ class OrdemDeServicoController {
 			  
 			  
 			  if(ordemDeServico.save(flush:true)){
-				  println(" passou ")
 				EnviaEmailController envia = new EnviaEmailController()
 				  if(ordemDeServico.status.id == 3  ){
 					 
@@ -95,7 +112,7 @@ class OrdemDeServicoController {
 				  }
 				  
 				  
-				 redirect(controller:"ordemDeServico",action:"listarOrdemDeServico", params:[msg:"Ordem de servico atualizada com sucesso!", tipo:"ok"])
+				 redirect(controller:"ordemDeServico", action:"listarOrdemDeServico", params:[msg:"Ordem de servico atualizada com sucesso!", tipo:"ok"])
 		     	//render(view:"/ordemDeServico/listarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico])
 				//listarMensagem("Ordem de servico atualizada com  sucesso", "ok")
 				
@@ -111,6 +128,7 @@ class OrdemDeServicoController {
 	def listarOrdemDeServico(String msg, String tipo){
 		
 	if(session["user"] != null){
+		
 		msg = params.msg
 		tipo = params.tipo
 		def ordemDeServico = OrdemDeServico.executeQuery("select os from OrdemDeServico os where os.status.id <> 3 order by os.dataAgendamento ASC ")
@@ -161,6 +179,13 @@ class OrdemDeServicoController {
 				ordens = OrdemDeServico.findAllByInteressadoIlike ("%"+params.interessado+"%")
 				break;
 				
+				
+			case 'status':
+			   ordens  = OrdemDeServico.findAllByStatus(Status.get(params.status))
+			   break;
+			   print ("status aki " +params)	
+				
+				
 			case 'data':
 				
 				def dataI = params.dataInicial.replaceAll("-", "")
@@ -210,7 +235,10 @@ class OrdemDeServicoController {
 		}
 		
 		def orgao = Orgao.findAll()
-		render(view:"/ordemDeServico/pesquisarOrdemDeServico.gsp", model:[ordens:ordens ,orgao:orgao])
+		def status = Status.findAll()
+		   
+		 render(view:"/ordemDeServico/pesquisarOrdemDeServico.gsp", model:[ordens:ordens ,orgao:orgao , status:status])
+		  
 		 }
 	
 		 else{
@@ -268,14 +296,24 @@ class OrdemDeServicoController {
 			  
 			  }
 
-			  
+
 			  result = resultado
-			  
-			  
 			
 			render (result as JSON)
-			
 		        }
+		
+		
+		
+		def verInfo(long id){
+	              
+					OrdemDeServico ordem = OrdemDeServico.get(id)
+					def orgao = Orgao.findAll()
+				    def status = Status.findAll()
+ 					
+	
+					render (view:"/ordemDeServico/verInfo.gsp", model:[ordem:ordem, orgao:orgao, status:status])
+			
+		}
 		
 		def homeGrafico(){
 			
