@@ -19,14 +19,33 @@ class UsuariosOsController {
 		def pass = params.senha
 		def user2 =  UsuariosOs.findByUsuarioAndSenha(user,pass)
 		
-		  if(user2.usuario!= ""){
+		  if(user2.usuario != ""){
 			  
 			  session["user"] = user
 			  session["pass"] = pass
-			  redirect(controller:params.ctl, action:params.act)
+			  
+			  
+			  //teste
+			  
+			def abertos = Status.get(1)
+			def pendentes = Status.get(2)
+			def concluidos = Status.get(3)
+		   
+			def tipoStatusAberto = OrdemDeServico.countByStatus(abertos)
+			def tipoStatusPendente = OrdemDeServico.countByStatus(pendentes)
+			def tipoStatusConcluido = OrdemDeServico.countByStatus(concluidos)
+			def totalStatus = tipoStatusAberto + tipoStatusPendente +tipoStatusConcluido
+			
+			render(view:"/ordemDeServico/homeGrafico.gsp", model:[tipoStatusAberto:tipoStatusAberto ,tipoStatusPendente:tipoStatusPendente , tipoStatusConcluido: tipoStatusConcluido,totalStatus:totalStatus])
+			
+			  //------
+			  
+			  
+			  //redirect(controller:params.ctl, action:params.act)
 			  // render("view:/index.gsp")
 		  }else{
-		  render(view:"/usuariosOs/login.gsp", model:[erro:"O usuario ou a senha inseridos estao incorretos."])
+		  
+		  	render(view:"/usuariosOs/login.gsp", model:[erro:"O usuario ou a senha inseridos estao incorretos."])
 		  }
 		
 	 }   

@@ -43,18 +43,18 @@
 								<g:hiddenField type="number" name="id" value="${it.id}" />
 								<fieldset>
 									<div class="form-group">
-										<label for="inputinteressado" class="col-sm-2 control-label">Interessado</label>
-										<div class="col-sm-4">
-											<input class="form-control" required name="interessado"
-												type="text" disabled value="${it.interessado}">
-										</div>
-									</div>
-									<br>
-									<div class="form-group">
 										<label for="inputmatricula" class="col-sm-2 control-label">Matricula</label>
 										<div class="col-sm-4">
 											<input class="form-control" required name="matricula"
 												type="text" disabled value="${it.matricula}">
+										</div>
+									</div>
+									<br>
+									<div class="form-group">
+										<label for="inputinteressado" class="col-sm-2 control-label">Interessado</label>
+										<div class="col-sm-4">
+											<input class="form-control" required name="interessado"
+												type="text" disabled value="${it.interessado}">
 										</div>
 									</div>
 									<br>

@@ -1,17 +1,17 @@
 package br.gov.rn.saogoncalo.ordemdeservico
 import grails.converters.JSON
+import grails.plugin.rendering.*
 
-import java.util.Date
-import java.text.DateFormat
 import java.text.SimpleDateFormat
 
-import javax.swing.RowFilter.AndFilter;
+import javax.swing.text.html.HTML;
 
 import org.grails.plugin.mail.*
 
 class OrdemDeServicoController {
 
 	def index() {}
+	
 
 
 	def salvarOrdemDeServico(){
@@ -33,6 +33,8 @@ class OrdemDeServicoController {
 		  if (ordemDeServico.save(flush:true)){
 			  EnviaEmailController envia = new EnviaEmailController()
 			  envia.enviaEmail(ordemDeServico.id)
+			  
+			  
 			  
 			  listarMensagem("Ordem de servico salva com  sucesso", "ok")
 			  //redirect(controller:"OrdemDeServico", action:"cadastrarOrdemDeServico", params:[msg: "Chamado cadastrado com sucesso.", tipo:"ok"])
@@ -133,7 +135,11 @@ class OrdemDeServicoController {
 		def orgao = Orgao.findAll()
 				if (tipo == "ok"){
 					
-					render(view:"/ordemDeServico/cadastrarOrdemDeServico.gsp", model:[ok:msg,orgao:orgao])
+				    render(view:"/ordemDeServico/cadastrarOrdemDeServico.gsp", model:[ok:msg,orgao:orgao])
+					//render(view:"/cadastrarOrdemDeServico.gsp", model:[ok:msg,orgao:orgao])
+					
+					
+					
 				}else{
 				
                     render(view:"/error.gsp")	             
@@ -250,20 +256,21 @@ class OrdemDeServicoController {
 			
 			boolean verifMatricula
 			def result
+			def resultado
 		   
 			FuncionarioOs  matriculav  = FuncionarioOs.findByMatricula(matriculasOS)
-			println("--matriculaOS--" +matriculav.nomeFuncionario)
-			  if(matriculav == null){
-				  verifMatricula = false
 			 
-			  }else{
+			 if(matriculav == null){
+				  resultado =  ["id":0, "nome":""]
+			 }else{
 			  
-			   verifMatricula = true
+			   resultado = ["id":matriculav.id, "nome":matriculav.nomeFuncionario]
 			  
 			  }
+
 			  
-			  result = ["id":matriculav.id, "nome":matriculav.nomeFuncionario]
-			  print("resultados" +result)
+			  result = resultado
+			  
 			  
 			
 			render (result as JSON)
@@ -281,14 +288,54 @@ class OrdemDeServicoController {
 			def tipoStatusConcluido = OrdemDeServico.countByStatus(concluidos)
 			def totalStatus = tipoStatusAberto + tipoStatusPendente +tipoStatusConcluido
 			
-			 render(view:"/ordemDeServico/homeGrafico.gsp", model:[tipoStatusAberto:tipoStatusAberto ,tipoStatusPendente:tipoStatusPendente , tipoStatusConcluido: tipoStatusConcluido,totalStatus:totalStatus])
+			render(view:"/ordemDeServico/homeGrafico.gsp", model:[tipoStatusAberto:tipoStatusAberto ,tipoStatusPendente:tipoStatusPendente , tipoStatusConcluido: tipoStatusConcluido,totalStatus:totalStatus])
 			   }
 			 
-			 }
-		
+			 
+		RenderingService pdfRenderingService
 
-      
+		def gerarPDF(){
+	
+/*	def msg = "ok"
+	def tipo = "ok"
+	def ordemDeServico = OrdemDeServico.executeQuery("select os from OrdemDeServico os where os.status.id <> 3 order by os.dataAgendamento ASC ")
 		
+	println("teste aqui!")
+	
+	render( filename: "teste.pdf",
+		view:"/ordemDeServico/listarOrdemDeServico",
+		model:[ordemDeServico:ordemDeServico, ok:msg,tipo:tipo],
+		header:"teste",
+		footer:"teste",
+		marginLeft:20,
+		marginTop:35,
+		marginBottom:20,
+		marginRight:20,
+		headerSpacing:10)
+*/
+	
+	
+	def os = OrdemDeServico.findAll()
+	//HTML htm = new HTML() 
+	def htm
+	
+	//ByteArrayOutputStream bytes = pdfRenderingService.render(template: "teste", controller:"OrdemDeServico")
+	ByteArrayOutputStream bytes = pdfRenderingService.render(template: "teste2", controller:"OrdemDeServico")
+	def fos = new FileOutputStream('listagemDeOs.pdf')
+	  fos.write(bytes.toByteArray())
+	  fos.close()
+	  
+	  htm = ("<table border='1'><tr><td>Orgao</td><td>Situação</td><td>Interessado</td><td>Problema</td></tr><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>")
+	 	  
+	   //renderPdf(template: "teste", model:[os:os])
+	  renderPdf(template: "teste2", model:[htm:htm, html1:params.html1])
+	  //renderPdf(template: "teste2", text:htm, contentType:"text/html, encoding:"UTF-8")
+	   print("passou pelo metodo")
+	
+	
+}
+      
+}	
 		
 
 

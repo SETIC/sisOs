@@ -50,6 +50,7 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
         // runtime 'mysql:mysql-connector-java:5.1.27'
         runtime 'org.postgresql:postgresql:9.3-1100-jdbc41'
+		runtime 'org.springframework:spring-test:3.1.0.RELEASE'
     }
 
     plugins {
@@ -61,13 +62,14 @@ grails.project.dependency.resolution = {
         compile ":scaffolding:2.0.2"
         compile ':cache:1.1.1'
 		compile ":mail:1.0.7"
+		compile ":twitter-bootstrap:3.2.1"
+		compile "org.grails.plugins:rendering:1.0.0"
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.9" // or ":hibernate4:4.3.4"
         runtime ":database-migration:1.3.8"
         runtime ":jquery:1.11.0.2"
         runtime ":resources:1.2.7"
-		compile ":twitter-bootstrap:3.2.1"
 		runtime ':adminlte-ui:0.1.0'
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0.1"

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 <meta name="layout" content="public" />
@@ -43,8 +42,7 @@
 				<ol class="breadcrumb">
 				</ol>
 				<br>
-				<table id="listarChamados"
-					class="table table-striped table-hover example">
+				<table id="listarChamados" class="table table-striped table-hover example">
 					<thead>
 						<tr>
 							<th style="text-align: left; padding-left: 10px;">Nº</th>
@@ -76,9 +74,20 @@
 								</td>
 
 								<td><g:formatDate format="dd/MM/yyyy" type="datetime"
-										style="MEDIUM" date="${it.dataEmissao}" /></td>
-								<td><g:formatDate format="dd/MM/yyyy" type="date"
+										style="MEDIUM" date="${it.dataEmissao}" /></td><%--
+							    <td><g:formatDate format="dd/MM/yyyy" type="date"
 										style="MEDIUM" date="${it.dataAgendamento}" /></td>
+								
+								
+								
+								--%><td><g:formatDate format="dd/MM/yyyy" type="date"
+										style="MEDIUM" date="${it.dataAgendamento}" />
+										
+								 <g:if test ="${it.dataAgendamento == null}">
+                                    ${'----'}								
+								 </g:if>		
+								</td>
+								
 								<td>
 									${it.orgao.nome}
 								</td>
@@ -99,14 +108,32 @@
 												class="btn btn-danger btn-xs btn-flat">
 												<span class="fa fa-times"></span>
 											</div>
+															
 										</div>
 									</div>
 								</td>
 							</tr>
 						</g:each>
 					</tbody>
+					
+					
+					
 				</table>
 			</section>
+
+
+	
+	<script>
+		var htm = document.getElementById('listarChamados').innerHTML; 
+		
+	</script>
+		
+	<% def html1 = htm %>
+	
+	<g:link action="gerarPDF" params="[html1:"${html1}"]" > Download PD </g:link>
+	
+	
+	
 
 	<!-- ./wrapper -->
 
@@ -133,6 +160,7 @@
 	<script src="dist/js/demo.js"></script>
 </body>
 </html>
+
 
 
 
