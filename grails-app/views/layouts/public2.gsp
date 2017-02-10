@@ -126,7 +126,7 @@
 				<header class="main-header">
 
 					<!-- Logo -->
-					<a href="index2.html" class="logo"> <div class="pull-left image">&nbsp;&nbsp;&nbsp;
+					<a href="/sisOs/ordemDeServico/listarOrdemDeServico" class="logo"> <div class="pull-left image">&nbsp;&nbsp;&nbsp;
 								<g:img dir="img" file="setic.png" style="height:35px;" />
 
 							</div><!-- mini logo 50x50 pixels -->

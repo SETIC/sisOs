@@ -62,6 +62,124 @@ function printDiv(id)
   newWin.print();
   newWin.close();
 }
+
+function printDivLaudo() {
+	
+	var endereco = "${request.getRequestURL().substring(6, request.getRequestURL().indexOf(':8080/'))}";
+	var idOs = document.getElementById("idOsParaLaudo").value;
+	 
+
+	  $.ajax({
+		  
+           type: "GET",
+            url: "http://"+endereco+":8080/sisOs/ordemDeServico/getOrdemDeServicoById/"+idOs,
+            dataType: "json",
+            success: function(result){
+
+
+            	meses = new Array(12);
+
+	   			meses[0] = "Janeiro";
+    			meses[1] = "Fevereiro";
+    			meses[2] = "Março";
+    			meses[3] = "Abril";
+    			meses[4] = "Maio";
+    			meses[5] = "Junho";
+    			meses[6] = "Julho";
+    			meses[7] = "Agosto";
+    			meses[8] = "Setembro";
+    			meses[9] = "Outubro";
+    			meses[10] = "Novembro";
+    			meses[11] = "Dezembro";
+
+    			var mOs = parseInt(result.dataEmissao.toString().substring(5,7))-1;
+            	var data = new Date();
+            	var dataFormatada = new Date();
+            	dataFormatada = (data.getDay() + "/"+(data.getMonth()+1)+"/"+data.getFullYear());
+
+            	var dataEmissao = result.dataEmissao.toString().substring(8,10) + " de " + meses[mOs] + " de " + result.dataEmissao.toString().substring(0,4);
+            	
+
+
+            	
+                newWin= window.open("");
+                newWin.document.write('<table cellspacing="0" cellpading="0" border="0" >');
+                
+                newWin.document.write("<tbody>");
+                
+                newWin.document.write('<tr>');// Linha do cabeçalho
+                newWin.document.write('<td width="25%" align="center"><img src="${ request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}sisOs/static/images/logo-setic-p.png"></td>');                
+                newWin.document.write('<td width="50%" colspan="2" align="center" style="font-size: 12"> ESTADO DO RIO GRANDE DO NORTE PREFEITURA MUNICIPAL DE S&Atilde;O GON&Ccedil;ALO DO AMARANTE SECRETARIA MUNICIPAL DE DESENVOLVIMENTO ECONOMICO E TURISMO SUBSECRETARIA DE TECNOLOGIA DA INFORMA&Ccedil;&Atilde;O E CI&Ecirc;NCIA Centro Administrativo &agrave; Rua Alexandre Cavalcanti, s/n-CEP 59.290-000 CNPJ n&deg; 08.079.402/0001-35</td>');
+                newWin.document.write('<td width="25%" align="center"><img src="${ request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}sisOs/static/images/sga.jpg"></td>');
+                newWin.document.write("</tr>");
+
+        		newWin.document.write("<tr>"); // Linha do número do memorando
+                newWin.document.write('<td colspan="4">');
+                newWin.document.write('<p style="text-align: left;"><br/><br/>Memorando n&ordm; '+result.codLaudo+'/2017. </p>');
+                newWin.document.write("</td>");
+                newWin.document.write("</tr>");
+                
+                <%
+				// ScriptLet gsp com a data atual 
+				def myDate = new Date() 
+				def exibirData = myDate.format("dd") + " de " + myDate.format("MMMM")  + " de " + myDate.format("yyyy")
+				%>
+                newWin.document.write("<tr>"); // Linha da data
+                newWin.document.write('<td colspan="4" align="right"><br/><br/>S&atilde;o Gon&ccedil;alo do Amarante - RN, ${exibirData}</td>');
+                newWin.document.write("</tr>");
+
+                newWin.document.write("<tr>"); // Linha do destinatário
+                newWin.document.write('<td colspan="4">');
+                newWin.document.write("<p><br/><br/>Ao Senhor(a)<br/>Nome Solicitante, da<br/>Secretaria Municipal de Sa&uacute;de &ndash; Vigil&acirc;ncia Sanit&aacute;ria. </p>");
+                newWin.document.write("</td>");
+                newWin.document.write("</tr>");
+
+                newWin.document.write("<tr>"); // Linha do Assunto
+                newWin.document.write('<td colspan="4" align="center">');
+                newWin.document.write("<p><br/><br/><strong>Assunto: Laudo T&eacute;cnico</strong><br/>Ordem de Servi&ccedil;o N&ordm; "+ result.id +". </p>");
+                newWin.document.write("</td>");
+                newWin.document.write("</tr>");
+                
+                newWin.document.write("<tr>"); // Linha de corpo do laudo
+                newWin.document.write('<td colspan="4">');
+                newWin.document.write('<p style="text-align: justify;"><br/><br/>&nbsp; &nbsp; &nbsp;Cumprimentando lhe cordialmente, e visando o aperfei&ccedil;oamento dos servi&ccedil;os prestados pela SETIC, venho atrav&eacute;s deste, respeitosamente apresentar o laudo constatado. No dia '+ dataEmissao +' a '+result.orgao+' apresentou-nos a seguinte solicitação: '+ result.problema +' e foi procedido da seguinte forma: '+result.solucao);
+                newWin.document.write("</td>");
+                newWin.document.write("</tr>");
+
+                newWin.document.write("<tr>"); // Linha do fechamento padrão
+                newWin.document.write('<td colspan="4" style="text-align: justify;"><br/><br/>&nbsp; &nbsp; &nbsp;Certo de contarmos com vossa compreens&atilde;o, renovamos aqui os nossos sinceros votos de estima e considera&ccedil;&atilde;o, nos colocamos a inteira disposi&ccedil;&atilde;o para eventuais esclarecimentos. Atenciosamente,</td>');
+                newWin.document.write("</tr>");
+
+                newWin.document.write("<tr>"); // Linha das assinaturas do SETIC
+                newWin.document.write('<td colspan="2" style="font-size: 12px" align="center">');
+                newWin.document.write("<br/><br/><br/>_______________________________<br/>");
+                newWin.document.write("HENRIQUE LIMA EMERENCIANO<br/>");
+                newWin.document.write("Subsecret&aacute;rio de Tecnologia da Informa&ccedil;&atilde;o e Ci&ecirc;ncia");
+                newWin.document.write("</td>");
+                newWin.document.write('<td colspan="2" style="font-size: 12px" align="center">'); // Linha de assinatura do técnico
+                newWin.document.write("<br/><br/><br/>_______________________________<br/>");
+                newWin.document.write('${session["userName"]}'+"<br/>");
+                newWin.document.write("T&eacute;cnico Respons&aacute;vel pelo Servi&ccedil;o");
+                newWin.document.write("</td>");
+                newWin.document.write("</tr>");
+
+                newWin.document.write("<tr>"); // Linha das assinaturas do Solicitante
+                newWin.document.write('<td colspan="4" style="font-size: 12px" align="center">'); // Linha de assinatura do técnico
+                newWin.document.write("<br/><br/><br/>_______________________________<br/>");
+                newWin.document.write(result.funcionario+"<br/>");
+                newWin.document.write("Solicitante");
+                newWin.document.write("</td>");
+                newWin.document.write("</tr>");                
+                
+                newWin.document.write("</tbody>");
+                newWin.document.write("</table>");
+			    newWin.print();
+			    newWin.close();
+		    
+			            }
+              });
+       }
+
 </script>
 
 	<section class="content-header">
@@ -91,7 +209,7 @@ function printDiv(id)
 			<div style="margin-left: 190px">
 				<g:form controller="OrdemDeServico" action="verInfo"
 					class="form-horizontal">
-					<g:hiddenField type="number" name="id" value="${ordem?.id}" />
+					<g:hiddenField type="number" name="id" id="idOsParaLaudo" value="${ordem?.id}" />
 					<fieldset id="print">
 						<div class="form-group">
 							<label for="inputNome3" class="col-sm-2 control-label">Situacão</label>
@@ -154,6 +272,11 @@ function printDiv(id)
 							<li class="btn btn-info btn-flat"><a style="color: #fff;"
 								href="/sisOs/ordemDeServico/listarOrdemDeServico/">Voltar</a></li>
 						</ul>
+					
+						<button class="btn btn-primary btn-flat"
+							onClick="printDivLaudo()">
+							<i class="fa fa-print"></i> Laudo
+						</button>
 					</div>
 				 </g:form>
 			  </div>

@@ -26,7 +26,8 @@ class UsuariosOsController {
 		  
 			  session["user"] = user
 			  session["pass"] = pass
-
+			  session["userName"] = user2.nome
+			  session["userId"] = user2.id
 			 
 			  
 			  def abertos = Status.get(1)
@@ -49,6 +50,8 @@ class UsuariosOsController {
 		   
 	    session["user"] = null
 		session["pass"] = null
+		session["userName"] = null
+		
 		render(view:"/usuariosOs/login.gsp")
 	} 
 }

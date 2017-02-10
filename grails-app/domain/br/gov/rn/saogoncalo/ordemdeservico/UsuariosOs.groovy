@@ -4,12 +4,14 @@ class UsuariosOs {
 	
 	String usuario
 	String senha
+	String nome
 	
-	//static hasmany=[ordemDeServico:OrdemDeServico]
+	static hasMany=[ordemDeServico:OrdemDeServico]
     static constraints = {
 		
 		usuario blank:false, nullable:false
 		senha blank:false, nullable:false
+		nome blank:false, nullable:false
     }
 	
 	static mapping ={

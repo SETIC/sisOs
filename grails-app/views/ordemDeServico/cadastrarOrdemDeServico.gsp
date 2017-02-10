@@ -4,6 +4,7 @@
 <title>Cadastro de OS</title>
 <meta name="layout" content="public2" />
 <meta content="width=device-width, initial-scale=1" name="viewport">
+
 </head>
 <body>
 <p id="alertVerificador" class="text-red"></p>
@@ -26,7 +27,7 @@
 			<g:if test="${erro}">
 				<div class="alert alert-danger">
 					${erro}
-				</div>
+				</div>	
 			</g:if>
 			<div style="margin-left: 150px">
 
@@ -52,12 +53,18 @@
 							</div>
 						</div>
 						<br>
+
+
+						<!-- Início - Script para formatar telefone -->
+						<script src="/sisOs/js/FormatarTelefone.js"></script>
+						<!-- Fim - Script para formatar telefone -->
+
 						
 						<script src="/sisOs/js/validaTelefone.js"></script>
 						<div class="form-group">
 							<label for="telefone" class="col-sm-2 control-label">Telefone</label>
 							<div class="col-sm-4">
-								<g:textField class="form-control" placeholder="99999-9999" id="telefone" name="telefone" value="" onblur="validaTelefone(telefone);" />
+								<g:textField class="form-control" placeholder="Digite apenas números" id="telefone" name="telefone" value="" onkeypress="mascara(this,mtel);" onblur="validaTelefone(telefone);" maxlength="10"/>
 							</div>
 							<p id="mensagemErroTelefone" class="text-red">${erro}</p>
 						</div>
@@ -79,8 +86,11 @@
 							<label for="orgao" class="col-sm-2 control-label">Orgão</label>
 							<div class="col-sm-6">
 								<select name="orgao" id="comboorgao"
-									class="form-control selectpicker" data-size="5"
-									data-live-search="true" onclick="habilitaCampo();">
+									class="form-control" data-size="5"
+									data-live-search="true" onclick="habilitaCampo();" required>
+									
+									<option value="">Selecione um orgão</option>
+									
 									<g:each in="${orgao}">
 										<option value="${it.id}">
 											${it.nome}

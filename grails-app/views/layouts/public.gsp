@@ -127,7 +127,7 @@
 				<header class="main-header">
 
 					<!-- Logo -->
-					<a href="index2.html" class="logo"> <!-- mini logo 50x50 pixels -->
+					<a href="/sisOs/ordemDeServico/listarOrdemDeServico" class="logo"> <!-- mini logo 50x50 pixels -->
 						<span class="logo-mini"><b></b></span> <!-- logo regular --> <span
 						class="logo-lg"><b>SIS</b>OS</span>
 					</a>
@@ -201,7 +201,7 @@
 
 							</a></li>
 
-							<li><g:link controller="UsuariosOs" action="logout"><i class="fa fa-circle-o text-red"></i>
+							<li><g:link controller="UsuariosOs" action="logout"><i class="fa fa-circle-o"></i>
 									<span>Sair</span></g:link></li>
 						</ul>
 					</section>
@@ -223,7 +223,7 @@
 			<strong>Copyright &copy; 2016 <a
 				href="http://www.saogoncalo.rn.gov.br/portal-setic/">SETIC -
 					Subsecretaria de Tecnologia da Informação e Ciência</a>.
-			</strong>&nbsp;&nbsp; <b>Contato:</b> 98152-9740
+			</strong>&nbsp;&nbsp; <b>Contato:</b> 98146-6686
 		</footer>
 	     </div>
 	   </div>

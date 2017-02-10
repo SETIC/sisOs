@@ -48,6 +48,15 @@ class OrdemDeServicoController {
 		ordemDeServico.orgao = orgao
 		ordemDeServico.funcionarioOs = matriculasOS
 		
+		def lastOs = OrdemDeServico.executeQuery(" select os from OrdemDeServico os " +
+												 " ORDER BY os.id desc")
+				
+		def num = lastOs[0].codLaudo
+		
+		ordemDeServico.codLaudo = num+1
+		def usuariosOs = UsuariosOs.get(1)
+		ordemDeServico.usuariosOs = usuariosOs
+		
 		  if (ordemDeServico.save(flush:true)){
 			  EnviaEmailController envia = new EnviaEmailController()
 			  envia.enviaEmail(ordemDeServico.id)
@@ -91,6 +100,8 @@ class OrdemDeServicoController {
 			ordemDeServico.solucao = params.solucao
 			ordemDeServico.problema = params.problema
 			//ordemDeServico.dataAgendamento = new Date()
+			def usuariosOs = UsuariosOs.get(session["userId"])
+			ordemDeServico.usuariosOs = usuariosOs
 			
 			 if(params.dataAgendamento != ""){
 			     ordemDeServico.dataAgendamento = Date.parse('dd/MM/yyyy', params.dataAgendamento)
@@ -131,7 +142,8 @@ class OrdemDeServicoController {
 		
 		msg = params.msg
 		tipo = params.tipo
-		def ordemDeServico = OrdemDeServico.executeQuery("select os from OrdemDeServico os where os.status.id <> 3 order by os.dataAgendamento ASC ")
+		def ordemDeServico = OrdemDeServico.executeQuery(" select oss from OrdemDeServico as oss where oss.status.id <> 3 order by oss.dataAgendamento ASC  ")
+	   	//def oss = OrdemDeServico.findAll()
 		
 		render(view:"/ordemDeServico/listarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico, ok:msg,tipo:tipo])
 		}else{
@@ -373,6 +385,18 @@ class OrdemDeServicoController {
 	
 }
       
+		
+		def getOrdemDeServicoById(long id){
+			
+			def os= OrdemDeServico.findById(id)
+			def result = ["id":os.id, "dataEmissao":os.dataEmissao, "email":os.email, "interessado":os.interessado, "matricula":os.matricula, "orgao":os.orgao.nome,
+						  "problema":os.problema, "solucao":os.solucao, "status":os.status.nome, "dataAgendamento":os.dataAgendamento, "funcionario":os.funcionarioOs.nomeFuncionario,
+						  "codLaudo":os.codLaudo]
+						
+			render (result as JSON)
+			
+		}
+		
 }	
 		
 

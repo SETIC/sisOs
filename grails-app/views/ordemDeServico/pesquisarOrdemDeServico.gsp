@@ -174,17 +174,23 @@
 					class="table table-striped table-hover example" border="1">
 					<thead>
 						<tr class="success">
+							<th style="text-align: left;padding-left:10px;">Número</th>
 						    <th style="text-align: left;padding-left:10px;">Orgão</th>
 						    <th style="text-align: left;padding-left:10px;">Situação</th>
 						    <th style="text-align: left;padding-left:10px;">Interessado</th>
 						    <th style="text-align: left;padding-left:10px;">Problema</th>
 						    <th style="text-align: left;padding-left:10px;">Soluçao</th> 
+						    <th style="text-align: left;padding-left:10px;">Usuario</th>
+						    <th style="text-align: left;padding-left:10px;">Função</th>
 						</tr>
 					</thead>
 					<tbody>
 					<g:set var="i" value="${1}" />
 						<g:each in='${ordens?}'>
 							<tr class='linha_registro'>
+								<td class="info">
+								   ${it.id}
+								</td>
 								<td class="info">
 									${it.orgao.nome}	
 								</td>
@@ -209,8 +215,21 @@
 							    <td class="info">
 							      <g:if test = "${it.solucao == ''}">
 							          ${'----'}
-							      </g:if>	
+							      </g:if>
+							      <g:else>
+							      	  ${it.solucao}		
+							      </g:else>	
 							   </td>
+							   
+							   <td class="info"> ${it.usuariosOs.nome} </td>
+							   
+							   <td class="info">
+								   <div title="Ver informações"
+												class="btn btn-success btn-xs btn-flat"><a
+												style="color: #fff"
+												href="/sisOs/ordemDeServico/verInfo/${it.id}"><span
+													class="fa fa-info-circle"></span></a></div>
+								</td>
 							</tr>
 						</g:each>
 					</tbody>

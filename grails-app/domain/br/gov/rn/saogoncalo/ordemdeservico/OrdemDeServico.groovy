@@ -1,10 +1,6 @@
 package br.gov.rn.saogoncalo.ordemdeservico
 
-import org.grails.databinding.BindingFormat
-
-
 class OrdemDeServico {
-	
 	
 	String interessado
 	Date dataEmissao
@@ -15,9 +11,9 @@ class OrdemDeServico {
 	String email
 	String problema
 	String solucao
-
-			
-	static belongsTo = [status:Status ,orgao:Orgao,funcionarioOs:FuncionarioOs]
+	long codLaudo
+	
+	static belongsTo = [status:Status, orgao:Orgao, funcionarioOs:FuncionarioOs, usuariosOs:UsuariosOs]
 	
 	static constraints = {
 		interessado blank:false, nullable:false
@@ -28,10 +24,10 @@ class OrdemDeServico {
 		email blank:false, nullable:false
 		matricula blank:false, nullable:false
 		telefone blank:false, nullable:false
-		dataAgendamento blank:true , nullable:true
-		funcionarioOs blank:true , nullable:true
-		
-		
+		dataAgendamento blank:true, nullable:true
+		codLaudo blank:true, nullable:true
+
+
 	}
 	
 	static mapping = {
