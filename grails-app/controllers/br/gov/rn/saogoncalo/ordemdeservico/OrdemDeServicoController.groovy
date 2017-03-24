@@ -60,8 +60,6 @@ class OrdemDeServicoController {
 		  if (ordemDeServico.save(flush:true)){
 			  EnviaEmailController envia = new EnviaEmailController()
 			  envia.enviaEmail(ordemDeServico.id)
-			  
-			  
 
 			  listarMensagem("Ordem de servico salva com  sucesso", "ok")
 			  //redirect(controller:"OrdemDeServico", action:"cadastrarOrdemDeServico", params:[msg: "Chamado cadastrado com sucesso.", tipo:"ok"])
@@ -117,7 +115,7 @@ class OrdemDeServicoController {
 			  
 			  if(ordemDeServico.save(flush:true)){
 				EnviaEmailController envia = new EnviaEmailController()
-				  if(ordemDeServico.status.id == 3  ){
+				  if(ordemDeServico.status.id == 3 ){
 					 
 				   envia.enviaEmail(ordemDeServico.id)
 				  }
