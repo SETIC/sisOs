@@ -93,7 +93,7 @@
   			  "<button style='margin-left: 10px;' type='submit' class='btn btn-primary btn-flat'>" +
   			  "<i class='fa fa-search'></i>Buscar</button>"
                 break; 
-                 
+          
            //novo campo
            case 'status' :  
                newInput.innerHTML = "<label>Status</label></br>" +
@@ -126,6 +126,14 @@
 			  "<i class='fa fa-search'></i>Buscar</button>"
 
              break;
+
+           case 'matricula':
+    			  newInput.innerHTML = "<label>Matricula: </label/></br>"+
+    			  "<input type='text' required = 'true' name ='matricula' id ='matriculaId'/>" +
+    			  "<button style='margin-left: 10px;' type='submit' class='btn btn-primary btn-flat'>" +
+    			  "<i class='fa fa-search'></i>Buscar</button>"
+                  break; 
+	             
            }
 			
 		}
@@ -146,6 +154,7 @@
 						<option value="status">STATUS</option>
 						<option value="data">DATA DE EMISSÃO</option>
 						<option value="dataAgendamento">DATA DE AGENDAMENTO</option>
+						<option value="matricula">MATRICULA</option>
 					</select>
 				</div>
 			</div>
@@ -223,13 +232,26 @@
 							   
 							   <td class="info"> ${it.usuariosOs.nome} </td>
 							   
+							   
 							   <td class="info">
-								   <div title="Ver informações"
+									<div class="opcoes">
+										<div style="display: inline">
+											<div title="Editar" class="btn btn-primary btn-xs btn-flat">
+												<a style="color: #fff"
+													href="/sisOs/ordemDeServico/editarOrdemDeServico/${it.id}"><span>
+														<i class="fa fa-pencil"></i>
+												</span></a>
+											</div>
+											
+											<div title="Ver informações"
 												class="btn btn-success btn-xs btn-flat"><a
 												style="color: #fff"
 												href="/sisOs/ordemDeServico/verInfo/${it.id}"><span
 													class="fa fa-info-circle"></span></a></div>
+										</div>
+									</div>
 								</td>
+								
 							</tr>
 						</g:each>
 					</tbody>

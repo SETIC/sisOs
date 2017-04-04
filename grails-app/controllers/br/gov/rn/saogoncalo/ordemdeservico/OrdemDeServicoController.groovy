@@ -58,6 +58,14 @@ class OrdemDeServicoController {
 		ordemDeServico.usuariosOs = usuariosOs
 		
 		  if (ordemDeServico.save(flush:true)){
+			  
+			  TecnicoOs tecnicoOs = new TecnicoOs()
+			  tecnicoOs.ordemDeServico = ordemDeServico
+			  tecnicoOs.usuariosOs = usuariosOs
+			  //tecnicoOs.descricao = ""
+			  tecnicoOs.save(flush:true)
+			   
+			  
 			  EnviaEmailController envia = new EnviaEmailController()
 			  envia.enviaEmail(ordemDeServico.id)
 
@@ -76,7 +84,7 @@ class OrdemDeServicoController {
      
 	def cadastrarOrdemDeServico(){
 
-		def orgao = Orgao.findAll()
+		def orgao = Orgao.executeQuery("select o from Orgao o where o.situacao = 'ATIVO' order by o.nome")
 		def status = Status.findAll()
 
 		render(view:"/ordemDeServico/cadastrarOrdemDeServico.gsp", model:[orgao:orgao,status:status])
@@ -86,9 +94,17 @@ class OrdemDeServicoController {
 	def editarOrdemDeServico(long id){
 		
 		OrdemDeServico ordemDeServico = OrdemDeServico.get(id)
-		 def status = Status.findAll()
-		render (view:"/ordemDeServico/editarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico, status:status])
+		def usuariosOs = UsuariosOs.findAll()
+		def tecnicosOs = TecnicoOs.findAllByOrdemDeServico(ordemDeServico)
+
+				
+		if (tecnicosOs.usuariosOs.id == [0,1]){
+			
+			tecnicosOs = TecnicoOs.get(session["userId"])
+		}
 		
+		 def status = Status.findAll()
+		render (view:"/ordemDeServico/editarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico, status:status, usuariosOs:usuariosOs, tecnicosOs:tecnicosOs])
 		
 	}
 
@@ -108,9 +124,58 @@ class OrdemDeServicoController {
 			def status = Status.get(params.status)
 			
 			ordemDeServico.status = status
-			  if(ordemDeServico.status.id == 3){
+			  if(ordemDeServico.status.id == 3){ 
 			    ordemDeServico.dataConclusao = new Date()
 			  }
+			  
+
+			
+			  def tot = TecnicoOs.findAllByOrdemDeServico(ordemDeServico)
+			  if (tot.isEmpty()){
+			  
+				  params.tecnicosOs.each{
+					  TecnicoOs to = new TecnicoOs()
+					  def userOs = UsuariosOs.get(it)
+					  to.ordemDeServico = ordemDeServico
+					  to.usuariosOs = userOs
+					  to.save(flush:true)
+				  }
+  
+			  }else{
+			  		
+			  			params.tecnicosOs.each{
+						  
+						def usuarioOsBanco = UsuariosOs.get(it)   
+						def tecnicosBanco = TecnicoOs.findAllByOrdemDeServicoAndUsuariosOs(ordemDeServico,usuarioOsBanco)
+						if (tecnicosBanco?.isEmpty()){
+							
+							TecnicoOs to = new TecnicoOs()
+							def userOs = UsuariosOs.get(it)
+							to.ordemDeServico = ordemDeServico
+							to.usuariosOs = userOs
+							to.save(flush:true)
+							
+						}
+						  
+					  }
+					  
+						 
+					 tot.each{
+						
+						 def idTec = it.usuariosOs.id
+						 //println("IT -- " + it.usuariosOs.id + " params -- " + params.tecnicosOs + " em  -- " + params.tecnicosOs.findAll{it == idTec.toString()} )
+																	  
+						if (params.tecnicosOs.findAll{it == idTec.toString()} == []){
+							TecnicoOs.deleteAll(it)
+							//println(" Deletar -- " + it)
+						 }
+
+						 
+					 }
+					 
+			  }
+			  
+			  
 			  
 			  
 			  if(ordemDeServico.save(flush:true)){
@@ -241,6 +306,11 @@ class OrdemDeServicoController {
 				def st2 = Status.get(2)
 				ordens = OrdemDeServico.findAllByDataAgendamentoAndStatusInList(dateformatteri,[st,st2])
 				break;	
+			
+			case 'matricula':
+				
+				ordens = OrdemDeServico.findAllByMatriculaIlike ("%"+params.matricula+"%")
+				break;
 		 
 		}
 		
@@ -319,9 +389,9 @@ class OrdemDeServicoController {
 					OrdemDeServico ordem = OrdemDeServico.get(id)
 					def orgao = Orgao.findAll()
 				    def status = Status.findAll()
- 					
+ 					def tecnicosOs = TecnicoOs.findAllByOrdemDeServico(ordem)
 	
-					render (view:"/ordemDeServico/verInfo.gsp", model:[ordem:ordem, orgao:orgao, status:status])
+					render (view:"/ordemDeServico/verInfo.gsp", model:[ordem:ordem, orgao:orgao, status:status, tecnicosOs:tecnicosOs])
 			
 		}
 		
@@ -336,7 +406,8 @@ class OrdemDeServicoController {
 			def tipoStatusConcluido = OrdemDeServico.countByStatus(concluidos)
 			def totalStatus = tipoStatusAberto + tipoStatusPendente +tipoStatusConcluido
 			
-			render(view:"/ordemDeServico/homeGrafico.gsp", model:[tipoStatusAberto:tipoStatusAberto ,tipoStatusPendente:tipoStatusPendente , tipoStatusConcluido: tipoStatusConcluido,totalStatus:totalStatus])
+			render(view:"/ordemDeServico/homeGrafico.gsp", model:[tipoStatusAberto:tipoStatusAberto ,tipoStatusPendente:tipoStatusPendente , tipoStatusConcluido: tipoStatusConcluido,
+				   totalStatus:totalStatus])
 			   }
 			 
 			 

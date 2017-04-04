@@ -14,6 +14,7 @@ class OrdemDeServico {
 	long codLaudo
 	
 	static belongsTo = [status:Status, orgao:Orgao, funcionarioOs:FuncionarioOs, usuariosOs:UsuariosOs]
+	static hasMany = [tecnicoOS:TecnicoOs]
 	
 	static constraints = {
 		interessado blank:false, nullable:false

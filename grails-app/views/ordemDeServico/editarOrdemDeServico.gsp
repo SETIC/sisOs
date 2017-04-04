@@ -133,6 +133,8 @@
 										</div>
 									</div>
 									<br>
+									
+									
 									<div class="form-group">
 										<label for="inputmatricula3" class="col-sm-2 control-label">Solução</label>
 										<div class="col-sm-4">
@@ -140,6 +142,28 @@
 										</div>
 									</div>
 									<br>
+									
+									<div class="form-group">
+										<label for="inputmatricula3" class="col-sm-2 control-label">Técnico</label>
+										<div class="col-sm-4">
+
+											<g:select class="form-control select2 select2-hidden-accessible" optionKey="id" optionValue="nome" name="tecnicosOs" from="${usuariosOs}" name="tecnicosOs" multiple="True" 
+																						value="${tecnicosOs?.usuariosOs?.id}" required="True" />	
+
+											<%--
+											<g:if test="${tecnicosOs?.usuariosOs?.id == 1}">
+												<g:select class="form-control select2 select2-hidden-accessible" optionKey="id" optionValue="nome" name="tecnicosOs" from="${usuariosOs}" name="tecnicosOs" multiple="True" 
+																						value="${session['userId']}" required="True" />
+											</g:if>
+											<g:else>
+												<g:select class="form-control select2 select2-hidden-accessible" optionKey="id" optionValue="nome" name="tecnicosOs" from="${usuariosOs}" name="tecnicosOs" multiple="True" 
+																						value="${tecnicosOs?.usuariosOs?.id}" required="True" />	
+											</g:else>
+											--%>
+										</div>
+									</div>
+									<br>
+
 								</fieldset>
 								<div style="margin: 0 17% auto">
 									<button type="submit" class="btn btn-primary btn-flat">Atualizar</button>

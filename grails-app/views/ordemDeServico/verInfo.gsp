@@ -12,8 +12,8 @@
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
-			
-<script>
+
+			<script>
 
 function printDiv(id)
 {
@@ -182,105 +182,178 @@ function printDivLaudo() {
 
 </script>
 
-	<section class="content-header">
-		<h3>
-			Chamados <small>Visualizar Dados</small>
-		</h3>
-		<ol class="breadcrumb">
-			<li class="active"><g:link controller="Layout" action="index">
-					<i class="fa fa-dashboard"></i> Inicio</g:link></li>
-			<li><g:link controller="OrdemDeServico" action="verInfo">ordens de Serviço</g:link></li>
-		</ol>
-	</section>
-	<!-- CORPO DA PÁGINA -->
-	<section class="content">
-		<div>
-			<g:if test="${ok}">
-				<div class="alert alert-success">
-					${ok}
-				</div>
-			</g:if>
-			<g:if test="${erro}">
-				<div class="alert alert-danger">
-					${erro}
-				</div>
-			</g:if>
-	
-			<div style="margin-left: 190px">
-				<g:form controller="OrdemDeServico" action="verInfo"
-					class="form-horizontal">
-					<g:hiddenField type="number" name="id" id="idOsParaLaudo" value="${ordem?.id}" />
-					<fieldset id="print">
-						<div class="form-group">
-							<label for="inputNome3" class="col-sm-2 control-label">Situacão</label>
-							<div class="col-s-10">
-								<h5>${ordem.status.nome}</h5>
-							</div>
+			<section class="content-header">
+				<h3>
+					Chamados <small>Visualizar Dados</small>
+				</h3>
+				<ol class="breadcrumb">
+					<li class="active"><g:link controller="Layout" action="index">
+							<i class="fa fa-dashboard"></i> Inicio</g:link></li>
+					<li><g:link controller="OrdemDeServico" action="verInfo">ordens de Serviço</g:link></li>
+				</ol>
+			</section>
+			<!-- CORPO DA PÁGINA -->
+			<section class="content">
+				<div>
+					<g:if test="${ok}">
+						<div class="alert alert-success">
+							${ok}
 						</div>
-						<br>
-						<div class="form-group">
-							<label for="inputNome3" class="col-sm-2 control-label">Interessado</label>
-							<div class="col-s-10">
-								<h5>${ordem.interessado}</h5>
-							</div>
+					</g:if>
+					<g:if test="${erro}">
+						<div class="alert alert-danger">
+							${erro}
 						</div>
-						<br>
-						<div class="form-group">
-							<label for="inputNome3" class="col-sm-2 control-label">Data de Emissão</label>
-							<div class="col-s-10">
-								<h5>${ordem.dataEmissao}</h5>
+					</g:if>
+
+					<div style="margin-left: 190px">
+						<g:form controller="OrdemDeServico" action="verInfo"
+							class="form-horizontal">
+							<g:hiddenField type="number" name="id" id="idOsParaLaudo"
+								value="${ordem?.id}" />
+							<fieldset id="print">
+							
+							<div class="form-group">
+									<label for="inputNome3" class="col-sm-2 control-label">Código</label>
+									<div class="col-s-10">
+										<h5>
+											${ordem.id}
+										</h5>
+									</div>
+								</div>
+								<br>
+							
+								<div class="form-group">
+									<label for="inputNome3" class="col-sm-2 control-label">Situacão</label>
+									<div class="col-s-10">
+										<h5>
+											${ordem.status.nome}
+										</h5>
+									</div>
+								</div>
+								<br>
+								<div class="form-group">
+									<label for="inputNome3" class="col-sm-2 control-label">Interessado</label>
+									<div class="col-s-10">
+										<h5>
+											${ordem.interessado}
+										</h5>
+									</div>
+								</div>
+								<br>
+								<div class="form-group">
+									<label for="inputNome3" class="col-sm-2 control-label">Email</label>
+									<div class="col-s-10">
+										<h5>
+											${ordem.email}
+										</h5>
+									</div>
+								</div>
+								<br>
+
+								<div class="form-group">
+									<label for="inputNome3" class="col-sm-2 control-label">Data
+										de Emissão</label>
+									<div class="col-s-10">
+										<h5>
+											${ordem.dataEmissao}
+										</h5>
+									</div>
+								</div>
+								<br>
+
+								<div class="form-group">
+									<label for="inputDataInicio3" class="col-sm-2 control-label">Data
+										de Conclusão</label>
+									<div class="col-s-10">
+										<h5>
+											<g:formatDate format="dd/MM/yyyy - HH:mm"
+												date="${ordem.dataConclusao}" />
+										</h5>
+									</div>
+								</div>
+								<br>
+
+								<div class="form-group">
+									<label for="inputDataInicio3" class="col-sm-2 control-label">Data
+										de Agendamento</label>
+									<div class="col-s-10">
+										<h5>
+											<g:formatDate format="dd/MM/yyyy - HH:mm"
+												date="${ordem.dataAgendamento}" />
+										</h5>
+									</div>
+								</div>
+								<br>
+
+								<div class="form-group">
+									<label for="inputCpfCnpj3" class="col-sm-2 control-label">Orgão</label>
+									<div class="col-s-10">
+										<h5>
+											${ordem.orgao.nome}
+										</h5>
+									</div>
+								</div>
+								<br>
+								<div class="form-group">
+									<label for="inputCpfCnpj3" class="col-sm-2 control-label">Telefone</label>
+									<div class="col-sm-10">
+										<h5>
+											${ordem.telefone}
+										</h5>
+									</div>
+								</div>
+								<br>
+								<div class="form-group">
+									<label for="inputCpfCnpj3" class="col-sm-2 control-label">Problema</label>
+									<div class="col-sm-10">
+										<h5>
+											${ordem.problema}
+										</h5>
+									</div>
+								</div>
+								<br>
+								<div class="form-group">
+									<label for="inputCpfCnpj3" class="col-sm-2 control-label">Solução</label>
+									<div class="col-sm-10">
+										<h5>
+											${ordem.solucao}
+										</h5>
+									</div>
+								</div>
+								<br>
+								
+								<div class="form-group">
+									<label for="inputCpfCnpj3" class="col-sm-2 control-label">Técnicos</label>
+									<div class="col-sm-10">
+										<h5>
+											<g:each in="${tecnicosOs?}">						
+												${it.usuariosOs?.nome} <br>
+											</g:each>
+										</h5>
+									</div>
+								</div>
+								<br>
+
+							</fieldset>
+							<div style="margin: 0 7% auto">
+								<button class="btn btn-primary btn-flat"
+									onClick="printDiv('print')">
+									<i class="fa fa-print"></i> Imprimir
+								</button>
+								<ul style="display: inline-block; margin-left: -30px">
+									<li class="btn btn-info btn-flat"><a style="color: #fff;"
+										href="/sisOs/ordemDeServico/listarOrdemDeServico/">Voltar</a></li>
+								</ul>
+
+								<button class="btn btn-primary btn-flat"
+									onClick="printDivLaudo()">
+									<i class="fa fa-print"></i> Laudo
+								</button>
 							</div>
-						</div>
-						<br>
-						<div class="form-group">
-							<label for="inputDataInicio3" class="col-sm-2 control-label">Data
-								de Agendamento</label>
-							<div class="col-s-10">
-								<h5><g:formatDate format="dd/MM/yyyy - HH:mm" date="${ordem.dataAgendamento}" /></h5>
-							</div>
-						</div>
-						<br>
-						
-						<div class="form-group">
-							<label for="inputCpfCnpj3" class="col-sm-2 control-label">Orgão</label>
-							<div class="col-s-10">
-								<h5>${ordem.orgao.nome}</h5>
-							</div>
-						</div>
-						<br>
-						<div class="form-group">
-							<label for="inputCpfCnpj3" class="col-sm-2 control-label">Telefone</label>
-							<div class="col-sm-10">
-								<h5>${ordem.telefone}</h5>
-							</div>
-						</div>
-						<br>	
-						<div class="form-group">
-							<label for="inputCpfCnpj3" class="col-sm-2 control-label">Problema</label>
-							<div class="col-sm-10">
-								<h5>${ordem.problema}</h5>
-							</div>
-						</div>
-						<br>					
-					</fieldset>
-					<div style="margin: 0 7% auto">
-						<button class="btn btn-primary btn-flat"
-							onClick="printDiv('print')">
-							<i class="fa fa-print"></i> Imprimir
-						</button>
-						<ul style="display: inline-block; margin-left: -30px">
-							<li class="btn btn-info btn-flat"><a style="color: #fff;"
-								href="/sisOs/ordemDeServico/listarOrdemDeServico/">Voltar</a></li>
-						</ul>
-					
-						<button class="btn btn-primary btn-flat"
-							onClick="printDivLaudo()">
-							<i class="fa fa-print"></i> Laudo
-						</button>
+						</g:form>
 					</div>
-				 </g:form>
-			  </div>
-		    </div>
-	     </section>
-  </body>
+				</div>
+			</section>
+</body>
 </html>
