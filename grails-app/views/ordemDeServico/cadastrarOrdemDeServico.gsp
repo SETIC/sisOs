@@ -38,14 +38,16 @@
 						</div>
 						<script src="/sisOs/js/validarMatricula.js"></script>
 						<div class="form-group">
-							<label for="matricula" class="col-sm-2 control-label">Matricula</label>
+							<label for="matricula" class="col-sm-2 control-label">Matricula</label> 
 							<div class="col-sm-4">
 								<input class="form-control" id="matricula" placeholder="Matricula do interessado" required name="matricula" type="text" value="" onblur="validarMatricula();"/>
+								<font style="color: red;font-size: 0.88em;"><strong>* Matr&iacute;culas do SAAE, acrescentar "S" ao seu final, e IPREV "I" (Ex.: 1234S ou 1234I, respectivamente)</strong></font>
 							</div>
 								<p id="mensagemErro" class="text-red">${erro}</p>
-							</div>
-						<br>
 						
+							
+						</div>
+												
 						<div class="form-group">
 							<label for="interessado" class="col-sm-2 control-label">Interessado</label>
 							<div class="col-sm-4">

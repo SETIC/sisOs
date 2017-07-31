@@ -84,14 +84,14 @@
    			   "<option value='${it.id}'>" +
    			   "${it.nome}</option></g:each></select></div>" +
    			   "<button type='submit' class='btn btn-primary btn-flat'>" +
-			   "<i class='fa fa-search'></i>Buscar</button>" 
+			   "<i class='fa fa-search'></i> Buscar</button>" 
                break;
 
            case 'interessado':
   			  newInput.innerHTML = "<label>Nome do Interessado: </label/></br>"+
   			  "<input type='text' required = 'true' name ='interessado' id ='interessadoId'/>" +
   			  "<button style='margin-left: 10px;' type='submit' class='btn btn-primary btn-flat'>" +
-  			  "<i class='fa fa-search'></i>Buscar</button>"
+  			  "<i class='fa fa-search'></i> Buscar</button>"
                 break; 
           
            //novo campo
@@ -106,7 +106,7 @@
    			   "<option value='${it.id}'>" +
    			   "${it.nome}</option></g:each></select></div>" +
    			   "<button type='submit' class='btn btn-primary btn-flat'>" +
-			   "<i class='fa fa-search'></i>Buscar</button>"  
+			   "<i class='fa fa-search'></i> Buscar</button>"  
 			   break; 
 			   
            //fim
@@ -116,14 +116,14 @@
  			  newInput.innerHTML = "<label>Data Inicial: </label/><input type='date' name ='dataInicial' id='dataInicial' " +
  	 		  "<br>   <label>Data Final: </label/><input type='date' name ='dataFinal' id='dataFinal'/>" +
  	 		 "<button style='margin-left: 10px;' type='submit' class='btn btn-primary btn-flat'>" +
-			  "<i class='fa fa-search'></i>Buscar</button>"
+			  "<i class='fa fa-search'></i> Buscar</button>"
                // newInput.innerHTML = "<input data-provide='datepicker' value='09-10-2015' language='pt-br'/>"
               break;
             
   	       case 'dataAgendamento':
 			  newInput.innerHTML = "<label>Data : </label/><input type='date' name ='dataAgendamento' id='dataAgendamento' " +
 	 		  "<br><button style = 'margin-left:10px;' type='submit' class='btn btn-primary btn-flat'>" +
-			  "<i class='fa fa-search'></i>Buscar</button>"
+			  "<i class='fa fa-search'></i> Buscar</button>"
 
              break;
 
@@ -131,7 +131,7 @@
     			  newInput.innerHTML = "<label>Matricula: </label/></br>"+
     			  "<input type='text' required = 'true' name ='matricula' id ='matriculaId'/>" +
     			  "<button style='margin-left: 10px;' type='submit' class='btn btn-primary btn-flat'>" +
-    			  "<i class='fa fa-search'></i>Buscar</button>"
+    			  "<i class='fa fa-search'></i> Buscar</button>"
                   break; 
 	             
            }
@@ -248,6 +248,9 @@
 												style="color: #fff"
 												href="/sisOs/ordemDeServico/verInfo/${it.id}"><span
 													class="fa fa-info-circle"></span></a></div>
+													
+
+													
 										</div>
 									</div>
 								</td>
@@ -268,6 +271,7 @@
 				</div>
 	</section>
  </body>
+ 
 </html>
 
 

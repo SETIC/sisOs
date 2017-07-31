@@ -15,7 +15,7 @@
 			<section class="content-header">
 			
 			<!-- CORPO DA PÁGINA -->
-	<section class="content">
+
 		<div class="">
 			<g:if test="${ok}">
 				<div class="alert alert-success">

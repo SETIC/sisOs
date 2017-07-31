@@ -2,8 +2,9 @@ package br.gov.rn.saogoncalo.ordemdeservico
 
 class FuncionarioOs {
 	
-	long matricula
+	String matricula
 	String nomeFuncionario
+	String status
 	
 	static hasmany=[ordemDeServico:OrdemDeServico]
 	
@@ -11,6 +12,7 @@ class FuncionarioOs {
 	static constraints = {
 		matricula blank:false, nullable:false
 		nomeFuncionario blank:false, nullable:false
+		status blank:false, nullable:false
 		
     }
 	static mapping = {

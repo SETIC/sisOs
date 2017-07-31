@@ -37,7 +37,9 @@ class OrdemDeServicoController {
 		OrdemDeServico ordemDeServico = new OrdemDeServico(params)
 	    ordemDeServico.interessado = params.interessado
 		ordemDeServico.matricula = params.matricula
-		def matriculasOS = FuncionarioOs.findByMatricula(params.matricula)
+		//def matriculasOS = FuncionarioOs.findByMatricula(params.matricula)
+		  def matriculasOS = FuncionarioOs.findByMatricula(params.matricula)
+		
 		ordemDeServico.telefone = params.telefone
 		ordemDeServico.email = params.email
 		ordemDeServico.problema = params.problema
@@ -309,7 +311,9 @@ class OrdemDeServicoController {
 			
 			case 'matricula':
 				
-				ordens = OrdemDeServico.findAllByMatriculaIlike ("%"+params.matricula+"%")
+			    //alteração saae e iprev 
+				//ordens = OrdemDeServico.findAllByMatriculaIlike ("%"+params.matricula+"%")
+				ordens = OrdemDeServico.findAllByMatricula(params.matricula)
 				break;
 		 
 		}
@@ -360,13 +364,16 @@ class OrdemDeServicoController {
 	     }
 		
 		
-		def validarMatriculaFuncOs(long matriculasOS){
+		def validarMatriculaFuncOs(String matriculasOS){
 			
 			boolean verifMatricula
 			def result
 			def resultado
 		   
 			FuncionarioOs  matriculav  = FuncionarioOs.findByMatricula(matriculasOS)
+			//FuncionarioOs  matriculav  = FuncionarioOs.executeQuery("select f from FuncionarioOs f where f.matricula = '11486'")
+	
+			print(" Funcionario: " + matriculav)
 			 
 			 if(matriculav == null){
 				  resultado =  ["id":0, "nome":""]
@@ -390,8 +397,24 @@ class OrdemDeServicoController {
 					def orgao = Orgao.findAll()
 				    def status = Status.findAll()
  					def tecnicosOs = TecnicoOs.findAllByOrdemDeServico(ordem)
+					 
+					def data1 = ordem.dataEmissao
+					def data2 = ordem.dataConclusao
+					
+					SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+					
+					def usuarios = UsuariosOs.findAll()
+					
+					def dataFormatada
+					
+					if (data2 != null){
+						
+						dataFormatada = getDiffernceInDates(data1, data2)
+						//println(" Data -- " + data3)
+
+					}					 
 	
-					render (view:"/ordemDeServico/verInfo.gsp", model:[ordem:ordem, orgao:orgao, status:status, tecnicosOs:tecnicosOs])
+					render (view:"/ordemDeServico/verInfo.gsp", model:[ordem:ordem, orgao:orgao, status:status, tecnicosOs:tecnicosOs, dataFormatada:dataFormatada, usuarios:usuarios])
 			
 		}
 		
@@ -465,6 +488,52 @@ class OrdemDeServicoController {
 			render (result as JSON)
 			
 		}
+		
+		
+		public static Map getDiffernceInDates(Date oldDate, Date newDate = new Date()) {
+			Long difference = newDate.time - oldDate.time
+			Map diffMap =[:]
+			difference = difference / 1000
+			diffMap.seconds = difference % 60
+			difference = (difference - diffMap.seconds) / 60
+			diffMap.minutes = difference % 60
+			difference = (difference - diffMap.minutes) / 60
+			diffMap.hours = difference % 24
+			difference = (difference - diffMap.hours) / 24
+			diffMap.years = (difference / 365).toInteger()
+			if(diffMap.years)
+			   difference = (difference) % 365
+			diffMap.days = difference % 7
+			diffMap.weeks = (difference - diffMap.days) / 7
+			return diffMap
+		  }
+		
+		
+		def salvarLaudo(int osId){
+			
+			
+			def os
+			os = OrdemDeServico.get(osId.toInteger())
+			def vOsLaudo 
+			vOsLaudo = Laudo.findAllByOrdemDeServico(os)
+			
+			if (vOsLaudo.empty)
+			 {
+				 def laudo = new Laudo()
+				 //laudo.numero = 0 
+				 laudo.ordemDeServico = os
+				 laudo.ativo = "ATIVO"
+				 laudo.save(flush:true)
+				 println("laço")
+			 }
+			
+			 
+			//chamada da view com o laudo e as informações da os
+			//render(view:"/ordemDeServico/laudo.gsp", model:[laudo:laudo])
+				
+			
+		}
+		
 		
 }	
 		

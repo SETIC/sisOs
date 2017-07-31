@@ -188,9 +188,18 @@
 							<li><a href="/sisOs/ordemDeServico/listarOrdemDeServico">
 									<i class="fa fa-th"></i> <span>Listagem de Chamados</span>
 							</a></li>
+							
 							<li class="treeview"><a href="/sisOs/ordemDeServico/cadastrarOrdemDeServico"> 
 							<i class="fa fa-plus"></i> <span>Cadastrar OS</span>
 							</a></li>
+							
+							
+							<li class="treeview">
+								<a href="/sisOs/funcionarioOs/listarFuncionarioOs"> 
+									<i class="fa fa-user"></i> <span>Funcionários</span>
+								</a>
+							</li>
+							
 							<li class="treeview">
 							   <a href="/sisOs/ordemDeServico/graficoOsSituacoes"> 
 							   <i class="fa fa-pie-chart"></i> <span>Gráficos OS</span>
@@ -204,9 +213,10 @@
 							<li><g:link controller="UsuariosOs" action="logout"><i class="fa fa-circle-o"></i>
 									<span>Sair</span></g:link></li>
 						</ul>
-					</section>
+					
 					<!-- /.sidebar -->
 				</aside>
+				</section>
 		</header>
 		<!-- Left side column. contains the logo and sidebar -->
 		<!-- Content Wrapper. Contains page content -->
