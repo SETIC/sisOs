@@ -44,10 +44,10 @@ function printDiv(id)
  	
  	<div class="wrapper">
 		<!-- Content Wrapper. Contains page content -->
-		<div class="content-wrapper">
+		<div class="content-wrapper">     
 			<!-- Content Header (Page header) -->
 			
-			<!-- CORPO DA PÁGINA -->
+			<!-- CORPO DA PÁGINA INICIAL -->
  	
  	
  	
