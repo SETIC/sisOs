@@ -7,7 +7,7 @@ class UrlMappings {
             }
         }
 
-        "/"(controller:"ordemDeServico", action:"cadastrarOrdemDeServico")
+        "/"(controller:"OrdemDeServico", action:"cadastrarOrdemDeServico")
         "500"(view:'/error')
 	}
 }

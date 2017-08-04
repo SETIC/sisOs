@@ -28,7 +28,9 @@ grails.mime.types = [ // the first one is the default format
     rss:           'application/rss+xml',
     text:          'text/plain',
     hal:           ['application/hal+json','application/hal+xml'],
-    xml:           ['text/xml', 'application/xml']
+    xml:           ['text/xml', 'application/xml'],
+	pdf:           'application/pdf'
+	
 ]
 
 // URL Mapping Cache Max Size, defaults to 5000
@@ -116,8 +118,10 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
+
 		//grails.serverURL = "http://192.168.1.252:8080/sisOs"
 		grails.serverURL = "http://189.43.7.23:8080/sisOs"
+
 		
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
