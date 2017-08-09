@@ -40,6 +40,7 @@
 						</g:each>
 					</tbody>
 				</table>
+				<br>
     </body>
 </html> 
   
