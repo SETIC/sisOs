@@ -19,18 +19,12 @@ class FuncionarioOsController {
 			if (user ) {
 
 				def funcionarioOs
-				
-				
 				msg = params.msg
+									
+				//funcionarioOs = FuncionarioOs.findAllByStatus("ativo")
+				funcionarioOs = FuncionarioOs.findAll()
 
-
-										
-				funcionarioOs = FuncionarioOs.findAllByStatus("ativo")
-				print("Funcionarios -- " + funcionarioOs)
-
-				
-			
-				render(view:"/funcionarioOs/listarFuncionarioOs.gsp", model:[ok:msg, funcionarioOs:funcionarioOs, user:user])
+								render(view:"/funcionarioOs/listarFuncionarioOs.gsp", model:[ok:msg, funcionarioOs:funcionarioOs, user:user])
 			}else{
 				msg = "Erro inesperado."
 				render(view:"/error403.gsp", model:[erro:msg])
@@ -106,7 +100,6 @@ class FuncionarioOsController {
 		
 			if (user) {
 
-
 				def funcionarioOs = FuncionarioOs.get(params.id)
 
 				funcionarioOs.matricula = params.matricula
@@ -134,12 +127,22 @@ class FuncionarioOsController {
 			def msg
 			
 			//FuncionarioOs funcionarioOs = FuncionarioOs.get(id)
+			
+			FuncionarioOs funcionarioOs = FuncionarioOs.get(id)
+			OrdemDeServico os = OrdemDeServico.findByFuncionarioOs(funcionarioOs)
+			print("Funcionario id -- id " + id + " matricula  "  + funcionarioOs.id)
+			
 
 			if (user) {
+				
+				if (os){
+					redirect(action:"listarFuncionarioOs", params:[msg:"Funcionário possui registros de OS, por favor utilizar o campo Ativo.", tipo:"erro"])
+				}else{
 
 				FuncionarioOs.deleteAll(FuncionarioOs.get(id))
 
 				redirect(action:"listarFuncionarioOs", params:[msg:"Deletado com sucesso!", tipo:"ok"])
+				}
 			}else{
 				msg = "Erro inesperado."
 				render(view:"/error403.gsp", model:[erro:msg])

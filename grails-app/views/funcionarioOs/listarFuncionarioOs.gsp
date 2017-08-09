@@ -35,7 +35,7 @@ function printDiv(id)
         var resposta = confirm("Deseja exluir este Funcionario?");
 
         if (resposta == true){
-        location.href="/sisOs/funcionarioOs/deletar/"+id }
+        location.href="/sisOs/funcionarioOs/deletarFuncionarioOs/"+id }
 
        }
  	</script>
@@ -53,7 +53,7 @@ function printDiv(id)
  	
 	<section class="content-header">
 		<h1>
-			SisOs <small>Gerenciamento de Funcionários</small>
+			Gerenciamento de Funcionários
 		</h1>
 		<ol class="breadcrumb">
 			<li class="active"><g:link controller="Layout" action="index">
@@ -99,12 +99,12 @@ function printDiv(id)
 												<div title ="Editar Funcionario"
 												    class="btn btn-primary btn-xs btn-flat"><a
 													style="color: #fff"
-													href="/sisOs/funcionarioOs/editarFuncionarioOs/${it.id}"><span
-														class="glyphicon glyphicon-pencil"></span></a></div>
+													href="/sisOs/funcionarioOs/editarFuncionarioOs/${it.id}">
+													<i class="fa fa-edit"></i></a></div>
 												<div title="Excluir Funcionário"
 												    onclick="deletar(${it.id})"
-													class="btn btn-danger btn-xs btn-flat"><span
-													class="glyphicon glyphicon-remove"></span></div>
+													class="btn btn-danger btn-xs btn-flat">
+													<i class="fa fa-trash"></i></div>
 											</g:if>
 										</div>
 									</div>
@@ -133,10 +133,11 @@ function printDiv(id)
 				</button>
 			</g:if>
 
+			<!--
 			<button class="btn btn-danger btn-flat"
 				onClick="printDiv('listarFuncionarioOs')">
 				<i class="glyphicon glyphicon-print"></i> Imprimir
-			</button>
+			</button> -->
 			
 			<!-- Modal -->
 			<g:if test="${user}">
@@ -170,15 +171,7 @@ function printDiv(id)
 													required="true" value="" />
 											</div>
 										</div>
-										<br>
-										<div class="form-heading">
-											<label>Status</label>
-											<div class="controls">
-												<g:textField class="form-control" name="status"
-													required="true" value="" />
-											</div>
-										</div>
-																														
+																																								
 									</fieldset>
 									
 									<div class="modal-footer">
