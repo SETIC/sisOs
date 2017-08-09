@@ -14,7 +14,7 @@
 		</h1>
 
 		<ul class="nav nav-tabs"> 
-		<div style= "text-align:right;"><a href="/sisOs/usuariosOs/login.gsp">Acesso</a></div></ul> 
+		<!--  <div style= "text-align:right;"><a href="/sisOs/usuariosOs/login.gsp">Acesso</a></div></ul> --> 
 	</section>
 	<!-- CORPO DA PÁGINA -->
 	<section class="content">

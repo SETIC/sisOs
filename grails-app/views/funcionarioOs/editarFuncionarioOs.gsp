@@ -35,7 +35,7 @@
 				</div>
 			</g:if>
 			<g:if test="${erro}">
-				<div class="alert alert-danger">
+				<div class="alert alert-danger">  Brain
 					${erro}
 				</div>
 			</g:if>
@@ -48,7 +48,7 @@
 						<g:hiddenField type="number" name="id" value="${it.id}" />
 						<fieldset>
 							<div>
-								<label for="inputNome3">Nome</label>
+								<label for="nome">Nome</label>
 								<div>
 									<input class="form-control"  required name="nomeFuncionario" type="text" style="width: 500px"
 										value="${it.nomeFuncionario}">
@@ -56,7 +56,7 @@
 							</div>
 							<br>
 							<div>
-								<label for="sigla">Matricula</label>
+								<label for="matricula">Matricula</label>
 								<div>
 									<g:textField class="form-control" name="matricula" style="width: 200px"
 										value="${it.matricula}" />
@@ -64,10 +64,14 @@
 							</div>
 							<br>
 							<div>
-								<label for="sigla">Status</label>
+								<label for="status">Status</label>
 								<div>
-									<g:textField class="form-control" name="status" style="width: 200px"
-										value="${it.status}" />
+								  <div class="controls">
+									<select class="form-control" name="status">
+												<option value="Ativo" <g:if test="${it.status == 'Ativo'}"> selected </g:if>>ATIVO</option>
+												<option value="Inativo" <g:if test="${it.status == 'Inativo'}"> selected </g:if>>INATIVO</option>
+									</select>
+								  </div>
 								</div>
 							</div>
 							<br>
