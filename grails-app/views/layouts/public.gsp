@@ -196,7 +196,7 @@
 							
 							<li class="treeview">
 								<a href="/sisOs/funcionarioOs/listarFuncionarioOs"> 
-									<i class="fa fa-user"></i> <span>Funcionários</span>
+									<i class="fa fa-user"></i> <span>Funcionários </span>
 								</a>
 							</li>
 							
