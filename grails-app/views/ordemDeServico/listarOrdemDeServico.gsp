@@ -113,8 +113,9 @@
 											<div title="Ver informações"
 												class="btn btn-success btn-xs btn-flat"><a
 												style="color: #fff"
-												href="/sisOs/ordemDeServico/verInfo/${it.id}"><span
-													class="fa fa-info-circle"></span></a></div>
+												href="/sisOs/ordemDeServico/verInfo/${it.id}">
+												 <span class="fa fa-info-circle"></span></a>
+											</div>
 										</div>
 									</div>
 								</td>
@@ -126,8 +127,11 @@
 					
 					
 				</table>
+			</div>
 
 		</section>
+		</div>
+		</div>
     </body>
 
 </html>

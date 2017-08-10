@@ -212,6 +212,7 @@ class OrdemDeServicoController {
 		print("Teste " + ordemDeServico )
 		
 		render(view:"/ordemDeServico/listarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico, ok:msg,tipo:tipo])
+		
 		}else{
 		render(view:"/usuariosOs/login.gsp")
 		}

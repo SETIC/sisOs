@@ -179,6 +179,7 @@
 								<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 							</div>
 						</div>
+						
 						<ul class="sidebar-menu">
 							<li class="header">MENU PRINCIPAL</li>
 							<li class="active treeview"><a href="/sisOs/ordemDeServico/homeGrafico"> 
@@ -190,7 +191,8 @@
 							</a></li>
 							
 							<li class="treeview"><a href="/sisOs/ordemDeServico/cadastrarOrdemDeServico"> 
-							<i class="fa fa-plus"></i> <span>Cadastrar OS</span>
+								<i class="fa fa-plus"></i> <span>Cadastrar OS</span> 
+							
 							</a></li>
 							
 							
