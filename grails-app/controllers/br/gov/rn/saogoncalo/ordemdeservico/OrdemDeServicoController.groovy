@@ -234,9 +234,7 @@ class OrdemDeServicoController {
 					
 				    render(view:"/ordemDeServico/cadastrarOrdemDeServico.gsp", model:[ok:msg,orgao:orgao])
 					//render(view:"/cadastrarOrdemDeServico.gsp", model:[ok:msg,orgao:orgao])
-					
-					
-					
+
 				}else{
 				
                     render(view:"/error.gsp")	             

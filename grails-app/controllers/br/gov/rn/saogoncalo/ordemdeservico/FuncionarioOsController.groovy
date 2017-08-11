@@ -149,4 +149,13 @@ class FuncionarioOsController {
 			}
 		}
 	}
+	
+	def verInfo(long id){
+		
+		  FuncionarioOs funcionarioOs = FuncionarioOs.get(id)
+
+		  render (view:"/funcionarioOs/verInfo.gsp", model:[funcionarioOs:funcionarioOs])
+  
+}
+	
 }

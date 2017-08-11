@@ -105,6 +105,14 @@ function printDiv(id)
 												    onclick="deletar(${it.id})"
 													class="btn btn-danger btn-xs btn-flat">
 													<i class="fa fa-trash"></i></div>
+													
+												<div title="Ver informações"
+												class="btn btn-success btn-xs btn-flat"><a
+												style="color: #fff"
+												href="/sisOs/funcionarioOs/verInfo/${it.id}">
+												 <span class="fa fa-info-circle"></span></a>
+											</div>	
+													
 											</g:if>
 										</div>
 									</div>

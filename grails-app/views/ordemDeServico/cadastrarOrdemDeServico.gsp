@@ -111,7 +111,7 @@
 					</fieldset>
 					<div style="margin: 0 17% auto">
 						<button type="submit" class="btn btn-primary btn-flat">
-							</i>Salvar
+							Salvar
 						</button>
 						<ul style="display: inline-block; margin-left: -30px">
 							<li class="btn btn-default btn-flat"><a
