@@ -209,7 +209,6 @@ class OrdemDeServicoController {
 		tipo = params.tipo
 		def ordemDeServico = OrdemDeServico.executeQuery(" select oss from OrdemDeServico as oss where oss.status.id <> 3 order by oss.dataAgendamento ASC  ")
 	   	//def oss = OrdemDeServico.findAll()
-		print("Teste " + ordemDeServico )
 		
 		render(view:"/ordemDeServico/listarOrdemDeServico.gsp", model:[ordemDeServico:ordemDeServico, ok:msg,tipo:tipo])
 		

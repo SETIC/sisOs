@@ -61,8 +61,8 @@ class FuncionarioOsController {
 					
 				}
 			}else{
-			    msg = "Erro inesperado."
-				render(view:"/error403.gsp", model:[erro:msg])
+			    msg = "Erro inesperado. "
+				render(view:"/error403.gsp ", model:[erro:msg])
 			}
 		}
 	}
