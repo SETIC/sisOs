@@ -76,9 +76,10 @@ grails {
 		*/
 		host = "smtp.gmail.com"
 		port = 587
+		
 		username = "suporte.setic@gmail.com"
 		password = "suporte@setic"
-		props = ["mail.smtp.auth":"true", "mail.smtp.starttls.enable":"true"]
+		props = ["mail.smtp.auth":"false", "mail.smtp.starttls.enable":"true"]
 	}
 
  }
@@ -118,7 +119,7 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-		grails.serverURL = "http://sistemas.saogoncalo.rn.gov.br:8080/sisOs"
+		grails.serverURL = "http://192.168.1.252:8080/sisOs"
 		
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
