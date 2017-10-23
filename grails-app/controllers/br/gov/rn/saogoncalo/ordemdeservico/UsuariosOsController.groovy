@@ -15,6 +15,7 @@ class UsuariosOsController {
 		def user = params.usuario
 		def pass = params.senha
 		def user2 =  UsuariosOs.findByUsuarioAndSenha(user,pass)
+		def nomecuser = user2?.nome
 		
 
 		  if(user2 == null || user2 == ""){
@@ -28,6 +29,7 @@ class UsuariosOsController {
 			  session["pass"] = pass
 			  session["userName"] = user2.nome
 			  session["userId"] = user2.id
+			  session["nomecuser"] = user2.nome
 			 
 			  
 			  def abertos = Status.get(1)

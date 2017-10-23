@@ -150,6 +150,7 @@
 											<g:select class="form-control select2 select2-hidden-accessible" optionKey="id" optionValue="nome" name="tecnicosOs" from="${usuariosOs}" name="tecnicosOs" multiple="True" 
 																						value="${tecnicosOs?.usuariosOs?.id}" required="True" />	
 
+
 											<%--
 											<g:if test="${tecnicosOs?.usuariosOs?.id == 1}">
 												<g:select class="form-control select2 select2-hidden-accessible" optionKey="id" optionValue="nome" name="tecnicosOs" from="${usuariosOs}" name="tecnicosOs" multiple="True" 

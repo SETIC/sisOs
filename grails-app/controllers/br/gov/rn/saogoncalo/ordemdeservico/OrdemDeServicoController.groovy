@@ -390,8 +390,24 @@ class OrdemDeServicoController {
 					def orgao = Orgao.findAll()
 				    def status = Status.findAll()
  					def tecnicosOs = TecnicoOs.findAllByOrdemDeServico(ordem)
+					 
+					def data1 = ordem.dataEmissao
+					def data2 = ordem.dataConclusao
+					
+					SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+					
+					def usuarios = UsuariosOs.findAll()
+					
+					def dataFormatada
+					
+					if (data2 != null){
+						
+						dataFormatada = getDiffernceInDates(data1, data2)
+						//println(" Data -- " + data3)
+
+					}					 
 	
-					render (view:"/ordemDeServico/verInfo.gsp", model:[ordem:ordem, orgao:orgao, status:status, tecnicosOs:tecnicosOs])
+					render (view:"/ordemDeServico/verInfo.gsp", model:[ordem:ordem, orgao:orgao, status:status, tecnicosOs:tecnicosOs, dataFormatada:dataFormatada, usuarios:usuarios])
 			
 		}
 		
@@ -465,6 +481,54 @@ class OrdemDeServicoController {
 			render (result as JSON)
 			
 		}
+		
+		
+		public static Map getDiffernceInDates(Date oldDate, Date newDate = new Date()) {
+			Long difference = newDate.time - oldDate.time
+			Map diffMap =[:]
+			difference = difference / 1000
+			diffMap.seconds = difference % 60
+			difference = (difference - diffMap.seconds) / 60
+			diffMap.minutes = difference % 60
+			difference = (difference - diffMap.minutes) / 60
+			diffMap.hours = difference % 24
+			difference = (difference - diffMap.hours) / 24
+			diffMap.years = (difference / 365).toInteger()
+			if(diffMap.years)
+			   difference = (difference) % 365
+			diffMap.days = difference % 7
+			diffMap.weeks = (difference - diffMap.days) / 7
+			return diffMap
+		  }
+		
+		
+		def salvarLaudo(int osId){
+			
+			
+			def os
+			println("OSID " + osId)
+			os = OrdemDeServico.get(osId.toInteger())
+			println("Os aqui -- " + os)
+			def vOsLaudo 
+			vOsLaudo = Laudo.findAllByOrdemDeServico(os)
+			
+			if (vOsLaudo.empty)
+			 {
+				 def laudo = new Laudo()
+				 //laudo.numero = 0 
+				 laudo.ordemDeServico = os
+				 laudo.ativo = "ATIVO"
+				 laudo.save(flush:true)
+				 println("laço")
+			 }
+			
+			 println("Finalizado")
+			//chamada da view com o laudo e as informações da os
+			//render(view:"/ordemDeServico/laudo.gsp", model:[laudo:laudo])
+				
+			
+		}
+		
 		
 }	
 		

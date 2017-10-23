@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<%@page import="java.sql.Timestamp"%>
+<%@page import="java.sql.Timestamp"%>
+<%@page import="java.security.Timestamp"%>
 <html>
 <head>
 <meta name="layout" content="public" />
@@ -109,13 +112,13 @@ function printDivLaudo() {
                 
                 newWin.document.write('<tr>');// Linha do cabeçalho
                 newWin.document.write('<td width="25%" align="center"><img src="${ request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}sisOs/static/images/logo-setic-p.png"></td>');                
-                newWin.document.write('<td width="50%" colspan="2" align="center" style="font-size: 12"> ESTADO DO RIO GRANDE DO NORTE PREFEITURA MUNICIPAL DE S&Atilde;O GON&Ccedil;ALO DO AMARANTE SECRETARIA MUNICIPAL DE DESENVOLVIMENTO ECONOMICO E TURISMO SUBSECRETARIA DE TECNOLOGIA DA INFORMA&Ccedil;&Atilde;O E CI&Ecirc;NCIA Centro Administrativo &agrave; Rua Alexandre Cavalcanti, s/n-CEP 59.290-000 CNPJ n&deg; 08.079.402/0001-35</td>');
+                newWin.document.write('<td width="50%" colspan="2" align="center" style="font-size: 12"> ESTADO DO RIO GRANDE DO NORTE PREFEITURA MUNICIPAL DE S&Atilde;O GON&Ccedil;ALO DO AMARANTE SECRETARIA MUNICIPAL DE DESENVOLVIMENTO ECONOMICO E TURISMO SUBSECRETARIA DE TECNOLOGIA DA INFORMA&Ccedil;&Atilde;O E CI&Ecirc;NCIA  <br/> Centro Administrativo &agrave; Rua Alexandre Cavalcanti, s/n-CEP 59.290-000 CNPJ n&deg; 08.079.402/0001-35</td>');
                 newWin.document.write('<td width="25%" align="center"><img src="${ request.getRequestURL().substring(0, request.getRequestURL().indexOf('sisOs/'))}sisOs/static/images/sga.jpg"></td>');
                 newWin.document.write("</tr>");
 
         		newWin.document.write("<tr>"); // Linha do número do memorando
                 newWin.document.write('<td colspan="4">');
-                newWin.document.write('<p style="text-align: left;"><br/><br/>Memorando n&ordm; '+result.codLaudo+'/2017. </p>');
+                newWin.document.write('<p style="text-align: left;"><br/><br/>Laudo Digital n&ordm;  '+result.codLaudo+'D/2017. </p>');
                 newWin.document.write("</td>");
                 newWin.document.write("</tr>");
                 
@@ -130,7 +133,7 @@ function printDivLaudo() {
 
                 newWin.document.write("<tr>"); // Linha do destinatário
                 newWin.document.write('<td colspan="4">');
-                newWin.document.write("<p><br/><br/>Ao Senhor(a)<br/>Nome Solicitante, da<br/>Secretaria Municipal de Sa&uacute;de &ndash; Vigil&acirc;ncia Sanit&aacute;ria. </p>");
+                newWin.document.write("<p><br/><br/>Ao Senhor(a)<br/>" + result.funcionario +", da<br/>Secretaria Municipal de Sa&uacute;de &ndash; Vigil&acirc;ncia Sanit&aacute;ria. </p>");
                 newWin.document.write("</td>");
                 newWin.document.write("</tr>");
 
@@ -158,8 +161,8 @@ function printDivLaudo() {
                 newWin.document.write("</td>");
                 newWin.document.write('<td colspan="2" style="font-size: 12px" align="center">'); // Linha de assinatura do técnico
                 newWin.document.write("<br/><br/><br/>_______________________________<br/>");
-                newWin.document.write('${session["userName"]}'+"<br/>");
-                newWin.document.write("T&eacute;cnico Respons&aacute;vel pelo Servi&ccedil;o");
+                newWin.document.write('${session["nomecuser"]}'+"<br/>");
+                newWin.document.write("T&eacute;cnico");
                 newWin.document.write("</td>");
                 newWin.document.write("</tr>");
 
@@ -256,7 +259,10 @@ function printDivLaudo() {
 										de Emissão</label>
 									<div class="col-s-10">
 										<h5>
-											${ordem.dataEmissao}
+
+											<g:formatDate format="dd/MM/yyyy - HH:mm"
+												date="${ordem.dataEmissao}" />
+											
 										</h5>
 									</div>
 								</div>
@@ -334,6 +340,27 @@ function printDivLaudo() {
 									</div>
 								</div>
 								<br>
+								
+								<div class="form-group">
+									<label for="inputCpfCnpj3" class="col-sm-2 control-label">Tempo</label>
+									<div class="col-sm-10">
+										<h5>
+										
+										<%-- ${dataFormata?.weeks} semanas, ${dataFormata?.days} dias, ${dataFormata?.hours} horas, ${dataFormata?.minutes} minutos --%>
+										<%-- ${dataFormatada?.weeks} semanas, ${dataFormatada?.days} dias, ${dataFormatada?.hours} horas, ${dataFormatada?.minutes} minutos e ${dataFormatada?.seconds} segundos --%>
+										<g:if test="${dataFormatada != null}">
+											${dataFormatada?.weeks} semanas, ${dataFormatada?.days} dias, ${dataFormatada?.hours} horas, ${dataFormatada?.minutes} minutos e ${dataFormatada?.seconds} segundos
+										</g:if>
+										<g:else>
+											-
+										</g:else>
+										
+										
+										
+										</h5>
+									</div>
+								</div>
+								<br>
 
 							</fieldset>
 							<div style="margin: 0 7% auto">
@@ -350,10 +377,76 @@ function printDivLaudo() {
 									onClick="printDivLaudo()">
 									<i class="fa fa-print"></i> Laudo
 								</button>
+								
+								<button class="btn btn-primary btn-flat" data-toggle="modal"
+											data-target="#dadosModal">
+								<i class="fa fa-plus"></i> Gerar Laudo </button>
+								
+								<ul style="display: inline-block; margin-left: -30px">
+									<li class="btn btn-info btn-flat"><a style="color: #fff;"
+										href="/sisOs/ordemDeServico/salvarLaudo/${ordem.id}">Salvar Laudo</a></li>
+								</ul>
+								
 							</div>
 						</g:form>
 					</div>
 				</div>
 			</section>
+
+
+			<div class="modal fade" id="dadosModal" tabindex="-1"
+				role="dialog" aria-labelledby="dadosModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+							</button>
+							<h4 class="modal-title" id="relatorioModalLabel">Dados do Laudo</h4>
+						</div>
+						<div class="modal-body">
+							<form action="" method="POST">
+								<div class="form-heading">
+									<div class="controls">
+										
+										<div class="form-heading">
+											<label>Número</label>
+											<div class="controls">
+												<g:textField class="form-control" name="numero" value="" />												
+											</div>
+										</div><br>
+										
+										<div class="form-heading">
+											<label>Técnico</label>
+											<div class="controls">
+											<select class="form-control selectpicker"
+													data-live-search="true" name="tecnicos" id="comboTecnicos">
+													<option value="0" disabled="disabled" >
+														Selecione um Tecnico</option>
+													<g:each in="${usuarios}">
+														<option value="${it.id}">
+															${it.nome}
+														</option>
+													</g:each>
+											</select>
+										</div>
+										</div><br>
+										
+										
+										
+										<button class="btn btn-danger btn-flat"
+											onclick="geraRelatorio(); return false;">
+											<i class="glyphicon glyphicon-print"></i> Gerar Relatório
+										</button>
+									</div>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
 </body>
 </html>
