@@ -101,7 +101,7 @@
           <div class="pull-right hidden-xs">
             <b>Version</b> 1.0
           </div>
-          <strong>Copyright © 2016 <a style="font-weight: 400;" href="#"><b>SIS</b>OS</a>.</strong> Todos os direitos reservados.
+          <strong>Copyright © 2016 <a style="font-weight: 400;" href="#"><b>S3U</a>.</strong> Todos os direitos reservados.
       </footer>
     </div>
     <!-- jQuery 2.1.3 -->
