@@ -38,6 +38,8 @@ class OrdemDeServicoController {
 	    ordemDeServico.interessado = params.interessado
 		ordemDeServico.matricula = params.matricula
 		def matriculasOS = FuncionarioOs.findByMatricula(params.matricula)
+				
+		
 		ordemDeServico.telefone = params.telefone
 		ordemDeServico.email = params.email
 		ordemDeServico.problema = params.problema
@@ -360,13 +362,16 @@ class OrdemDeServicoController {
 	     }
 		
 		
-		def validarMatriculaFuncOs(long matriculasOS){
+		def validarMatriculaFuncOs(String matriculasOS){
 			
 			boolean verifMatricula
 			def result
 			def resultado
 		   
-			FuncionarioOs  matriculav  = FuncionarioOs.findByMatricula(matriculasOS)
+			//def  matriculav  = FuncionarioOs.findByMatricula(matriculasOS)
+			def  matriculav  = FuncionarioOs.executeQuery("select f from FuncionarioOs f where f.matricula = '"+matriculasOS+"'")
+	
+			print(" Funcionario: " + matriculav)
 			 
 			 if(matriculav == null){
 				  resultado =  ["id":0, "nome":""]

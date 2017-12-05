@@ -47,7 +47,7 @@
     <div id="wrap">  
       <div class="login-box">
         <div class="login-logo">
-          <a href="http://sistemas.saogoncalo.rn.gov.br:8080/sisOs/usuariosOs/login"><g:img style="width: 50%" dir="images" file="prot.png"/></a>
+          <a href="http://192.168.1.252:8080/sisOs/usuariosOs/login"><g:img style="width: 50%" dir="images" file="prot.png"/></a>
         </div><!-- /.login-logo -->
         <div class="login-box-body">
           <p class="login-box-msg">Entre para iniciar a sua sessão</p>

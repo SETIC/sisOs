@@ -27,8 +27,10 @@ function requestAjax(elementoCep) {
 	
 					$.ajax({
 						type : "GET",
-						url : "http://192.168.1.252:8080/projetoMetafora/aluno/buscarCEP?cep="
+						//url : "http://192.168.1.252:8080/projetoMetafora/aluno/buscarCEP?cep="
+						
 						//url : "http://"+endereco+":8080/projetoMetafora/aluno/buscarCEP?cep="
+						url : "http://localhost:8080/projetoMetafora/aluno/buscarCEP?cep="
 								+ cep + "",
 						dataType : "json",
 						success : function(result) {
