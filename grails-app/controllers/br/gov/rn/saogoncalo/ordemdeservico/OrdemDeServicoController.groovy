@@ -69,6 +69,7 @@ class OrdemDeServicoController {
 			   
 			  
 			  EnviaEmailController envia = new EnviaEmailController()
+			  print(" Ordem de Serviço: " + ordemDeServico.id)
 			  envia.enviaEmail(ordemDeServico.id)
 
 			  listarMensagem("Ordem de servico salva com  sucesso", "ok")
@@ -78,7 +79,7 @@ class OrdemDeServicoController {
 		  
 		  def erros
 		  ordemDeServico.errors.each { erros = it }
-		  print("erros aqui: "+erros)
+		  print("Erros aqui: " + erros)
 			  
 		render(view:"/error.gsp")
 		  }
