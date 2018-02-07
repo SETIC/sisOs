@@ -179,7 +179,7 @@
 			<strong>Copyright &copy; 2016 <a
 				href="http://www.saogoncalo.rn.gov.br/portal-setic/">SETIC -
 					Subsecretaria de Tecnologia da Informação e Ciência</a>.
-			</strong>&nbsp;&nbsp; <b>Contato:</b> 98152-9740
+			</strong>&nbsp;&nbsp; <b>Contato:</b> 98146-6686 - desenvolvimento.setic@gmail.com - gerencia.setic@gmail.com
 		</footer>
 		
 	</div>

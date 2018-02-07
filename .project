@@ -26,7 +26,11 @@
 		<link>
 			<name>.link_to_grails_plugins</name>
 			<type>2</type>
+<<<<<<< HEAD
 			<location>C:/Users/ieber.moura.SETIC03/Documents/workspace-ggts-3.6.3.RELEASE/sisOs/target/work/plugins</location>
+=======
+			<location>C:/Users/ieber/Documents/workspace-ggts-3.6.4.RELEASE/sisOs/target/work/plugins</location>
+>>>>>>> aa09447a1996cc9e5cb0e622a8cf66607d50d9da
 		</link>
 	</linkedResources>
 </projectDescription>

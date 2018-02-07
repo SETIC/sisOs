@@ -123,7 +123,11 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
+<<<<<<< HEAD
 public static final long LAST_MODIFIED = 1512742196407L
+=======
+public static final long LAST_MODIFIED = 1511546105836L
+>>>>>>> aa09447a1996cc9e5cb0e622a8cf66607d50d9da
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

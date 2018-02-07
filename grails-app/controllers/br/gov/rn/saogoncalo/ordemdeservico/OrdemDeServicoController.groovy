@@ -37,8 +37,8 @@ class OrdemDeServicoController {
 		OrdemDeServico ordemDeServico = new OrdemDeServico(params)
 	    ordemDeServico.interessado = params.interessado
 		ordemDeServico.matricula = params.matricula
-		//def matriculasOS = FuncionarioOs.findByMatricula(params.matricula)
-		  def matriculasOS = FuncionarioOs.findByMatricula(params.matricula)
+
+    	  def matriculasOS = FuncionarioOs.findByMatricula(params.matricula)
 		
 		ordemDeServico.telefone = params.telefone
 		ordemDeServico.email = params.email
@@ -370,8 +370,13 @@ class OrdemDeServicoController {
 			def result
 			def resultado
 		   
-			FuncionarioOs  matriculav  = FuncionarioOs.findByMatricula(matriculasOS)
+
+			//FuncionarioOs  matriculav  = FuncionarioOs.findByMatricula(matriculasOS)
 			//FuncionarioOs  matriculav  = FuncionarioOs.executeQuery("select f from FuncionarioOs f where f.matricula = '11486'")
+
+			//def  matriculav  = FuncionarioOs.findByMatricula(matriculasOS)
+			def  matriculav  = FuncionarioOs.executeQuery("select f from FuncionarioOs f where f.matricula = '"+matriculasOS+"'")
+
 	
 			print(" Funcionario: " + matriculav)
 			 
@@ -513,7 +518,9 @@ class OrdemDeServicoController {
 			
 			
 			def os
+
 			os = OrdemDeServico.get(osId.toInteger())
+
 			def vOsLaudo 
 			vOsLaudo = Laudo.findAllByOrdemDeServico(os)
 			
@@ -527,7 +534,7 @@ class OrdemDeServicoController {
 				 println("laço")
 			 }
 			
-			 
+
 			//chamada da view com o laudo e as informações da os
 			//render(view:"/ordemDeServico/laudo.gsp", model:[laudo:laudo])
 				
