@@ -245,6 +245,26 @@ function printDivLaudo() {
 									</div>
 								</div>
 								<br>
+								
+								<div class="form-group">
+									<label for="inputNome3" class="col-sm-2 control-label">Email</label>
+									<div class="col-s-10">
+										<h5>
+											${funcionarioOs.email}
+										</h5>
+									</div>
+								</div>
+								<br>
+								
+								<div class="form-group">
+									<label for="inputNome3" class="col-sm-2 control-label">Fone</label>
+									<div class="col-s-10">
+										<h5>
+											${funcionarioOs.fone}
+										</h5>
+									</div>
+								</div>
+								<br>
 
 								<div class="form-group">
 									<label for="inputNome3" class="col-sm-2 control-label">Status</label>

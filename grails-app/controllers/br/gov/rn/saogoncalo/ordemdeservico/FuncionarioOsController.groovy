@@ -50,6 +50,8 @@ class FuncionarioOsController {
 				funcionarioOs.matricula = params.matricula
 				funcionarioOs.nomeFuncionario = params.nomeFuncionario
 				funcionarioOs.status = 'ativo'
+				funcionarioOS.email = params.email
+				funcionarioOS.fone = params.fone
 								
 				if (funcionarioOs.save(flush:true)){
 
@@ -105,6 +107,8 @@ class FuncionarioOsController {
 				funcionarioOs.matricula = params.matricula
 				funcionarioOs.nomeFuncionario = params.nomeFuncionario
 				funcionarioOs.status = params.status
+				funcionarioOs.email = params.email
+				funcionarioOs.fone = params.fone
 				
 				if(funcionarioOs.save(flush:true)){
 					redirect(action:"listarFuncionarioOs", params:[msg:"Atualizado com sucesso", tipo:"ok"])

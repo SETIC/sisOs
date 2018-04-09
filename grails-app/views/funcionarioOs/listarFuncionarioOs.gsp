@@ -84,7 +84,10 @@ function printDiv(id)
 							<th style="width: 60px;"></th>
 							<th style="text-align: left;">Nome</th>
 							<th style="text-align: left;">Matricula</th>
+							<th style="text-align: left;">Fone</th>
+							<th style="text-align: left;">Email</th>
 							<th style="text-align: left;">Status</th>
+							
 						</tr>
 					</thead>
 					<tbody>
@@ -123,6 +126,14 @@ function printDiv(id)
 								<td>
 									${it.matricula}
 								</td>
+								
+								<td>
+									${it.fone}
+								</td>
+								<td>
+									${it.email}
+								</td>
+								
 								<td>
 									${it.status}
 								</td>
@@ -177,6 +188,22 @@ function printDiv(id)
 											<div class="controls">
 												<g:textField class="form-control" name="matricula"
 													required="true" value="" />
+											</div>
+										</div>
+										<br>
+										<div class="form-heading">
+											<label>Fone</label>
+											<div class="controls">
+												<g:textField class="form-control" name="fone"
+													required="false" value="" />
+											</div>
+										</div>
+										<br>
+										<div class="form-heading">
+											<label>Email</label>
+											<div class="controls">
+												<g:textField class="form-control" name="email"
+													required="false" value="" />
 											</div>
 										</div>
 																																								

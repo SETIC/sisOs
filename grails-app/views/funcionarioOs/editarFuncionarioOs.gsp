@@ -63,6 +63,25 @@
 								</div>
 							</div>
 							<br>
+							
+							<div>
+								<label for="matricula">Fone</label>
+								<div>
+									<g:textField class="form-control" name="fone" style="width: 200px"
+										value="${it.fone}" />
+								</div>
+							</div>
+							<br>
+							
+							<div>
+								<label for="matricula">Email</label>
+								<div>
+									<g:textField class="form-control" name="email" style="width: 200px"
+										value="${it.email}" />
+								</div>
+							</div>
+							<br>
+							
 							<div>
 								<label for="status">Status</label>
 								<div>
